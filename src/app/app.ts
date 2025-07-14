@@ -1,6 +1,6 @@
 import { TuiRoot } from '@taiga-ui/core';
 import { Component } from '@angular/core';
-import { Layout } from './components/layout/layout';
+import { Layout } from '@/widgets/layout/layout';
 
 @Component({
   selector: 'app-root',
