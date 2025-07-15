@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-tab-switcher',
   imports: [],
   templateUrl: './tab-switcher.html',
-  styleUrl: './tab-switcher.scss'
+  styleUrl: './tab-switcher.scss',
 })
-export class TabSwitcher {
-
-}
+export class TabSwitcher {}

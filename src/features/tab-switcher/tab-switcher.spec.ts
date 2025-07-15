@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import type { ComponentFixture } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { TabSwitcher } from './tab-switcher';
 
@@ -8,9 +9,8 @@ describe('TabSwitcher', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabSwitcher]
-    })
-    .compileComponents();
+      imports: [TabSwitcher],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TabSwitcher);
     component = fixture.componentInstance;
