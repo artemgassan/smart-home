@@ -1,10 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TuiNavigation } from '@taiga-ui/layout';
-import { TuiButton } from '@taiga-ui/core';
+import { TuiCardLarge, TuiHeader, TuiNavigation } from '@taiga-ui/layout';
+import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
+import { TuiRepeatTimes } from '@taiga-ui/cdk';
+import { TabSwitcher } from '@/features/tab-switcher/tab-switcher';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [TuiNavigation, TuiButton],
+  imports: [TuiNavigation, TuiRepeatTimes, TuiAppearance, TuiCardLarge, TuiHeader, TuiTitle, TabSwitcher],
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',

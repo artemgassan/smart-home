@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TuiButton } from '@taiga-ui/core';
+import { TuiFade, TuiTab, TuiTabsHorizontal } from '@taiga-ui/kit';
+import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 
 @Component({
   selector: 'app-tab-switcher',
-  imports: [TuiButton],
+  imports: [TuiFade, TuiSubheaderCompactComponent, TuiTab, TuiTabsHorizontal],
   templateUrl: './tab-switcher.html',
   styleUrl: './tab-switcher.scss',
   standalone: true,

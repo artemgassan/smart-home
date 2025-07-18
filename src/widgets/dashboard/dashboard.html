@@ -1,4 +1,15 @@
 <main tuiNavigationMain>
-  <button appearance="secondary" tuiButton type="button">Secondary</button>
-  <button tuiButton type="button">Primary</button>
+  <app-tab-switcher />
+  <div
+    *tuiRepeatTimes="let index of 10"
+    tuiAppearance="floating"
+    tuiCardLarge
+    tuiHeader
+    [style.grid-column]="'span 4'"
+  >
+    <h2 tuiTitle>
+      Some random content
+      <span tuiSubtitle>A subtitle</span>
+    </h2>
+  </div>
 </main>
