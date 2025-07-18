@@ -2,15 +2,3 @@
   Smart Home UI
   <app-tab-switcher />
 </header>
-<aside [tuiNavigationAside]="expanded">
-  <header>
-    <button
-      tuiAsideItem
-      type="button"
-      [iconStart]="expanded ? '@tui.chevron-left' : '@tui.chevron-right'"
-      (click)="expanded = !expanded"
-    >
-      {{ expanded ? 'Collapse' : 'Expand' }}
-    </button>
-  </header>
-</aside>

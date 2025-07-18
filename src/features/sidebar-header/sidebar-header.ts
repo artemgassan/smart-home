@@ -10,6 +10,4 @@ import { TabSwitcher } from '@/features/tab-switcher/tab-switcher';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarHeader {
-  protected expanded = true;
-}
+export class SidebarHeader {}
