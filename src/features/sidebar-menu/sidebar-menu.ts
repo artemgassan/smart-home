@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiNavigation } from '@taiga-ui/layout';
 
 @Component({
-  selector: 'app-sidebar-aside',
+  selector: 'app-sidebar-menu',
   imports: [TuiNavigation],
-  templateUrl: './sidebar-aside.html',
-  styleUrl: './sidebar-aside.scss',
+  templateUrl: './sidebar-menu.html',
+  styleUrl: './sidebar-menu.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarAside {
+export class SidebarMenu {
   protected expanded = true;
 }
