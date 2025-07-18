@@ -1,18 +1,18 @@
 import type { ComponentFixture } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 
-import { SidebarFooter } from './sidebar-footer';
+import { TabSwitcher } from './tab-switcher';
 
-describe('SidebarFooter', () => {
-  let component: SidebarFooter;
-  let fixture: ComponentFixture<SidebarFooter>;
+describe('TabSwitcher', () => {
+  let component: TabSwitcher;
+  let fixture: ComponentFixture<TabSwitcher>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SidebarFooter],
+      imports: [TabSwitcher],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SidebarFooter);
+    fixture = TestBed.createComponent(TabSwitcher);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
