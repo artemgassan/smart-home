@@ -1,19 +1,19 @@
-import type { DeviceItem } from '@/features/device';
-import type { SensorItem } from '@/features/sensor';
+import type { DeviceItemType } from '@/features/device';
+import type { SensorItemType } from '@/features/sensor';
 
-export type BaseItem = {
+export type BaseItemType = {
   type: 'sensor' | 'device';
   icon: string;
   label: string;
 };
 
-export type Item = SensorItem | DeviceItem;
+export type ItemType = SensorItemType | DeviceItemType;
 
-export type Layout = 'horizontalLayout' | 'verticalLayout' | 'singleDevice';
+export type LayoutType = 'horizontalLayout' | 'verticalLayout' | 'singleDevice';
 
 export type CardType = {
   id: string;
   title: string;
-  layout: Layout;
-  items: Item[];
+  layout: LayoutType;
+  items: ItemType[];
 };

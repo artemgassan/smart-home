@@ -1,9 +1,9 @@
-import type { BaseItem } from '@/features/card';
+import type { BaseItemType } from '@/features/card';
 
-export type SensorItem = {
+export type SensorItemType = {
   type: 'sensor';
   value: {
     amount: number;
     unit: string;
   };
-} & BaseItem;
+} & BaseItemType;

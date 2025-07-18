@@ -1,6 +1,6 @@
-import type { BaseItem } from '@/features/card';
+import type { BaseItemType } from '@/features/card';
 
-export type DeviceItem = {
+export type DeviceItemType = {
   type: 'device';
   state: boolean;
-} & BaseItem;
+} & BaseItemType;

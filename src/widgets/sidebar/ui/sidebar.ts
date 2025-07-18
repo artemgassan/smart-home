@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { Dashboard } from '@/widgets/dashboard';
+import { DashboardType } from '@/widgets/dashboard';
 import { SidebarMenu } from '@/features/sidebar-menu';
 import { SidebarHeader } from '@/features/sidebar-header';
 import { SidebarFooter } from '@/features/sidebar-footer';

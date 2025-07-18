@@ -1,5 +1,5 @@
-import type { Tab } from '@/widgets/card-list';
+import type { TabType } from '@/widgets/card-list';
 
-export type Dashboard = {
-  tabs: Tab[];
+export type DashboardType = {
+  tabs: TabType[];
 };
