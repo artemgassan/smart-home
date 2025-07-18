@@ -1,3 +1,2 @@
-import { Sensor } from './ui/sensor';
-
-export { Sensor };
+export * from './model/sensor.model';
+export { Sensor } from './ui/sensor';

@@ -1,3 +1,2 @@
-import { CardList } from './ui/card-list';
-
-export { CardList };
+export { CardList } from './ui/card-list';
+export * from './model/card-list.model';

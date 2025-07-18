@@ -1,3 +1,2 @@
-import { Dashboard } from './ui/dashboard';
-
-export { Dashboard };
+export * from './model/dashboard.model';
+export { Dashboard } from './ui/dashboard';
