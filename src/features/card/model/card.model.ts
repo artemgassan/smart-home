@@ -11,7 +11,7 @@ export type Item = SensorItem | DeviceItem;
 
 export type Layout = 'horizontalLayout' | 'verticalLayout' | 'singleDevice';
 
-export type Card = {
+export type CardType = {
   id: string;
   title: string;
   layout: Layout;

@@ -1,5 +1,14 @@
 <main tuiNavigationMain>
-  <div *tuiRepeatTimes="let index of 10" [style.grid-column]="'span 4'" tuiAppearance="floating" tuiCardLarge tuiHeader>
-    <app-card />
-  </div>
+  @for (card of cards; track card.id) {
+    <div
+      [style.grid-column]="'span 4'"
+      tuiAppearance="floating"
+      tuiCardLarge
+      tuiHeader
+    >
+    <app-card
+      [title]="getCardTitle(card)"
+    />
+    </div>
+  }
 </main>
