@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tab-switcher',
+  selector: 'app-sidebar-aside',
   imports: [],
-  templateUrl: './tab-switcher.html',
-  styleUrl: './tab-switcher.scss',
+  templateUrl: './sidebar-aside.html',
+  styleUrl: './sidebar-aside.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TabSwitcher {}
+export class SidebarAside {}

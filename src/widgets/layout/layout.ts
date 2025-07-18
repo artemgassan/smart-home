@@ -1,14 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TuiNavigation } from '@taiga-ui/layout';
+import { Sidebar } from '@/widgets/sidebar/sidebar';
 
 @Component({
   selector: 'app-layout',
-  imports: [TuiNavigation],
+  imports: [Sidebar],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Layout {
-  public expanded = false;
-}
+export class Layout {}

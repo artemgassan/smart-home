@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { tuiLayoutIconsProvider } from '@taiga-ui/layout';
 import { SidebarHeader } from '@/features/sidebar-header/sidebar-header';
-import { SidebarMenu } from '@/features/sidebar-menu/sidebar-menu';
-import { SidebarFooter } from '@/features/sidebar-footer/sidebar-footer';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [SidebarHeader, SidebarMenu, SidebarFooter],
+  standalone: true,
+  imports: [FormsModule, SidebarHeader],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
+  providers: [tuiLayoutIconsProvider({ grid: '@tui.align-justify' })],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sidebar {}

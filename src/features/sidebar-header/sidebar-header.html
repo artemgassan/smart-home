@@ -1,1 +1,13 @@
-<h1>Smart Home UI</h1>
+<header tuiNavigationHeader>Smart Home UI</header>
+<aside [tuiNavigationAside]="expanded">
+  <header>
+    <button
+      tuiAsideItem
+      type="button"
+      [iconStart]="expanded ? '@tui.chevron-left' : '@tui.chevron-right'"
+      (click)="expanded = !expanded"
+    >
+      {{ expanded ? 'Collapse' : 'Expand' }}
+    </button>
+  </header>
+</aside>
