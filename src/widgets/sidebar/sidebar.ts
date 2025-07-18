@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Dashboard } from '@/widgets/dashboard';
+import { SidebarMenu } from '@/features/sidebar-menu';
+import { SidebarHeader } from '@/features/sidebar-header';
+import { SidebarFooter } from '@/features/sidebar-footer';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TuiAsideComponent, tuiLayoutIconsProvider, TuiMainComponent } from '@taiga-ui/layout';
-import { SidebarMenu } from '@/features/sidebar-menu/sidebar-menu';
-import { SidebarHeader } from '@/features/sidebar-header/sidebar-header';
-import { SidebarFooter } from '@/features/sidebar-footer/sidebar-footer';
-import { Dashboard } from '@/widgets/dashboard/dashboard';
 
 @Component({
   selector: 'app-sidebar',

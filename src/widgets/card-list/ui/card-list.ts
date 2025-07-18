@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TuiRepeatTimes } from '@taiga-ui/cdk';
+import { Card } from '@/features/card';
 import { TuiAppearance } from '@taiga-ui/core';
+import { TuiRepeatTimes } from '@taiga-ui/cdk';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TuiCardLarge, TuiHeader, TuiMainComponent } from '@taiga-ui/layout';
-import { Card } from '@/features/card/card';
 
 @Component({
   selector: 'app-card-list',

@@ -1,6 +1,6 @@
-import { Component, input } from '@angular/core';
-import { TuiAvatar } from '@taiga-ui/kit';
 import { TuiTitle } from '@taiga-ui/core';
+import { TuiAvatar } from '@taiga-ui/kit';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-footer',

@@ -1,6 +1,6 @@
+import { CardList } from '@/widgets/card-list';
+import { TabSwitcher } from '@/features/tab-switcher';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { TabSwitcher } from '@/features/tab-switcher/tab-switcher';
-import { CardList } from '@/widgets/card-list/card-list';
 
 @Component({
   selector: 'app-dashboard',
