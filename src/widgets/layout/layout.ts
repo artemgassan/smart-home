@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Sidebar } from '@/widgets/sidebar/sidebar';
-import {Header} from "@/widgets/header/header";
+import { Header } from '@/widgets/header/header';
 
 @Component({
   selector: 'app-layout',
