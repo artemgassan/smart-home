@@ -1,15 +1,23 @@
 import type { DeviceItemType } from '@/features/device';
 import type { SensorItemType } from '@/features/sensor';
 
-export type BaseItemType = {
-  type: 'sensor' | 'device';
-  icon: string;
-  label: string;
-};
+export enum Layout {
+  SingleDevice = 'singleDevice',
+  MultiHorizontalDevice = 'horizontalLayout',
+  MultiVerticalDevice = 'verticalLayout',
+}
+
+export type LayoutType = Layout.SingleDevice | Layout.MultiHorizontalDevice | Layout.MultiVerticalDevice;
 
 export type ItemType = SensorItemType | DeviceItemType;
 
-export type LayoutType = 'horizontalLayout' | 'verticalLayout' | 'singleDevice';
+export type ItemCategoryType = 'sensor' | 'device';
+
+export type BaseItemType = {
+  type: ItemCategoryType;
+  icon: string;
+  label: string;
+};
 
 export type CardType = {
   id: string;

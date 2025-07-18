@@ -1,5 +1,5 @@
-import type { CardType } from '@/features/card';
 import response from './mock-data.json';
+import type { CardType } from '@/features/card';
 import type { TabType } from '@/widgets/card-list';
 import type { DashboardType } from '@/widgets/dashboard';
 
