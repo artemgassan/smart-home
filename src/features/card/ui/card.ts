@@ -1,5 +1,6 @@
 import { Layout } from '@/features/card';
 import { TuiSwitch } from '@taiga-ui/kit';
+import { Device } from '@/features/device';
 import type { LayoutType } from '@/features/card';
 import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
@@ -7,7 +8,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
-  imports: [TuiTitle, TuiSwitch, TuiAppearance, TuiCardLarge, TuiHeader],
+  imports: [TuiTitle, TuiSwitch, TuiAppearance, TuiCardLarge, TuiHeader, Device],
   standalone: true,
   templateUrl: './card.html',
   styleUrl: './card.scss',
