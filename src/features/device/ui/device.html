@@ -1,5 +1,5 @@
 <label [class.horizontal-layout]="square()" tuiBlock="m" tuiHeader>
-  <tui-icon icon="{{getIcon()}}" />
+  <tui-icon [icon]="getIcon() | deviceIconPipe:'device'" />
   {{ getTitle() }}
   <input size="s" tuiSwitch type="checkbox" />
 </label>

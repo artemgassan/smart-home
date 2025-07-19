@@ -3,11 +3,12 @@ import { TuiHeader } from '@taiga-ui/layout';
 import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import type { DeviceItemType } from '@/features/device';
+import { EntityIconPipe } from '@/shared/lib/pipes/entity-icon.pipe';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-device',
-  imports: [TuiBlock, TuiSwitch, TuiIcon, ReactiveFormsModule, TuiHeader],
+  imports: [TuiBlock, TuiSwitch, TuiIcon, ReactiveFormsModule, TuiHeader, EntityIconPipe],
   templateUrl: './device.html',
   styleUrl: './device.scss',
   standalone: true,
@@ -22,6 +23,6 @@ export class Device {
   }
 
   protected getIcon(): string {
-    return `@tui.${this.item()?.icon}` || '@tui.lamp';
+    return this.item()?.icon || '';
   }
 }
