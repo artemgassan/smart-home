@@ -1,15 +1,15 @@
 <div tuiAppearance="floating" tuiCardLarge class="container">
   <header tuiHeader>
-    <h2 tuiTitle>{{ title() }}</h2>
+    <h2 tuiTitle>{{ getTitle() }}</h2>
 
-    @if (layout() !== Layout.SingleDevice) {
+    @if (getLayout() !== Layout.SingleDevice) {
     <aside tuiAccessories>
       <input tuiSwitch type="checkbox" />
     </aside>
     }
   </header>
 
-  <section [class.horizontal-layout]="layout() !== Layout.MultiHorizontalDevice">
+  <section [class.horizontal-layout]="getLayout() !== Layout.MultiHorizontalDevice">
     <app-device />
     <app-device />
   </section>
