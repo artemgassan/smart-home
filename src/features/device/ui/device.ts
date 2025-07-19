@@ -2,7 +2,7 @@ import { TuiIcon } from '@taiga-ui/core';
 import { TuiHeader } from '@taiga-ui/layout';
 import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-device',
@@ -12,4 +12,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Device {}
+export class Device {
+  public square = input<boolean>(false);
+}
