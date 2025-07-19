@@ -7,7 +7,7 @@ export enum Layout {
   MultiVerticalDevice = 'verticalLayout',
 }
 
-export type LayoutType = Layout.SingleDevice | Layout.MultiHorizontalDevice | Layout.MultiVerticalDevice;
+export type LayoutType = Layout;
 
 export type ItemType = SensorItemType | DeviceItemType;
 

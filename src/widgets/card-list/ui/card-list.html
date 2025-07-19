@@ -1,5 +1,5 @@
 <main tuiNavigationMain>
-  @for (card of cards; track card.id) {
+  @for (card of cards(); track card.id) {
     <div
       [style.grid-column]="'span 4'"
       tuiAppearance="floating"

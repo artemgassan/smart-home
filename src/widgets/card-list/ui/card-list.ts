@@ -1,8 +1,7 @@
 import { Card } from '@/features/card';
 import { TuiAppearance } from '@taiga-ui/core';
 import type { CardType, LayoutType } from '@/features/card';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { responseCards } from '../../../../public/data/mock-response';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TuiCardLarge, TuiHeader, TuiMainComponent } from '@taiga-ui/layout';
 
 @Component({
@@ -14,7 +13,7 @@ import { TuiCardLarge, TuiHeader, TuiMainComponent } from '@taiga-ui/layout';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardList {
-  protected cards: CardType[] = responseCards;
+  public cards = input<CardType[]>([]);
 
   protected getTitle(card: CardType): string {
     return card.title;

@@ -1,3 +1,2 @@
-import { TabSwitcher } from './ui/tab-switcher';
-
-export { TabSwitcher };
+export * from './model/tab-switcher.model';
+export { TabSwitcher } from './ui/tab-switcher';
