@@ -1,4 +1,17 @@
-<h2 tuiTitle>
-  {{ title() }}
-  <span tuiSubtitle>A subtitle</span>
-</h2>
+<div tuiAppearance="floating" tuiCardLarge class="container">
+  <header tuiHeader>
+    <h2 tuiTitle>{{ title() }}</h2>
+
+    @if (layout() !== Layout.SingleDevice) {
+    <aside tuiAccessories>
+      <input tuiSwitch type="checkbox" />
+    </aside>
+    }
+  </header>
+
+  <section>
+    <span tuiSubtitle>A subtitle</span>
+    <span tuiSubtitle>A subtitle</span>
+    <span tuiSubtitle>A subtitle</span>
+  </section>
+</div>

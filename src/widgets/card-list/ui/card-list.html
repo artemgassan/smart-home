@@ -1,15 +1,7 @@
 <main tuiNavigationMain>
   @for (card of cards(); track card.id) {
-    <div
-      [style.grid-column]="'span 4'"
-      tuiAppearance="floating"
-      tuiCardLarge
-      tuiHeader
-    >
-    <app-card
-      [title]="getTitle(card)"
-      [layout]="getLayout(card)"
-    />
-    </div>
+  <div [style.grid-column]="'span 4'" tuiHeader>
+    <app-card [title]="getTitle(card)" [layout]="getLayout(card)" />
+  </div>
   }
 </main>
