@@ -16,4 +16,12 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 export class Device {
   public item = input<DeviceItemType>();
   public square = input<boolean>(false);
+
+  protected getTitle(): string {
+    return this.item()?.label || '';
+  }
+
+  protected getIcon(): string {
+    return `@tui.${this.item()?.icon}` || '@tui.lamp';
+  }
 }

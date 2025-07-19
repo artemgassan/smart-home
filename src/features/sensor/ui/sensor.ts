@@ -15,4 +15,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 export class Sensor {
   public item = input<SensorItemType>();
   public square = input<boolean>(false);
+
+  protected getTitle(): string {
+    return this.item()?.label || '';
+  }
 }
