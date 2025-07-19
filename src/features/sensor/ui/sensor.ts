@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
-import { TuiHeader } from '@taiga-ui/layout';
 import { TuiIcon } from '@taiga-ui/core';
+import { TuiHeader } from '@taiga-ui/layout';
+import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
+import type { SensorItemType } from '@/features/sensor';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-sensor',
@@ -12,5 +13,6 @@ import { TuiIcon } from '@taiga-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sensor {
+  public item = input<SensorItemType>();
   public square = input<boolean>(false);
 }
