@@ -9,7 +9,7 @@
     }
   </header>
 
-  <section>
+  <section [class.horizontal-layout]="layout() !== Layout.MultiHorizontalDevice">
     <app-device />
     <app-device />
   </section>

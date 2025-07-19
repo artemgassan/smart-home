@@ -11,3 +11,8 @@ section {
   display: grid;
   gap: 1rem;
 }
+
+.horizontal-layout {
+  display: flex;
+  flex-wrap: nowrap;
+}
