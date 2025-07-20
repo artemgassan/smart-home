@@ -9,7 +9,13 @@ import { responseData } from '../../../../public/data/mock-response';
 export class DashboardService {
   public responseTabs: TabType[] = responseData.tabs;
 
-  public getAllCards(): CardType[] {
-    return this.responseTabs.flatMap((tab) => tab.cards);
+  public getOverviewCards(): CardType[] {
+    const overviewTab = this.responseTabs.find((tab) => tab.id === 'overview');
+    return overviewTab ? overviewTab.cards : [];
+  }
+
+  public getLightsCards(): CardType[] {
+    const lightsTab = this.responseTabs.find((tab) => tab.id === 'lights');
+    return lightsTab ? lightsTab.cards : [];
   }
 }

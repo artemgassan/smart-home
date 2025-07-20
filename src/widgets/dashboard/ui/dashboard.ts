@@ -14,4 +14,5 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 export class Dashboard {
   public activeTab = signal<TabsSwitcher>(TabsSwitcher.overview);
   protected dashboardService = inject(DashboardService);
+  protected readonly TabsSwitcher = TabsSwitcher;
 }
