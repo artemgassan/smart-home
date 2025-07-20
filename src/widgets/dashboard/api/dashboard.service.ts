@@ -9,10 +9,6 @@ import { responseData } from '../../../../public/data/mock-response';
 export class DashboardService {
   public responseTabs: TabType[] = responseData.tabs;
 
-  public getTabs(): TabType[] {
-    return this.responseTabs;
-  }
-
   public getAllCards(): CardType[] {
     return this.responseTabs.flatMap((tab) => tab.cards);
   }

@@ -1,6 +1,7 @@
 <nav compact tuiSubheader>
   <tui-tabs tuiFade>
-    <button tuiTab type="button">Overview</button>
-    <button tuiTab type="button">Lights</button>
+    @for (tab of tabs; track tab) {
+    <button tuiTab type="button" (click)="onTabClick(tab)">{{ tab }}</button>
+    }
   </tui-tabs>
 </nav>

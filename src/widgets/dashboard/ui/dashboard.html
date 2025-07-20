@@ -1,2 +1,5 @@
-<app-tab-switcher />
+<app-tab-switcher
+  [activeTab]="activeTab()"
+  (tabChanged)="activeTab.set($event)"
+/>
 <app-card-list [cards]="dashboardService.getAllCards()" />

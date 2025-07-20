@@ -1,5 +1,4 @@
 import { CardList } from '@/widgets/card-list';
-import type { TabSwitcherType } from '@/features/tab-switcher';
 import { TabsSwitcher, TabSwitcher } from '@/features/tab-switcher';
 import { DashboardService } from '@/widgets/dashboard/api/dashboard.service';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
@@ -13,6 +12,6 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Dashboard {
-  public activeTab = signal<TabSwitcherType>(TabsSwitcher.overview);
+  public activeTab = signal<TabsSwitcher>(TabsSwitcher.overview);
   protected dashboardService = inject(DashboardService);
 }
