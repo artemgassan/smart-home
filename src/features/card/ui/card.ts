@@ -10,7 +10,16 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
-  imports: [TuiTitle, TuiSwitch, TuiAppearance, TuiCardLarge, TuiHeader, Device, Sensor, FormsModule],
+  imports: [
+    TuiTitle,
+    TuiSwitch,
+    TuiAppearance,
+    TuiCardLarge,
+    TuiHeader,
+    Device,
+    Sensor,
+    FormsModule,
+  ],
   standalone: true,
   templateUrl: './card.html',
   styleUrl: './card.scss',

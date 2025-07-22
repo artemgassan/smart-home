@@ -4,7 +4,12 @@ import { SidebarMenu } from '@/features/sidebar-menu';
 import { SidebarHeader } from '@/features/sidebar-header';
 import { SidebarFooter } from '@/features/sidebar-footer';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { TuiAsideComponent, tuiLayoutIconsProvider, TuiMainComponent, TuiNavigation } from '@taiga-ui/layout';
+import {
+  TuiAsideComponent,
+  tuiLayoutIconsProvider,
+  TuiMainComponent,
+  TuiNavigation,
+} from '@taiga-ui/layout';
 
 @Component({
   selector: 'app-sidebar',
