@@ -4,7 +4,7 @@
 
     @if (getLayout() !== Layout.SingleDevice) {
     <aside tuiAccessories>
-      <input tuiSwitch type="checkbox" />
+      <input tuiSwitch type="checkbox" [ngModel]="toggle()" />
     </aside>
     }
   </header>
