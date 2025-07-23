@@ -2,11 +2,11 @@ import { Layout } from '@/features/card';
 import { TuiSwitch } from '@taiga-ui/kit';
 import { Device } from '@/features/device';
 import { Sensor } from '@/features/sensor';
+import { FormsModule } from '@angular/forms';
 import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
 import type { LayoutType, CardType } from '@/features/card';
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, computed, input, viewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -27,9 +27,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class Card {
   public card = input<CardType>();
-  public toggle = signal<boolean>(false);
-
+  public items = computed(() => this.card()?.items);
+  public devices = viewChildren(Device);
+  public groupState = computed(() => this.devices().some((device) => device.state()));
   protected readonly Layout = Layout;
+
+  public toggleDevices(state: boolean): void {
+    this.devices().forEach((device) => device.toggleDeviceState(state));
+  }
 
   protected getTitle(): string {
     return this.card()?.title || '';

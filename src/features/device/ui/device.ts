@@ -4,7 +4,7 @@ import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import type { DeviceItemType } from '@/features/device';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EntityIconPipe } from '@/shared/lib/pipes/entity-icon.pipe';
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 
 @Component({
   selector: 'app-device',
@@ -23,9 +23,13 @@ import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Device {
-  public item = input<DeviceItemType>();
+  public item = model.required<DeviceItemType>();
+  public state = computed(() => this.item().state);
   public square = input<boolean>(false);
-  public toggle = signal<boolean>(false);
+
+  public toggleDeviceState(state: boolean): void {
+    this.item.update((item) => ({ ...item, state }));
+  }
 
   protected getTitle(): string {
     return this.item()?.label || '';
