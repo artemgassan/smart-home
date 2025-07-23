@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
 import type { LayoutType, CardType } from '@/features/card';
+import { CardDirective } from '@/features/card/lib/card.directive';
 import { ChangeDetectionStrategy, Component, computed, input, viewChildren } from '@angular/core';
 
 @Component({
@@ -19,6 +20,7 @@ import { ChangeDetectionStrategy, Component, computed, input, viewChildren } fro
     Device,
     Sensor,
     FormsModule,
+    CardDirective,
   ],
   standalone: true,
   templateUrl: './card.html',
