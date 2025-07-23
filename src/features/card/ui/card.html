@@ -2,7 +2,7 @@
   <header tuiHeader>
     <h2 tuiTitle>{{ getTitle() }}</h2>
 
-    @if (getLayout() !== Layout.SingleDevice) {
+    @if (showGroupToggle()) {
       <aside tuiAccessories>
         <input
           tuiSwitch
