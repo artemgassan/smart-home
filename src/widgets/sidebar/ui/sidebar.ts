@@ -1,6 +1,6 @@
 import type { OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Dashboard } from '@/widgets/dashboard';
+import { RouterOutlet } from '@angular/router';
 import { SidebarMenu } from '@/features/sidebar-menu';
 import { SidebarHeader } from '@/features/sidebar-header';
 import { SidebarFooter } from '@/features/sidebar-footer';
@@ -21,9 +21,9 @@ import {
     TuiAsideComponent,
     SidebarHeader,
     SidebarFooter,
-    Dashboard,
     TuiMainComponent,
     TuiNavigation,
+    RouterOutlet,
   ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss',
