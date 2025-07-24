@@ -12,5 +12,5 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardList {
-  public cards = input<CardType[]>([]);
+  public cards = input.required<CardType[]>();
 }

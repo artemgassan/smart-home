@@ -15,18 +15,18 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sensor {
-  public item = input<SensorItemType>();
+  public item = input.required<SensorItemType>();
   public square = input<boolean>(false);
 
   protected getTitle(): string {
-    return this.item()?.label || '';
+    return this.item().label;
   }
 
   protected getIcon(): string {
-    return this.item()?.icon || '';
+    return this.item().icon;
   }
 
   protected getValue(): SensorValueType {
-    return this.item()!.value;
+    return this.item().value;
   }
 }

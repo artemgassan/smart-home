@@ -28,8 +28,8 @@ import { ChangeDetectionStrategy, Component, computed, input, viewChildren } fro
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  public card = input<CardType>();
-  public items = computed(() => this.card()?.items);
+  public card = input.required<CardType>();
+  public items = computed(() => this.card().items);
   public devices = viewChildren(Device);
   public groupState = computed(() => this.devices().some((device) => device.state()));
   protected readonly Layout = Layout;
@@ -39,15 +39,15 @@ export class Card {
   }
 
   protected getTitle(): string {
-    return this.card()?.title || '';
+    return this.card().title;
   }
 
   protected getLayout(): LayoutType {
-    return this.card()?.layout || Layout.SingleDevice;
+    return this.card().layout;
   }
 
   protected showGroupToggle(): boolean {
-    const items = this.items() ?? [];
+    const items = this.items();
     const minCountDevices = 2;
     const deviceCount = items.filter((item) => item.type === 'device').length;
     return deviceCount >= minCountDevices;

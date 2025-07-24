@@ -32,10 +32,10 @@ export class Device {
   }
 
   protected getTitle(): string {
-    return this.item()?.label || '';
+    return this.item().label;
   }
 
   protected getIcon(): string {
-    return this.item()?.icon || '';
+    return this.item().icon;
   }
 }
