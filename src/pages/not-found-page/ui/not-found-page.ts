@@ -1,5 +1,6 @@
+import { Router } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TuiBlockStatusComponent, TuiBlockStatusDirective } from '@taiga-ui/layout';
 
 @Component({
@@ -10,4 +11,10 @@ import { TuiBlockStatusComponent, TuiBlockStatusDirective } from '@taiga-ui/layo
   styleUrl: './not-found-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotFoundPage {}
+export class NotFoundPage {
+  private readonly router = inject(Router);
+
+  protected onBackHomePage(): void {
+    this.router.navigate(['/']);
+  }
+}
