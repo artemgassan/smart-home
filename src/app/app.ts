@@ -1,10 +1,10 @@
 import { TuiRoot } from '@taiga-ui/core';
-import { Layout } from '@/widgets/layout';
+import { DashboardPage } from '@/pages/dashboard-page';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [TuiRoot, Layout],
+  imports: [TuiRoot, DashboardPage],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   standalone: true,
