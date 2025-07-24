@@ -1,9 +1,4 @@
-<label
-  tuiHeader
-  tuiBlock="m"
-  [ngClass]="size()"
-  [style.cursor]="'default'"
->
+<label tuiHeader tuiBlock="m" [ngClass]="size()" [style.cursor]="'default'">
   <tui-icon [icon]="getIcon() | deviceIconPipe: 'sensor'" />
   {{ getTitle() }}
   <span>{{ getValue() | sensorPipe }}</span>
