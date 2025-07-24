@@ -47,8 +47,9 @@ export class Card {
   }
 
   protected showGroupToggle(): boolean {
-    const items = this.items();
+    const items = this.items() ?? [];
     const minCountDevices = 2;
-    return items ? items.filter((item) => item.type === 'device').length >= minCountDevices : false;
+    const deviceCount = items.filter((item) => item.type === 'device').length;
+    return deviceCount >= minCountDevices;
   }
 }
