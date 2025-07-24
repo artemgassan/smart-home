@@ -1,4 +1,5 @@
 import { TuiIcon } from '@taiga-ui/core';
+import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
 import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import type { DeviceItemType } from '@/features/device';
@@ -16,6 +17,7 @@ import { ChangeDetectionStrategy, Component, computed, input, model } from '@ang
     TuiHeader,
     EntityIconPipe,
     FormsModule,
+    NgClass,
   ],
   templateUrl: './device.html',
   styleUrl: './device.scss',
@@ -25,7 +27,7 @@ import { ChangeDetectionStrategy, Component, computed, input, model } from '@ang
 export class Device {
   public item = model.required<DeviceItemType>();
   public state = computed(() => this.item().state);
-  public square = input<boolean>(false);
+  public size = input.required<string>();
 
   public toggleDeviceState(state: boolean): void {
     this.item.update((item) => ({ ...item, state }));

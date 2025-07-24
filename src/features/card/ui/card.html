@@ -14,12 +14,18 @@
     }
   </header>
 
-  <section [class.horizontal-layout]="getLayout() === Layout.MultiHorizontalDevice">
+  <section [ngClass]="getLayoutStyleClass()">
     @for (item of items(); track item.label) {
       @if (item.type === 'device') {
-        <app-device [square]="getLayout() === Layout.MultiHorizontalDevice" [item]="item" />
+        <app-device
+          [item]="item"
+          [size]="getLayoutStyleClass()"
+        />
       } @else if (item.type === 'sensor') {
-        <app-sensor [square]="getLayout() === Layout.MultiHorizontalDevice" [item]="item" />
+        <app-sensor
+          [item]="item"
+          [size]="getLayoutStyleClass()"
+        />
       }
     }
   </section>

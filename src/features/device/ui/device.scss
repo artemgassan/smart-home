@@ -14,3 +14,12 @@ label {
   flex-direction: column;
   text-align: center;
 }
+
+.single-device {
+  grid-template-columns: 1.4rem 1fr;
+
+  input {
+    grid-column-start: 2;
+    justify-self: end;
+  }
+}

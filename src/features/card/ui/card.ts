@@ -1,11 +1,12 @@
 import { Layout } from '@/features/card';
 import { TuiSwitch } from '@taiga-ui/kit';
+import { NgClass } from '@angular/common';
 import { Device } from '@/features/device';
 import { Sensor } from '@/features/sensor';
 import { FormsModule } from '@angular/forms';
 import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
-import type { LayoutType, CardType } from '@/features/card';
+import type { CardType, LayoutType } from '@/features/card';
 import { CardDirective } from '@/features/card/lib/card.directive';
 import { ChangeDetectionStrategy, Component, computed, input, viewChildren } from '@angular/core';
 
@@ -21,6 +22,7 @@ import { ChangeDetectionStrategy, Component, computed, input, viewChildren } fro
     Sensor,
     FormsModule,
     CardDirective,
+    NgClass,
   ],
   standalone: true,
   templateUrl: './card.html',
@@ -32,7 +34,6 @@ export class Card {
   public items = computed(() => this.card().items);
   public devices = viewChildren(Device);
   public groupState = computed(() => this.devices().some((device) => device.state()));
-  protected readonly Layout = Layout;
 
   public toggleDevices(state: boolean): void {
     this.devices().forEach((device) => device.toggleDeviceState(state));
@@ -44,6 +45,13 @@ export class Card {
 
   protected getLayout(): LayoutType {
     return this.card().layout;
+  }
+
+  protected getLayoutStyleClass(): string {
+    const layout = this.getLayout();
+    if (layout === Layout.MultiHorizontalDevice) return 'horizontal-layout';
+    if (layout === Layout.MultiVerticalDevice) return 'vertical-layout';
+    else return 'single-device';
   }
 
   protected showGroupToggle(): boolean {
