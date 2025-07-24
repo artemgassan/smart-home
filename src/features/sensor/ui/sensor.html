@@ -1,4 +1,4 @@
-<label [class.horizontal-layout]="square()" tuiBlock="m" tuiHeader>
+<label [class.horizontal-layout]="square()" tuiBlock="m" tuiHeader [style.cursor]="'default'">
   <tui-icon [icon]="getIcon() | deviceIconPipe: 'sensor'" />
   {{ getTitle() }}
   <span>{{ getValue() | sensorPipe }}</span>
