@@ -1,11 +1,5 @@
 # SmartHomeUI
 
-## Components structure
-
-![img.png](./public/docs/img.png)
-
-More detailed component design can be found here: https://excalidraw.com/#room=2c663228ce3b1627ba6b,urhatg2cX5HlqnYxi3GeZQ
-
 ## Development server
 
 To start a local development server, run:
@@ -25,3 +19,9 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Components structure
+
+![img.png](./public/docs/img.png)
+
+More detailed component design can be found here: https://excalidraw.com/#room=2c663228ce3b1627ba6b,urhatg2cX5HlqnYxi3GeZQ

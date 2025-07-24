@@ -14,7 +14,6 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 export class TabSwitcher {
   public activeTab = input.required<TabsSwitcher>();
   public tabChanged = output<TabsSwitcher>();
-
   protected readonly tabs = Object.values(TabsSwitcher);
 
   protected onTabClick(tab: TabsSwitcher): void {
