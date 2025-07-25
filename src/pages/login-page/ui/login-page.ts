@@ -1,4 +1,4 @@
-import { LoginForm } from '@/features/login-form';
+import { LoginForm } from '@/widgets/login-form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
