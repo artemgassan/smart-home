@@ -1,4 +1,4 @@
 import { AuthService } from './auth.service';
-import { authInterceptor } from './auth-interceptor';
+import { TokenService } from './token.service';
 
-export { AuthService, authInterceptor }
+export { AuthService, TokenService }
