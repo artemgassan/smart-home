@@ -1,15 +1,16 @@
-import {AsyncPipe} from '@angular/common';
-import {TuiFieldErrorPipe} from '@taiga-ui/kit';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {TuiCardLarge, TuiForm, TuiHeader} from '@taiga-ui/layout';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import { AsyncPipe } from '@angular/common';
+import { TuiFieldErrorPipe } from '@taiga-ui/kit';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { TuiCardLarge, TuiForm, TuiHeader } from '@taiga-ui/layout';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   TuiAppearance,
   TuiButton,
   TuiError,
   TuiLabel,
   TuiTextfieldComponent,
-  TuiTextfieldDirective, TuiTitle
+  TuiTextfieldDirective,
+  TuiTitle,
 } from '@taiga-ui/core';
 
 @Component({
@@ -28,7 +29,7 @@ import {
     TuiLabel,
     TuiTextfieldComponent,
     TuiTextfieldDirective,
-    TuiTitle
+    TuiTitle,
   ],
   templateUrl: './login-form.html',
   styleUrl: './login-form.scss',
