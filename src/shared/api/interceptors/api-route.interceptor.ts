@@ -1,5 +1,10 @@
+import { BASE_URL } from '@/shared/config/constants';
 import type { HttpInterceptorFn } from '@angular/common/http';
 
 export const apiRouteInterceptor: HttpInterceptorFn = (req, next) => {
-  return next(req);
+  const apiReq = req.clone({
+    url: `${BASE_URL}${req.url}`,
+  });
+
+  return next(apiReq);
 };
