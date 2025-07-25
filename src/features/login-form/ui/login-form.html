@@ -6,40 +6,19 @@
   [style.min-width.rem]="32"
 >
   <header tuiHeader>
-    <h2 tuiTitle>
-      Login Form
-    </h2>
+    <h2 tuiTitle>Login Form</h2>
   </header>
   <tui-textfield>
     <label tuiLabel>Username</label>
-    <input
-      formControlName="login"
-      placeholder="Your login"
-      tuiTextfield
-    />
+    <input formControlName="login" placeholder="Your login" tuiTextfield />
   </tui-textfield>
-  <tui-error
-    formControlName="login"
-    [error]="[] | tuiFieldError | async"
-  />
+  <tui-error formControlName="login" [error]="[] | tuiFieldError | async" />
   <tui-textfield>
     <label tuiLabel>Password</label>
-    <input
-      formControlName="password"
-      placeholder="Your password"
-      tuiTextfield
-    />
+    <input formControlName="password" placeholder="Your password" tuiTextfield />
   </tui-textfield>
-  <tui-error
-    formControlName="login"
-    [error]="[] | tuiFieldError | async"
-  />
+  <tui-error formControlName="login" [error]="[] | tuiFieldError | async" />
   <footer>
-    <button
-      tuiButton
-      type="submit"
-    >
-      Sign In
-    </button>
+    <button tuiButton type="submit">Sign In</button>
   </footer>
 </form>

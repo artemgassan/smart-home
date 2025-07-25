@@ -1,16 +1,16 @@
-import {TokenService} from '@/shared/api/auth';
-import {HttpClient} from '@angular/common/http';
-import {inject, Injectable} from '@angular/core';
-import {BASE_URL} from '@/shared/config/constants';
+import { TokenService } from '@/shared/api/auth';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { BASE_URL } from '@/shared/config/constants';
 
-interface LoginRequest {
+type LoginRequest = {
   userName: string;
   password: string;
-}
+};
 
-export interface LoginResponse {
+export type LoginResponse = {
   token: string;
-}
+};
 
 const loginData: LoginRequest = {
   userName: 'Morales',
@@ -21,12 +21,14 @@ const loginData: LoginRequest = {
   providedIn: 'root',
 })
 export class AuthService {
-  private http = inject(HttpClient)
-  private token = inject(TokenService)
+  private http = inject(HttpClient);
+  private token = inject(TokenService);
 
-  public login() {
+  public login(): void {
     this.http.post<LoginResponse>(`${BASE_URL}/api/user/login`, loginData).subscribe({
-      next: (response) => {this.token.setToken(response.token)}
-    })
+      next: (response) => {
+        this.token.setToken(response.token);
+      },
+    });
   }
 }

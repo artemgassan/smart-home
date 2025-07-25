@@ -4,8 +4,8 @@ import type { ApplicationConfig } from '@angular/core';
 import { provideZoneChangeDetection } from '@angular/core';
 import { provideEventPlugins } from '@taiga-ui/event-plugins';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import {apiRouteInterceptor, authInterceptor} from '@/shared/api/interceptors';
-import {provideHttpClient, withFetch, withInterceptors} from '@angular/common/http';
+import { apiRouteInterceptor, authInterceptor } from '@/shared/api/interceptors';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,9 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideEventPlugins(),
-    provideHttpClient(
-      withFetch(),
-      withInterceptors([apiRouteInterceptor, authInterceptor])
-    ),
+    provideHttpClient(withFetch(), withInterceptors([apiRouteInterceptor, authInterceptor])),
   ],
 };
