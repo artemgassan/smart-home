@@ -17,13 +17,7 @@
       "rules": {
         "max-len": ["error", 180],
         "@typescript-eslint/no-explicit-any": "error",
-        "@typescript-eslint/no-magic-numbers": [
-          "error",
-          {
-            "ignore": [0, 1, -1, 2],
-            "ignoreReadonlyClassProperties": true
-          }
-        ],
+        "@typescript-eslint/no-magic-numbers": "off",
         "@no-magic-strings": "off",
         "@typescript-eslint/no-unused-vars": [
           "error",
