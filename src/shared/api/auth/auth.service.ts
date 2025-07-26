@@ -24,7 +24,7 @@ export class AuthService {
   private token = inject(TokenService);
 
   public login(): void {
-    this.http.post<LoginResponse>(`/api/user/login`, loginData).subscribe({
+    this.http.post<LoginResponse>(`/user/login`, loginData).subscribe({
       next: (response) => {
         this.token.setToken(response.token);
       },
