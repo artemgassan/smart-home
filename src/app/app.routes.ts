@@ -15,6 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
+    title: 'Login | Smart Home',
     component: LoginPage,
   },
   {
