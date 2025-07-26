@@ -30,4 +30,12 @@ export class AuthService {
       },
     });
   }
+
+  public getUser(): void {
+    this.http.get(`/user/profile`).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+    });
+  }
 }
