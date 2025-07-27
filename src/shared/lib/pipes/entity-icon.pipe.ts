@@ -1,21 +1,6 @@
 import { Pipe } from '@angular/core';
 import type { PipeTransform } from '@angular/core';
-
-const expectedIcons: Record<string, string> = {
-  thermostat: 'thermometer',
-  water_drop: 'droplets',
-  cloud: 'cloud',
-  co2: 'bubbles',
-  motion_photos_on: 'activity',
-  lightbulb: 'lightbulb',
-  power: 'power',
-};
-
-enum DefaultIcons {
-  device = 'lamp',
-  sensor = 'airplay',
-  other = 'cpu',
-}
+import { DefaultIcons, iconsConfig } from '@/shared/config/iconsConfig';
 
 type EntityIconType = 'device' | 'sensor' | null;
 
@@ -26,13 +11,18 @@ type EntityIconType = 'device' | 'sensor' | null;
 export class EntityIconPipe implements PipeTransform {
   public transform(value: string, type: EntityIconType): string {
     const defaultIcon = this.getDefaultIcon(type);
-    return this.editingIconLabel(expectedIcons[value] || defaultIcon);
+    return this.editingIconLabel(iconsConfig[value] || defaultIcon);
   }
 
   private getDefaultIcon(type: EntityIconType): string {
-    if (type === 'device') return DefaultIcons.device;
-    if (type === 'sensor') return DefaultIcons.sensor;
-    else return DefaultIcons.other;
+    switch (type) {
+      case 'device':
+        return DefaultIcons.device;
+      case 'sensor':
+        return DefaultIcons.sensor;
+      default:
+        return DefaultIcons.other;
+    }
   }
 
   private editingIconLabel(name: string): string {

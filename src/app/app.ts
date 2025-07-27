@@ -7,7 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [TuiRoot, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {}
