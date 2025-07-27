@@ -2,10 +2,10 @@ import { TuiIcon } from '@taiga-ui/core';
 import { TuiBlock } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
+import { SensorPipe } from '@/app/pipes/sensor.pipe';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
-import { SensorPipe } from '@/features/sensor/lib/sensor.pipe';
-import type { SensorItemType, SensorValueType } from '@/features/sensor';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import type { SensorItemType, SensorValueType } from '@/app/components/sensor/sensor.model';
 
 @Component({
   selector: 'app-sensor',

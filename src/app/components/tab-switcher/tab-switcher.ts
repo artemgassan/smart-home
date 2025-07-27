@@ -1,9 +1,9 @@
-import { TabsSwitcher } from '@/features/tab-switcher';
+import { TuiButton } from '@taiga-ui/core';
+import { AuthService } from '@/app/services/auth.service';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiFade, TuiTab, TuiTabsHorizontal } from '@taiga-ui/kit';
+import { TabsSwitcher } from '@/app/components/tab-switcher/tab-switcher.model';
 import { ChangeDetectionStrategy, Component, inject, input, output } from '@angular/core';
-import { TuiButton } from '@taiga-ui/core';
-import { AuthService } from '@/shared/api/auth';
 
 @Component({
   selector: 'app-tab-switcher',

@@ -1,6 +1,7 @@
-import { CardList } from '@/widgets/card-list';
-import { TabsSwitcher, TabSwitcher } from '@/features/tab-switcher';
-import { DashboardService } from '@/widgets/dashboard/api/dashboard.service';
+import { CardList } from '@/app/components/card-list/card-list';
+import { TabSwitcher } from '@/app/components/tab-switcher/tab-switcher';
+import { DashboardService } from '@/app/components/dashboard/dashboard.service';
+import { TabsSwitcher } from '@/app/components/tab-switcher/tab-switcher.model';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
 @Component({

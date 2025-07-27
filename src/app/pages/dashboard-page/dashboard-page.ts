@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Dashboard } from '@/widgets/dashboard';
 import { Header } from '@/app/components/header/header';
 import { Sidebar } from '@/app/components/sidebar/sidebar';
+import { Dashboard } from '@/app/components/dashboard/dashboard';
 
 @Component({
   selector: 'app-dashboard-page',

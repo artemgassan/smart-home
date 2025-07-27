@@ -1,6 +1,6 @@
-import { TokenService } from '@/shared/api/auth';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { TokenService } from '@/app/services/token.service';
 
 type LoginRequest = {
   userName: string;

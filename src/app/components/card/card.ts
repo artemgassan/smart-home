@@ -1,13 +1,13 @@
-import { Layout } from '@/features/card';
 import { TuiSwitch } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
-import { Device } from '@/features/device';
-import { Sensor } from '@/features/sensor';
 import { FormsModule } from '@angular/forms';
+import { Device } from '@/app/components/device/device';
+import { Sensor } from '@/app/components/sensor/sensor';
 import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
+import { Layout } from '@/app/components/card/card.model';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
-import type { CardType, LayoutType } from '@/features/card';
-import { CardDirective } from '@/features/card/lib/card.directive';
+import { CardDirective } from '@/app/directives/card.directive';
+import type { CardType, LayoutType } from '@/app/components/card/card.model';
 import { ChangeDetectionStrategy, Component, computed, input, viewChildren } from '@angular/core';
 
 @Component({

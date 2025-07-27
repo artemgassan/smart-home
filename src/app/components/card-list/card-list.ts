@@ -1,6 +1,6 @@
-import { Card } from '@/features/card';
-import type { CardType } from '@/features/card';
+import { Card } from '@/app/components/card/card';
 import { TuiHeader, TuiMainComponent } from '@taiga-ui/layout';
+import type { CardType } from '@/app/components/card/card.model';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
