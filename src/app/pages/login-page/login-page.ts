@@ -1,6 +1,6 @@
-import { LoginForm } from '@/widgets/login-form';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { LoginForm } from '@/app/components/login-form/login-form';
 
 @Component({
   selector: 'app-login-page',

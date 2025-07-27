@@ -1,14 +1,14 @@
 import type { OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SidebarMenu } from '@/features/sidebar-menu';
-import { SidebarHeader } from '@/features/sidebar-header';
-import { SidebarFooter } from '@/features/sidebar-footer';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { SidebarMenu } from '@/app/components/sidebar/sidebar-menu/sidebar-menu';
+import { SidebarHeader } from '@/app/components/sidebar/sidebar-header/sidebar-header';
+import { SidebarFooter } from '@/app/components/sidebar/sidebar-footer/sidebar-footer';
 import {
-  TuiAsideComponent,
-  tuiLayoutIconsProvider,
-  TuiMainComponent,
   TuiNavigation,
+  TuiAsideComponent,
+  TuiMainComponent,
+  tuiLayoutIconsProvider,
 } from '@taiga-ui/layout';
 
 @Component({
