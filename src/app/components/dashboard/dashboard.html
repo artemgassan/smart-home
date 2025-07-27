@@ -2,7 +2,7 @@
 <app-card-list
   [cards]="
     activeTab() === TabsSwitcher.overview
-      ? dashboardService.getOverviewCards()
-      : dashboardService.getLightsCards()
+      ? getOverviewCards()
+      : getLightsCards()
   "
 />
