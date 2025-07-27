@@ -1,6 +1,6 @@
 import { Pipe } from '@angular/core';
 import type { PipeTransform } from '@angular/core';
-import { DefaultIcons, iconsConfig } from '@/shared/config/iconsConfig';
+import { DefaultIcons, iconsConfig } from '@/app/consts/icons.const';
 
 type EntityIconType = 'device' | 'sensor' | null;
 

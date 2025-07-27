@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/shared/config/constants';
+import { BASE_URL } from '@/app/consts/api.const';
 import type { HttpInterceptorFn } from '@angular/common/http';
 
 export const apiRouteInterceptor: HttpInterceptorFn = (req, next) => {

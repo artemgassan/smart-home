@@ -2,8 +2,8 @@ import { TuiIcon } from '@taiga-ui/core';
 import { TuiBlock } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
+import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import { SensorPipe } from '@/features/sensor/lib/sensor.pipe';
-import { EntityIconPipe } from '@/shared/lib/pipes/entity-icon.pipe';
 import type { SensorItemType, SensorValueType } from '@/features/sensor';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 

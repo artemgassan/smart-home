@@ -1,7 +1,7 @@
 import type { Routes } from '@angular/router';
-import { LoginPage } from '@/pages/login-page';
-import { NotFoundPage } from '@/pages/not-found-page';
-import { DashboardPage } from '@/pages/dashboard-page';
+import { LoginPage } from '@/app/pages/login-page/login-page';
+import { NotFoundPage } from '@/app/pages/not-found-page/not-found-page';
+import { DashboardPage } from '@/app/pages/dashboard-page/dashboard-page';
 
 export const routes: Routes = [
   {

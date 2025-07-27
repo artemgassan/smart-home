@@ -3,8 +3,8 @@ import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
 import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import type { DeviceItemType } from '@/features/device';
+import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EntityIconPipe } from '@/shared/lib/pipes/entity-icon.pipe';
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 
 @Component({

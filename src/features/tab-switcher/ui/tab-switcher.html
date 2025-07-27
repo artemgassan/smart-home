@@ -1,4 +1,6 @@
 <nav compact tuiSubheader>
+  <button tuiButton (click)="api.login()">test post API</button>
+  <button tuiButton (click)="api.getUser()">test get API</button>
   <tui-tabs tuiFade>
     @for (tab of tabs; track tab) {
       <button tuiTab type="button" (click)="onTabClick(tab)">{{ tab }}</button>
