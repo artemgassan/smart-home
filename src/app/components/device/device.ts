@@ -2,9 +2,9 @@ import { TuiIcon } from '@taiga-ui/core';
 import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
 import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
-import type { DeviceItemType } from '@/features/device';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import type { DeviceItemType } from '@/app/components/device/device.model';
 import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 
 @Component({

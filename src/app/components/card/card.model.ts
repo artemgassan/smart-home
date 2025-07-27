@@ -1,5 +1,5 @@
-import type { DeviceItemType } from '@/features/device';
-import type { SensorItemType } from '@/features/sensor';
+import type { SensorItemType } from '@/app/components/sensor/sensor.model';
+import type { DeviceItemType } from '@/app/components/device/device.model';
 
 export enum Layout {
   SingleDevice = 'singleDevice',

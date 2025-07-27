@@ -1,4 +1,4 @@
-import type { CardType } from '@/features/card';
+import type { CardType } from '@/app/components/card/card.model';
 
 export type TabType = {
   id: string;

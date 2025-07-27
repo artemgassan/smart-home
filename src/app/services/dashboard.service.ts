@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import type { CardType } from '@/features/card';
-import type { TabType } from '@/widgets/card-list';
-import { responseData } from '../../../../public/data/mock-response';
+import type { CardType } from '@/app/components/card/card.model';
+import { responseData } from '../../../public/data/mock-response';
+import type { TabType } from '@/app/components/card-list/card-list.model';
 
 @Injectable({
   providedIn: 'root',
