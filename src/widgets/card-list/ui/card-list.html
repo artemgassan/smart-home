@@ -1,0 +1,9 @@
+<main tuiNavigationMain>
+  <div class="wrapper">
+    @for (card of cards(); track card.id) {
+      <div tuiHeader>
+        <app-card [card]="card" />
+      </div>
+    }
+  </div>
+</main>

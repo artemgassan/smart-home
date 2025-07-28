@@ -1,0 +1,14 @@
+<label [ngClass]="size()" tuiBlock="m" tuiHeader>
+  <tui-icon
+    [icon]="getIcon() | deviceIconPipe: 'device'"
+    [style.color]="state() ? null : 'var(--tui-text-tertiary)'"
+  />
+  {{ getTitle() }}
+  <input
+    tuiSwitch
+    size="s"
+    type="checkbox"
+    [ngModel]="state()"
+    (ngModelChange)="toggleDeviceState($event)"
+  />
+</label>

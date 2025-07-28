@@ -1,0 +1,7 @@
+<nav compact tuiSubheader>
+  <tui-tabs tuiFade>
+    @for (tab of tabs; track tab) {
+      <button tuiTab type="button" (click)="onTabClick(tab)">{{ tab }}</button>
+    }
+  </tui-tabs>
+</nav>

@@ -1,0 +1,22 @@
+label {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.horizontal-layout {
+  display: flex;
+  min-width: 8rem;
+  flex-direction: column;
+  text-align: center;
+}
+
+.single-device {
+  grid-template-columns: 1.4rem 1fr;
+
+  span {
+    grid-column-start: 2;
+    text-align: right;
+  }
+}
