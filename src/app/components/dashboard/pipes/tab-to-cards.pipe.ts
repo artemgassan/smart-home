@@ -1,5 +1,6 @@
 import { Pipe } from '@angular/core';
 import type { PipeTransform } from '@angular/core';
+import type { TabType } from '@/app/interfaces/tabs.interface';
 import { TabsSwitcher } from '@/app/interfaces/tabs.interface';
 import type { CardType } from '@/app/interfaces/cards.interface';
 import { responseData } from '../../../../../public/data/mock-response';
@@ -10,7 +11,7 @@ import { responseData } from '../../../../../public/data/mock-response';
 })
 export class TabToCardsPipe implements PipeTransform {
   public transform(activeTab: TabsSwitcher): CardType[] {
-    const tabs = responseData.tabs;
+    const tabs: TabType[] = responseData.tabs;
 
     switch (activeTab) {
       case TabsSwitcher.overview:
