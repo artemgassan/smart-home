@@ -22,6 +22,11 @@ export class AuthService {
   private token = inject(TokenService);
   private router = inject(Router);
 
+  public isAuth(): boolean {
+    const token = this.token.getToken();
+    return !!token;
+  }
+
   public login(userName: string, password: string): Observable<LoginResponse> {
     const loginData: LoginRequest = {
       userName,
