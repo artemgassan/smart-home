@@ -1,8 +1,2 @@
 <app-tab-switcher [activeTab]="activeTab()" (tabChanged)="activeTab.set($event)" />
-<app-card-list
-  [cards]="
-    activeTab() === TabsSwitcher.overview
-      ? getOverviewCards()
-      : getLightsCards()
-  "
-/>
+<app-card-list [cards]="activeTab() | tabToCards" />
