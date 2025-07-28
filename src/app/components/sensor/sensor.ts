@@ -3,9 +3,9 @@ import { TuiBlock } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
-import {SensorPipe} from '@/app/components/sensor/pipes/sensor.pipe';
+import { SensorPipe } from '@/app/components/sensor/pipes/sensor.pipe';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import type { SensorItemType, SensorValueType } from '@/app/components/sensor/sensor.model';
+import type { SensorItemType, SensorValueType } from '@/app/interfaces/cards.interface';
 
 @Component({
   selector: 'app-sensor',

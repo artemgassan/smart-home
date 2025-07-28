@@ -1,7 +1,7 @@
+import { TabsSwitcher } from '@/app/interfaces/tabs.interface';
 import { CardList } from '@/app/components/card-list/card-list';
 import { TabSwitcher } from '@/app/components/tab-switcher/tab-switcher';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { TabsSwitcher } from '@/app/components/tab-switcher/tab-switcher.model';
 import { TabToCardsPipe } from '@/app/components/dashboard/pipes/tab-to-cards.pipe';
 
 @Component({

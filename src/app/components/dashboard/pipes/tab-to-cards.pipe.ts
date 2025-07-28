@@ -1,8 +1,8 @@
 import { Pipe } from '@angular/core';
 import type { PipeTransform } from '@angular/core';
-import type { CardType } from '@/app/components/card/card.model';
+import { TabsSwitcher } from '@/app/interfaces/tabs.interface';
+import type { CardType } from '@/app/interfaces/cards.interface';
 import { responseData } from '../../../../../public/data/mock-response';
-import { TabsSwitcher } from '@/app/components/tab-switcher/tab-switcher.model';
 
 @Pipe({
   name: 'tabToCards',

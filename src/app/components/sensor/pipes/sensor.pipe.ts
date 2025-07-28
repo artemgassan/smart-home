@@ -1,6 +1,6 @@
 import { Pipe } from '@angular/core';
 import type { PipeTransform } from '@angular/core';
-import type { SensorValueType } from '@/app/components/sensor/sensor.model';
+import type { SensorValueType } from '@/app/interfaces/cards.interface';
 
 @Pipe({
   name: 'sensorPipe',
