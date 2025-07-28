@@ -1,3 +1,6 @@
+import { tap } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { TokenService } from '@/app/services/token.service';
@@ -11,24 +14,28 @@ export type LoginResponse = {
   token: string;
 };
 
-const loginData: LoginRequest = {
-  userName: 'Morales',
-  password: 'id',
-};
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
   private token = inject(TokenService);
+  private router = inject(Router);
 
-  public login(): void {
-    this.http.post<LoginResponse>(`/user/login`, loginData).subscribe({
-      next: (response) => {
-        this.token.setToken(response.token);
-      },
-    });
+  public login(userName: string, password: string): Observable<LoginResponse> {
+    const loginData: LoginRequest = {
+      userName,
+      password,
+    };
+
+    return this.http.post<LoginResponse>(`/user/login`, loginData).pipe(
+      tap({
+        next: (response) => {
+          this.token.setToken(response.token);
+          this.router.navigate(['/']);
+        },
+      }),
+    );
   }
 
   public getUser(): void {
