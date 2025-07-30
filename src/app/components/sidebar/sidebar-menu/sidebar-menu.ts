@@ -1,7 +1,7 @@
 import { TuiNavigation } from '@taiga-ui/layout';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
-import type { TabsResponse } from '@/app/interfaces/tabs.interface';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
 @Component({
@@ -13,11 +13,11 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarMenu {
-  protected tabs = signal<TabsResponse[]>([]);
+  protected tabs = signal<DashboardResponse[]>([]);
   private api = inject(DashboardsService);
 
   constructor() {
-    this.api.getTabs().subscribe({
+    this.api.getDashboards().subscribe({
       next: (response) => {
         this.tabs.set(response);
       },
