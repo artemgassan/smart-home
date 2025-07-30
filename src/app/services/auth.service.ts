@@ -10,7 +10,7 @@ type LoginRequest = {
   password: string;
 };
 
-export type LoginResponse = {
+type LoginResponse = {
   token: string;
 };
 
@@ -41,6 +41,11 @@ export class AuthService {
         },
       }),
     );
+  }
+
+  public logout(): void {
+    this.token.clearToken();
+    this.router.navigate(['/login']);
   }
 
   public getUser(): void {
