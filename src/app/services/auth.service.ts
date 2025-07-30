@@ -47,10 +47,4 @@ export class AuthService {
     this.token.clearToken();
     this.router.navigate(['/login']);
   }
-
-  public getUser(): void {
-    this.http.get(`/user/profile`).subscribe({
-      next: (response) => console.log(response),
-    });
-  }
 }
