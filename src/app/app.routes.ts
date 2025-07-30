@@ -13,6 +13,7 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardPage,
+    title: 'Smart Home',
     canActivate: [authGuard],
   },
   {

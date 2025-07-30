@@ -28,11 +28,7 @@ export class AuthService {
   }
 
   public login(userName: string, password: string): Observable<LoginResponse> {
-    const loginData: LoginRequest = {
-      userName,
-      password,
-    };
-
+    const loginData: LoginRequest = { userName, password };
     return this.http.post<LoginResponse>(`/user/login`, loginData).pipe(
       tap({
         next: (response) => {
