@@ -1,2 +1,5 @@
-<button iconStart="@tui.layout-grid" tuiAsideItem type="button">Overview</button>
-<button iconStart="@tui.info" tuiAsideItem type="button">About</button>
+@for (tab of tabs(); track tab.id) {
+  <button [iconStart]="tab.icon | deviceIconPipe: null" tuiAsideItem type="button">
+    {{ tab.title }}
+  </button>
+}

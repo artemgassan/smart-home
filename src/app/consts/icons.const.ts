@@ -12,4 +12,8 @@ export const iconsConfig: Record<string, string> = {
   motion_photos_on: 'activity',
   lightbulb: 'lightbulb',
   power: 'power',
+  home: 'layout-grid',
+  bolt: 'cable',
+  device_thermostat: 'air-vent',
+  shield: 'door-closed-locked',
 };
