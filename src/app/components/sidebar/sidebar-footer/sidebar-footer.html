@@ -1,4 +1,11 @@
-<tui-avatar [src]="userInitials()" [size]="expanded() ? 'm' : 's'" />
-@if (expanded()) {
-  <h3 tuiTitle="s">{{ userName() }}</h3>
-}
+<tui-aside-group>
+  <button style="padding: 0.13rem" tuiAsideItem>
+    <tui-avatar style="--t-radius: 0" [src]="userInitials()" size="s" />
+    <span tuiFade>{{ userName() }}</span>
+  </button>
+  <ng-template>
+    <button iconStart="@tui.log-out" tuiAsideItem type="button" (click)="authService.logout()">
+      Log out
+    </button>
+  </ng-template>
+</tui-aside-group>
