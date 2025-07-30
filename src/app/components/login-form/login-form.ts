@@ -52,9 +52,8 @@ export class LoginForm {
       const { login, password } = this.form.value;
       this.authService.login(login!, password!).subscribe({
         error: (error: HttpErrorResponse) => {
-          if (error.status === 401)
-            this.authErrorMessage.set('Incorrect login or password. Please try again.');
-          else this.authErrorMessage.set('An error occurred. Please try again later.');
+          if (error.status === 401) this.authErrorMessage.set('Invalid login or password.');
+          else this.authErrorMessage.set('Unknown error occurred. Please try again later.');
         },
       });
     }

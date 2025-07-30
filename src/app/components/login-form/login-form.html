@@ -20,7 +20,7 @@
       autocomplete="username"
     />
   </tui-textfield>
-  <tui-error formControlName="login" [error]="[] | tuiFieldError | async"></tui-error>
+  <tui-error formControlName="login" [error]="[] | tuiFieldError | async" />
 
   <tui-textfield>
     <label tuiLabel>Password</label>
@@ -35,7 +35,7 @@
   <tui-error
     formControlName="password"
     [error]="authErrorMessage() || ([] | tuiFieldError | async)"
-  ></tui-error>
+  />
 
   <footer>
     <button tuiButton type="submit" [disabled]="form.invalid">Sign In</button>
