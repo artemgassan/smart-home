@@ -1,8 +1,9 @@
 import { AsyncPipe } from '@angular/common';
 import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { AuthService } from '@/app/services/auth.service';
+import type { HttpErrorResponse } from '@angular/common/http';
 import { TuiCardLarge, TuiForm, TuiHeader } from '@taiga-ui/layout';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import {
   TuiAppearance,
@@ -42,22 +43,20 @@ export class LoginForm {
     password: new FormControl('', [Validators.required, Validators.minLength(2)]),
   });
 
+  protected authErrorMessage = signal<string | null>(null);
   private authService = inject(AuthService);
 
-  protected get loginErrors(): readonly string[] {
-    const errors = this.form.get('login')?.errors;
-    return errors ? Object.keys(errors) : [];
-  }
-
-  protected get passwordErrors(): readonly string[] {
-    const errors = this.form.get('password')?.errors;
-    return errors ? Object.keys(errors) : [];
-  }
-
   protected onSubmit(): void {
+    this.authErrorMessage.set(null);
     if (this.form.valid) {
       const { login, password } = this.form.value;
-      this.authService.login(login!, password!).subscribe();
+      this.authService.login(login!, password!).subscribe({
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 401)
+            this.authErrorMessage.set('Incorrect login or password. Please try again.');
+          else this.authErrorMessage.set('An error occurred. Please try again later.');
+        },
+      });
     }
   }
 }

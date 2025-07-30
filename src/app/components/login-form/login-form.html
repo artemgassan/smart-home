@@ -9,6 +9,7 @@
   <header tuiHeader>
     <h2 tuiTitle>Login Form</h2>
   </header>
+
   <tui-textfield>
     <label tuiLabel>Username</label>
     <input
@@ -19,7 +20,7 @@
       autocomplete="username"
     />
   </tui-textfield>
-  <tui-error formControlName="login" [error]="loginErrors | tuiFieldError | async" />
+  <tui-error formControlName="login" [error]="[] | tuiFieldError | async"></tui-error>
 
   <tui-textfield>
     <label tuiLabel>Password</label>
@@ -31,7 +32,10 @@
       autocomplete="current-password"
     />
   </tui-textfield>
-  <tui-error formControlName="password" [error]="passwordErrors | tuiFieldError | async" />
+  <tui-error
+    formControlName="password"
+    [error]="authErrorMessage() || ([] | tuiFieldError | async)"
+  ></tui-error>
 
   <footer>
     <button tuiButton type="submit" [disabled]="form.invalid">Sign In</button>
