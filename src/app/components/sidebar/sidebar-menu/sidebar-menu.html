@@ -1,11 +1,11 @@
-@for (tab of tabs(); track tab.id) {
+@for (dashboard of dashboards(); track dashboard.id) {
   <button
-    [iconStart]="tab.icon | deviceIconPipe: null"
+    [iconStart]="dashboard.icon | deviceIconPipe: null"
     tuiAsideItem
     type="button"
-    [appearance]="activeTab() === tab.id ? 'floating' : ''"
-    (click)="setActiveTab(tab.id)"
+    [appearance]="activeDashboard() === dashboard.id ? 'floating' : ''"
+    (click)="setActiveDashboard(dashboard.id)"
   >
-    {{ tab.title }}
+    {{ dashboard.title }}
   </button>
 }
