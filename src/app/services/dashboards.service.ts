@@ -20,8 +20,7 @@ export class DashboardsService {
     );
   }
 
-  public getDashboard(): Observable<DashboardType> {
-    const dashboardId = this.route.snapshot.paramMap.get('dashboardId') ?? '';
+  public getDashboard(dashboardId: string): Observable<DashboardType> {
     return this.http.get<DashboardType>(`/dashboards/${dashboardId}`).pipe(
       catchError((error) => {
         return throwError(() => error);
