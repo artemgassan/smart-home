@@ -1,4 +1,4 @@
-import { TabsSwitcher } from '@/app/interfaces/tabs.interface';
+import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiFade, TuiTab, TuiTabsHorizontal } from '@taiga-ui/kit';
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
@@ -12,11 +12,11 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabSwitcher {
-  public activeTab = input<TabsSwitcher>();
-  public tabChanged = output<TabsSwitcher>();
-  protected readonly tabs = Object.values(TabsSwitcher);
+  public tabs = input<TabType[] | undefined>();
+  public activeTab = input<TabType | undefined>();
+  public tabChanged = output<TabType>();
 
-  protected onTabClick(tab: TabsSwitcher): void {
+  protected onTabClick(tab: TabType): void {
     this.tabChanged.emit(tab);
   }
 }

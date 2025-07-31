@@ -1,5 +1,5 @@
-<app-tab-switcher />
-@if (!activeTab()) {
+<app-tab-switcher [tabs]="tabs()" [activeTab]="activeTab()" (tabChanged)="activeTab.set($event)" />
+@if (activeTab()) {
   <app-card-list [tab]="activeTab()" />
 } @else {
   <app-dashboard-not-found />

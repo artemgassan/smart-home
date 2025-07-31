@@ -15,8 +15,3 @@ export type TabType = {
   title: string;
   cards: CardType[];
 };
-
-export enum TabsSwitcher {
-  overview = 'Overview',
-  lights = 'Lights',
-}
