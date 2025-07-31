@@ -3,11 +3,11 @@ import type { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TabsSwitcher } from '@/app/interfaces/tabs.interface';
 import { CardList } from '@/app/components/card-list/card-list';
-import type { DashboardType } from '@/app/interfaces/tabs.interface';
 import { DashboardsService } from '@/app/services/dashboards.service';
 import { TabSwitcher } from '@/app/components/tab-switcher/tab-switcher';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import type { DashboardType, TabType } from '@/app/interfaces/tabs.interface';
 import { TabToCardsPipe } from '@/app/components/dashboard/pipes/tab-to-cards.pipe';
+import { ChangeDetectionStrategy, Component, inject, signal, computed } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +20,7 @@ import { TabToCardsPipe } from '@/app/components/dashboard/pipes/tab-to-cards.pi
 export class Dashboard implements OnInit {
   public dashboard = signal<DashboardType | null>(null);
   public activeTab = signal<TabsSwitcher>(TabsSwitcher.overview);
+  private tabs = computed<TabType[] | undefined>(() => this.dashboard()?.tabs);
   private readonly api = inject(DashboardsService);
   private readonly route = inject(ActivatedRoute);
 
