@@ -31,12 +31,6 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: RoutePath.dashboard,
-    component: DashboardPage,
-    title: 'Smart Home',
-    canActivate: [authGuard],
-  },
-  {
     path: RoutePath.login,
     title: 'Login | Smart Home',
     component: LoginPage,
