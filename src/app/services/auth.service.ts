@@ -1,6 +1,7 @@
 import { tap } from 'rxjs';
 import type { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { RoutePath } from '@/app/app.routes';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { TokenService } from '@/app/services/token.service';
@@ -33,7 +34,7 @@ export class AuthService {
       tap({
         next: (response) => {
           this.token.setToken(response.token);
-          this.router.navigate(['/']);
+          this.router.navigate([RoutePath.main]);
         },
       }),
     );
@@ -41,6 +42,6 @@ export class AuthService {
 
   public logout(): void {
     this.token.clearToken();
-    this.router.navigate(['/login']);
+    this.router.navigate([RoutePath.login]);
   }
 }

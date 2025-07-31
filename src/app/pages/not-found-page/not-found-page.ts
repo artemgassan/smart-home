@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { TuiButton } from '@taiga-ui/core';
+import { RoutePath } from '@/app/app.routes';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TuiBlockStatusComponent, TuiBlockStatusDirective } from '@taiga-ui/layout';
 
@@ -15,6 +16,6 @@ export class NotFoundPage {
   private readonly router = inject(Router);
 
   protected onBackHomePage(): void {
-    this.router.navigate(['/']);
+    this.router.navigate([RoutePath.main]);
   }
 }

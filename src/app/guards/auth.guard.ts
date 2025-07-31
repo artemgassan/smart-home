@@ -1,5 +1,6 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { RoutePath } from '@/app/app.routes';
 import { AuthService } from '@/app/services/auth.service';
 import type { CanActivateFn, UrlTree } from '@angular/router';
 
@@ -9,5 +10,5 @@ export const authGuard: CanActivateFn = (): boolean | UrlTree => {
   const isAuth = authService.isAuth();
 
   if (isAuth) return true;
-  return router.createUrlTree(['/login']);
+  return router.createUrlTree([RoutePath.login]);
 };
