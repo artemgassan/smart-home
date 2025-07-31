@@ -1,7 +1,8 @@
 import { Card } from '@/app/components/card/card';
 import { TuiHeader, TuiMainComponent } from '@taiga-ui/layout';
+import type { TabType } from '@/app/interfaces/tabs.interface';
 import type { CardType } from '@/app/interfaces/cards.interface';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 @Component({
   selector: 'app-card-list',
@@ -12,5 +13,6 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardList {
-  public cards = input.required<CardType[]>();
+  public tab = input.required<TabType | undefined>();
+  protected cards = computed<CardType[]>(() => this.tab()?.cards || []);
 }

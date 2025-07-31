@@ -1,2 +1,4 @@
-<app-tab-switcher [activeTab]="activeTab()" (tabChanged)="activeTab.set($event)" />
-<app-card-list [cards]="activeTab() | tabToCards" />
+@if (activeTab()) {
+  <app-tab-switcher />
+  <app-card-list [tab]="activeTab()" />
+}
