@@ -1,5 +1,11 @@
 @for (tab of tabs(); track tab.id) {
-  <button [iconStart]="tab.icon | deviceIconPipe: null" tuiAsideItem type="button">
+  <button
+    [iconStart]="tab.icon | deviceIconPipe: null"
+    tuiAsideItem
+    type="button"
+    [appearance]="activeTab() === tab.id ? 'floating' : ''"
+    (click)="setActiveTab(tab.id)"
+  >
     {{ tab.title }}
   </button>
 }

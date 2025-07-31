@@ -13,7 +13,7 @@ export enum AppRoutes {
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '',
-  [AppRoutes.DASHBOARD]: 'dashboard',
+  [AppRoutes.DASHBOARD]: 'dashboard/:dashboardId',
   [AppRoutes.LOGIN]: 'login',
   [AppRoutes.NOT_FOUND]: '**',
 };
@@ -23,6 +23,12 @@ export const routes: Routes = [
     path: RoutePath.main,
     redirectTo: RoutePath.dashboard,
     pathMatch: 'full',
+  },
+  {
+    path: RoutePath.dashboard,
+    component: DashboardPage,
+    title: 'Smart Home',
+    canActivate: [authGuard],
   },
   {
     path: RoutePath.dashboard,
