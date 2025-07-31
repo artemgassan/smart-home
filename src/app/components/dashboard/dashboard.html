@@ -1,4 +1,6 @@
-@if (activeTab()) {
-  <app-tab-switcher />
+<app-tab-switcher />
+@if (!activeTab()) {
   <app-card-list [tab]="activeTab()" />
+} @else {
+  <app-dashboard-not-found />
 }
