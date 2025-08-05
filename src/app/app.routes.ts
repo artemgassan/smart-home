@@ -42,6 +42,10 @@ export const routes: Routes = [
         path: ':dashboardId',
         component: DashboardPage,
       },
+      {
+        path: ':dashboardId/:tabId',
+        component: DashboardPage,
+      },
     ],
   },
   {

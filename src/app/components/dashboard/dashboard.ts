@@ -1,5 +1,6 @@
-import { switchMap } from 'rxjs';
+import { TuiLoader } from '@taiga-ui/core';
 import type { OnInit } from '@angular/core';
+import { switchMap, tap, finalize } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { CardList } from '@/app/components/card-list/card-list';
 import { DashboardsService } from '@/app/services/dashboards.service';
@@ -17,7 +18,7 @@ import {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [TabSwitcher, CardList, DashboardNotFound],
+  imports: [TabSwitcher, CardList, DashboardNotFound, TuiLoader],
   standalone: true,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
@@ -27,9 +28,9 @@ export class Dashboard implements OnInit {
   protected dashboard = signal<DashboardType | null>(null);
   protected tabs = computed<TabType[] | undefined>(() => this.dashboard()?.tabs);
   protected activeTab = signal<TabType | undefined>(undefined);
+  protected isLoading = signal<boolean>(true);
   private readonly api = inject(DashboardsService);
   private readonly route = inject(ActivatedRoute);
-
   constructor() {
     effect(() => {
       const tabs = this.tabs();
@@ -40,9 +41,10 @@ export class Dashboard implements OnInit {
   public ngOnInit(): void {
     this.route.params
       .pipe(
+        tap(() => this.isLoading.set(true)),
         switchMap((params) => {
           const dashboardId = params['dashboardId'];
-          return this.api.getDashboard(dashboardId);
+          return this.api.getDashboard(dashboardId).pipe(finalize(() => this.isLoading.set(false)));
         }),
       )
       .subscribe({
