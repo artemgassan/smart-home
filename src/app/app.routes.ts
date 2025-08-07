@@ -28,6 +28,7 @@ export const routes: Routes = [
     path: RoutePath.login,
     title: 'Login | Smart Home',
     component: LoginPage,
+    loadComponent: () => import('@/app/pages/login-page/login-page').then((m) => m.LoginPage),
   },
   {
     path: RoutePath.dashboard,
