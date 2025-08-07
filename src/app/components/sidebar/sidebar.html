@@ -1,7 +1,9 @@
 <aside [tuiNavigationAside]="expanded()">
-  <header>
-    <app-sidebar-header [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
-  </header>
+  @if (showHeader()) {
+    <header>
+      <app-sidebar-header [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
+    </header>
+  }
   <main>
     <app-sidebar-menu />
   </main>
