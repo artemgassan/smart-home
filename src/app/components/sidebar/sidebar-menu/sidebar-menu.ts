@@ -2,6 +2,7 @@ import type { OnInit } from '@angular/core';
 import { RoutePath } from '@/app/app.routes';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UrlsService } from '@/app/services/urls.service';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import { DashboardsService } from '@/app/services/dashboards.service';
 import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
@@ -18,17 +19,18 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 export class SidebarMenu implements OnInit {
   protected dashboards = signal<DashboardResponse[]>([]);
   protected activeDashboard = signal<string>('');
-  private readonly api = inject(DashboardsService);
   private readonly router = inject(Router);
+  private readonly url = inject(UrlsService);
   private readonly route = inject(ActivatedRoute);
+  private readonly api = inject(DashboardsService);
 
   public ngOnInit(): void {
     this.getDashboards();
   }
 
-  protected setActiveDashboard(tabId: string): void {
-    this.activeDashboard.set(tabId);
-    this.router.navigate([RoutePath.dashboard, tabId]);
+  protected setActiveDashboard(dashboardsId: string): void {
+    this.activeDashboard.set(dashboardsId);
+    this.router.navigate([RoutePath.dashboard, dashboardsId]);
   }
 
   private getDashboards(): void {

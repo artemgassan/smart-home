@@ -12,14 +12,21 @@ export class UrlsService {
   private activeDashboard = signal<string>('');
 
   constructor() {
+    let initialRun = true;
     effect(() => {
       this.activeDashboard();
-      this.updateDashboardPageUrl();
+      if (!initialRun) this.updateDashboardPageUrl();
+      else initialRun = false;
     });
   }
 
   public setActiveDashboard(dashboard: string): void {
     this.activeDashboard.set(dashboard);
+  }
+
+  public setDefaultDashboard(defaultDashboard: string): void {
+    const routeDashboard = this.route.snapshot.paramMap.get('dashboardId');
+    this.activeDashboard.set(routeDashboard ?? defaultDashboard);
   }
 
   private updateDashboardPageUrl(): void {
