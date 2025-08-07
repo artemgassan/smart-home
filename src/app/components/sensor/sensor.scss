@@ -3,6 +3,11 @@ label {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+
+  @media (max-width: 390px) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .horizontal-layout {
