@@ -50,6 +50,7 @@ export const routes: Routes = [
   },
   {
     path: RoutePath.not_found,
+    title: '404 | Smart Home',
     component: NotFoundPage,
   },
 ];
