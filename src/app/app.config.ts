@@ -2,8 +2,10 @@ import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
 import { provideRouter } from '@angular/router';
 import type { ApplicationConfig } from '@angular/core';
-import { provideZoneChangeDetection } from '@angular/core';
+import { provideRouterStore } from '@ngrx/router-store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEventPlugins } from '@taiga-ui/event-plugins';
+import { provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { authInterceptor } from '@/app/interceptors/auth.interceptor';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { apiRouteInterceptor } from '@/app/interceptors/api-route.interceptor';
@@ -17,5 +19,7 @@ export const appConfig: ApplicationConfig = {
     provideEventPlugins(),
     provideHttpClient(withFetch(), withInterceptors([apiRouteInterceptor, authInterceptor])),
     provideStore(),
+    provideRouterStore(),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ],
 };
