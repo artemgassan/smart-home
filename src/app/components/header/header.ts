@@ -1,12 +1,13 @@
 import { TUI_DOC_ICONS } from '@taiga-ui/addon-doc';
-import { TuiHeaderComponent } from '@taiga-ui/layout';
-import { TUI_DARK_MODE, TuiButton } from '@taiga-ui/core';
+import { TuiHeaderComponent, TuiNavigation } from '@taiga-ui/layout';
+import { TUI_DARK_MODE, TuiButton, TuiIcon } from '@taiga-ui/core';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { TuiBadge } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [TuiHeaderComponent, TuiButton],
+  imports: [TuiHeaderComponent, TuiButton, TuiNavigation, TuiIcon, TuiBadge],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
