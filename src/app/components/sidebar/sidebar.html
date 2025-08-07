@@ -1,16 +1,22 @@
 <aside [tuiNavigationAside]="expanded()">
-  @if (showHeader()) {
+  @if (isDesktopWidth()) {
     <header>
       <app-sidebar-header [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
+    </header>
+  } @else {
+    <header>
+      <app-sidebar-footer [expanded]="expanded()" />
     </header>
   }
   <main>
     <app-sidebar-menu />
   </main>
-  <footer>
-    <hr />
-    <app-sidebar-footer [expanded]="expanded()" />
-  </footer>
+  @if (isDesktopWidth()) {
+    <footer>
+      <hr />
+      <app-sidebar-footer [expanded]="expanded()" />
+    </footer>
+  }
 </aside>
 <main tuiNavigationMain>
   <ng-content />

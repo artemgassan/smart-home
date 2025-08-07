@@ -1,7 +1,7 @@
 import {
   TuiNavigation,
-  TuiAsideComponent,
   TuiMainComponent,
+  TuiAsideComponent,
   tuiLayoutIconsProvider,
 } from '@taiga-ui/layout';
 import type { OnInit } from '@angular/core';
@@ -32,7 +32,7 @@ export class Sidebar implements OnInit {
   private static readonly widthSidebarCloses = 768;
   private static readonly minSizeSidebarOpen = 580;
   protected expanded = signal(true);
-  protected showHeader = signal(true);
+  protected isDesktopWidth = signal(true);
   private resizeListener = this.updateExpandedState.bind(this);
 
   public ngOnInit(): void {
@@ -48,6 +48,6 @@ export class Sidebar implements OnInit {
     const isMobile = window.innerWidth < Sidebar.widthSidebarCloses;
     const shouldShowHeader = window.innerWidth >= Sidebar.minSizeSidebarOpen;
     this.expanded.set(!isMobile);
-    this.showHeader.set(shouldShowHeader);
+    this.isDesktopWidth.set(shouldShowHeader);
   }
 }
