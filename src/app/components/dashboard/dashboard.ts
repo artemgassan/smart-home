@@ -1,3 +1,11 @@
+import {
+  inject,
+  signal,
+  effect,
+  computed,
+  Component,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { TuiLoader } from '@taiga-ui/core';
 import type { OnInit } from '@angular/core';
 import { switchMap, tap, finalize } from 'rxjs';
@@ -7,14 +15,6 @@ import { DashboardsService } from '@/app/services/dashboards.service';
 import { TabSwitcher } from '@/app/components/tab-switcher/tab-switcher';
 import type { DashboardType, TabType } from '@/app/interfaces/tabs.interface';
 import { DashboardNotFound } from '@/app/components/dashboard/dashboard-not-found/dashboard-not-found';
-import {
-  inject,
-  signal,
-  effect,
-  computed,
-  Component,
-  ChangeDetectionStrategy,
-} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,6 +31,7 @@ export class Dashboard implements OnInit {
   protected isLoading = signal<boolean>(true);
   private readonly api = inject(DashboardsService);
   private readonly route = inject(ActivatedRoute);
+
   constructor() {
     effect(() => {
       const tabs = this.tabs();
