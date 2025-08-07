@@ -37,7 +37,9 @@
           "error",
           {
             "accessibility": "explicit",
-            "overrides": { "constructors": "off" }
+            "overrides": {
+              "constructors": "off"
+            }
           }
         ],
         "@typescript-eslint/member-ordering": "error",
@@ -78,6 +80,10 @@
       "files": ["*.html"],
       "extends": ["plugin:@angular-eslint/template/recommended"],
       "rules": {}
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@ngrx/all"]
     }
   ]
 }

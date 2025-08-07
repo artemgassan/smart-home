@@ -1,4 +1,5 @@
 import { routes } from './app.routes';
+import { provideStore } from '@ngrx/store';
 import { provideRouter } from '@angular/router';
 import type { ApplicationConfig } from '@angular/core';
 import { provideZoneChangeDetection } from '@angular/core';
@@ -15,5 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideEventPlugins(),
     provideHttpClient(withFetch(), withInterceptors([apiRouteInterceptor, authInterceptor])),
+    provideStore(),
   ],
 };
