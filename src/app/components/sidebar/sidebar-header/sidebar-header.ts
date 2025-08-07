@@ -1,9 +1,12 @@
 import { TuiNavigation } from '@taiga-ui/layout';
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { TuiAvatar, TuiFade } from '@taiga-ui/kit';
+import { UserService } from '@/app/services/user.service';
+import { AuthService } from '@/app/services/auth.service';
+import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-header',
-  imports: [TuiNavigation],
+  imports: [TuiNavigation, TuiAvatar, TuiFade],
   templateUrl: './sidebar-header.html',
   styleUrl: './sidebar-header.scss',
   standalone: true,
@@ -11,5 +14,17 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
 })
 export class SidebarHeader {
   public expanded = input.required<boolean>();
-  public toggleExpanded = output<void>();
+  protected userName = signal<string>('');
+  protected userInitials = signal<string>('');
+  protected authService = inject(AuthService);
+  private userService = inject(UserService);
+
+  constructor() {
+    this.userService.getUser().subscribe({
+      next: (value) => {
+        this.userName.set(value.fullName);
+        this.userInitials.set(value.initials);
+      },
+    });
+  }
 }

@@ -1,20 +1,14 @@
 <aside [tuiNavigationAside]="expanded()">
-  @if (isDesktopWidth()) {
-    <header>
-      <app-sidebar-header [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
-    </header>
-  } @else {
-    <header>
-      <app-sidebar-footer [expanded]="expanded()" />
-    </header>
-  }
+  <header>
+    <app-sidebar-header [expanded]="expanded()" />
+  </header>
   <main>
     <app-sidebar-menu />
   </main>
   @if (isDesktopWidth()) {
     <footer>
       <hr />
-      <app-sidebar-footer [expanded]="expanded()" />
+      <app-sidebar-footer [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
     </footer>
   }
 </aside>
