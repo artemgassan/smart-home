@@ -4,8 +4,10 @@
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 550px) {
+  @media (max-width: 400px) {
     height: auto;
-    min-height: 60dvh;
+    min-height: 100dvh;
+    padding-top: 5vh;
+    align-items: flex-start;
   }
 }

@@ -1,3 +1,12 @@
+import {
+  TuiTitle,
+  TuiError,
+  TuiLabel,
+  TuiButton,
+  TuiAppearance,
+  TuiTextfieldComponent,
+  TuiTextfieldDirective,
+} from '@taiga-ui/core';
 import { AsyncPipe } from '@angular/common';
 import { TuiFieldErrorPipe } from '@taiga-ui/kit';
 import { AuthService } from '@/app/services/auth.service';
@@ -5,15 +14,6 @@ import type { HttpErrorResponse } from '@angular/common/http';
 import { TuiCardLarge, TuiForm, TuiHeader } from '@taiga-ui/layout';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {
-  TuiAppearance,
-  TuiButton,
-  TuiError,
-  TuiLabel,
-  TuiTextfieldComponent,
-  TuiTextfieldDirective,
-  TuiTitle,
-} from '@taiga-ui/core';
 
 @Component({
   selector: 'app-login-form',
