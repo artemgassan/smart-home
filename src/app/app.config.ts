@@ -1,5 +1,6 @@
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
 import { provideRouter } from '@angular/router';
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouterStore } from '@ngrx/router-store';
@@ -21,5 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideEffects(),
   ],
 };
