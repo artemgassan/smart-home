@@ -3,4 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 550px) {
+    height: auto;
+    min-height: 60dvh;
+  }
 }

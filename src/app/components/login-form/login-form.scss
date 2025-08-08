@@ -1,0 +1,6 @@
+form {
+  min-width: 32rem;
+  @media (max-width: 550px) {
+    min-width: calc(100vw - 2rem);
+  }
+}
