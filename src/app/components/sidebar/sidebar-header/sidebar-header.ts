@@ -2,7 +2,7 @@ import { TuiNavigation } from '@taiga-ui/layout';
 import { TuiAvatar, TuiFade } from '@taiga-ui/kit';
 import { UserService } from '@/app/services/user.service';
 import { AuthService } from '@/app/services/auth.service';
-import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-header',
@@ -13,7 +13,6 @@ import { ChangeDetectionStrategy, Component, inject, input, signal } from '@angu
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarHeader {
-  public expanded = input.required<boolean>();
   protected userName = signal<string>('');
   protected userInitials = signal<string>('');
   protected authService = inject(AuthService);

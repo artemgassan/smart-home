@@ -10,6 +10,6 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarFooter {
-  public expanded = input.required<boolean>();
+  public isExpanded = input.required<boolean>();
   public toggleExpanded = output<void>();
 }

@@ -31,7 +31,7 @@ import { SidebarFooter } from '@/app/components/sidebar/sidebar-footer/sidebar-f
 export class Sidebar implements OnInit {
   private static readonly widthSidebarCloses = 768;
   private static readonly minSizeSidebarOpen = 580;
-  protected expanded = signal(true);
+  protected isExpanded = signal(true);
   protected isDesktopWidth = signal(true);
   private resizeListener = this.updateExpandedState.bind(this);
 
@@ -41,13 +41,13 @@ export class Sidebar implements OnInit {
   }
 
   protected toggleExpanded(): void {
-    this.expanded.set(!this.expanded());
+    this.isExpanded.set(!this.isExpanded());
   }
 
   private updateExpandedState(): void {
     const isMobile = window.innerWidth < Sidebar.widthSidebarCloses;
     const shouldShowHeader = window.innerWidth >= Sidebar.minSizeSidebarOpen;
-    this.expanded.set(!isMobile);
+    this.isExpanded.set(!isMobile);
     this.isDesktopWidth.set(shouldShowHeader);
   }
 }

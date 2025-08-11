@@ -1,6 +1,6 @@
-<aside [tuiNavigationAside]="expanded()">
+<aside [tuiNavigationAside]="isExpanded()">
   <header>
-    <app-sidebar-header [expanded]="expanded()" />
+    <app-sidebar-header />
   </header>
   <main>
     <app-sidebar-menu />
@@ -8,7 +8,7 @@
   @if (isDesktopWidth()) {
     <footer>
       <hr />
-      <app-sidebar-footer [expanded]="expanded()" (toggleExpanded)="toggleExpanded()" />
+      <app-sidebar-footer [isExpanded]="isExpanded()" (toggleExpanded)="toggleExpanded()" />
     </footer>
   }
 </aside>
