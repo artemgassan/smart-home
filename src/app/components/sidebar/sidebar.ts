@@ -10,6 +10,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { SidebarMenu } from '@/app/components/sidebar/sidebar-menu/sidebar-menu';
 import { SidebarHeader } from '@/app/components/sidebar/sidebar-header/sidebar-header';
 import { SidebarFooter } from '@/app/components/sidebar/sidebar-footer/sidebar-footer';
+import { SIDEBAR_CLOSE_BREAKPOINT, SIDEBAR_MIN_OPEN_WIDTH } from '@/app/consts/sizes.const';
 
 @Component({
   selector: 'app-sidebar',
@@ -29,8 +30,6 @@ import { SidebarFooter } from '@/app/components/sidebar/sidebar-footer/sidebar-f
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sidebar implements OnInit {
-  private static readonly widthSidebarCloses = 768;
-  private static readonly minSizeSidebarOpen = 580;
   protected isExpanded = signal(true);
   protected isDesktopWidth = signal(true);
   private resizeListener = this.updateExpandedState.bind(this);
@@ -45,8 +44,8 @@ export class Sidebar implements OnInit {
   }
 
   private updateExpandedState(): void {
-    const isMobile = window.innerWidth < Sidebar.widthSidebarCloses;
-    const shouldShowHeader = window.innerWidth >= Sidebar.minSizeSidebarOpen;
+    const isMobile = window.innerWidth < SIDEBAR_CLOSE_BREAKPOINT;
+    const shouldShowHeader = window.innerWidth >= SIDEBAR_MIN_OPEN_WIDTH;
     this.isExpanded.set(!isMobile);
     this.isDesktopWidth.set(shouldShowHeader);
   }
