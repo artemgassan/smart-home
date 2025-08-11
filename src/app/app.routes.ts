@@ -3,14 +3,16 @@ import { authGuard } from '@/app/guards/auth.guard';
 import { NotFoundPage } from '@/app/pages/not-found-page/not-found-page';
 import { DashboardPage } from '@/app/pages/dashboard-page/dashboard-page';
 
-export enum AppRoutes {
-  MAIN = 'main',
-  DASHBOARD = 'dashboard',
-  LOGIN = 'login',
-  NOT_FOUND = 'not_found',
-}
+export const AppRoutes = {
+  MAIN: 'main',
+  DASHBOARD: 'dashboard',
+  LOGIN: 'login',
+  NOT_FOUND: 'not_found',
+} as const;
 
-export const RoutePath: Record<AppRoutes, string> = {
+type AppRouteType = (typeof AppRoutes)[keyof typeof AppRoutes];
+
+export const RoutePath: Record<AppRouteType, string> = {
   [AppRoutes.MAIN]: '',
   [AppRoutes.DASHBOARD]: 'dashboard',
   [AppRoutes.LOGIN]: 'login',
