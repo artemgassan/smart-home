@@ -1,10 +1,6 @@
-import { input, OnInit } from '@angular/core';
-import { RoutePath } from '@/app/app.routes';
+import { input, output } from '@angular/core';
 import { TuiNavigation } from '@taiga-ui/layout';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UrlsService } from '@/app/services/urls.service';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
-import { DashboardsService } from '@/app/services/dashboards.service';
 import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 
@@ -17,21 +13,15 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 })
 export class SidebarMenu {
   public dashboards = input<DashboardResponse[]>([]);
-  protected activeDashboard = signal<string>('');
-  private readonly router = inject(Router);
-  private readonly url = inject(UrlsService);
-  private readonly route = inject(ActivatedRoute);
-  private readonly api = inject(DashboardsService);
-  //
-  // public ngOnInit(): void {
-  //   this.getDashboards();
-  // }
+  public activeDashboard = input<string>();
+  public changeDashboard = output<string>();
 
-  protected setActiveDashboard(dashboardsId: string): void {
+  protected setActiveDashboard(dashboardId: string): void {
+    this.changeDashboard.emit(dashboardId);
     // this.activeDashboard.set(dashboardsId);
     // this.router.navigate([RoutePath.dashboard, dashboardsId]);
 
-    this.url.setActiveDashboard(dashboardsId);
+    // this.url.setActiveDashboard(dashboardsId);
   }
 
   // private getDashboards(): void {

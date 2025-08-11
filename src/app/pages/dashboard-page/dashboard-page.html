@@ -1,4 +1,4 @@
 <app-header />
-<app-sidebar [dashboards]="dashboards()">
+<app-sidebar [dashboards]="dashboards()" [activeDashboard]="activeDashboardId()">
   <app-dashboard [dashboard]="activeDashboard()" [isLoading]="isLoading()" [activeTab]="activeTab()"/>
 </app-sidebar>
