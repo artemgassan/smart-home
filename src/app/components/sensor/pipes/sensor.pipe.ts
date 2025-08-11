@@ -4,7 +4,6 @@ import type { SensorValueType } from '@/app/interfaces/cards.interface';
 
 @Pipe({
   name: 'sensorPipe',
-  standalone: true,
 })
 export class SensorPipe implements PipeTransform {
   public transform(value: SensorValueType): string {

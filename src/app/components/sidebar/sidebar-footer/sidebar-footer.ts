@@ -6,7 +6,6 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
   imports: [TuiAsideItemDirective, TuiNavigation],
   templateUrl: './sidebar-footer.html',
   styleUrl: './sidebar-footer.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarFooter {

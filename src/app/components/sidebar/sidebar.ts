@@ -14,7 +14,6 @@ import { SIDEBAR_CLOSE_BREAKPOINT, SIDEBAR_MIN_OPEN_WIDTH } from '@/app/consts/s
 
 @Component({
   selector: 'app-sidebar',
-  standalone: true,
   imports: [
     SidebarMenu,
     FormsModule,

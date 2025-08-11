@@ -22,7 +22,6 @@ import { ChangeDetectionStrategy, Component, computed, input, viewChildren } fro
     FormsModule,
     NgClass,
   ],
-  standalone: true,
   templateUrl: './card.html',
   styleUrl: './card.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

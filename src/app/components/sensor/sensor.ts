@@ -12,7 +12,6 @@ import type { SensorItemType, SensorValueType } from '@/app/interfaces/cards.int
   imports: [TuiBlock, TuiHeader, TuiIcon, EntityIconPipe, SensorPipe, NgClass],
   templateUrl: './sensor.html',
   styleUrl: './sensor.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sensor {

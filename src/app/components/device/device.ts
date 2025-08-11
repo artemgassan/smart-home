@@ -21,7 +21,6 @@ import { ChangeDetectionStrategy, Component, computed, input, model } from '@ang
   ],
   templateUrl: './device.html',
   styleUrl: './device.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Device {

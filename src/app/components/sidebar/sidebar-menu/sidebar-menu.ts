@@ -13,7 +13,6 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
   imports: [TuiNavigation, EntityIconPipe],
   templateUrl: './sidebar-menu.html',
   styleUrl: './sidebar-menu.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarMenu implements OnInit {

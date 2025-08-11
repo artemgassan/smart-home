@@ -6,7 +6,6 @@ import { TuiBadge } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
   imports: [TuiHeaderComponent, TuiButton, TuiNavigation, TuiIcon, TuiBadge],
   templateUrl: './header.html',
   styleUrl: './header.scss',

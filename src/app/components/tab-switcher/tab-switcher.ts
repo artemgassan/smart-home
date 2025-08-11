@@ -8,7 +8,6 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
   imports: [TuiFade, TuiSubheaderCompactComponent, TuiTab, TuiTabsHorizontal],
   templateUrl: './tab-switcher.html',
   styleUrl: './tab-switcher.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabSwitcher {

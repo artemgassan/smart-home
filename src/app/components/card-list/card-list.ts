@@ -6,7 +6,6 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 
 @Component({
   selector: 'app-card-list',
-  standalone: true,
   imports: [TuiHeader, TuiMainComponent, Card],
   templateUrl: './card-list.html',
   styleUrl: './card-list.scss',

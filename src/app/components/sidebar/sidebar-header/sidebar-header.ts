@@ -9,7 +9,6 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
   imports: [TuiNavigation, TuiAvatar, TuiFade],
   templateUrl: './sidebar-header.html',
   styleUrl: './sidebar-header.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarHeader {

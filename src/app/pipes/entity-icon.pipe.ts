@@ -6,7 +6,6 @@ type EntityIconType = 'device' | 'sensor' | null;
 
 @Pipe({
   name: 'deviceIconPipe',
-  standalone: true,
 })
 export class EntityIconPipe implements PipeTransform {
   public transform(value: string, type: EntityIconType): string {

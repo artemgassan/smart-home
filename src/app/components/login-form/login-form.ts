@@ -17,7 +17,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 @Component({
   selector: 'app-login-form',
-  standalone: true,
   imports: [
     AsyncPipe,
     ReactiveFormsModule,

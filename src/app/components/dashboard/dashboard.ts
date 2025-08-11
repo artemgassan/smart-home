@@ -29,7 +29,6 @@ import { RoutePath } from '@/app/app.routes';
 @Component({
   selector: 'app-dashboard',
   imports: [TabSwitcher, CardList, DashboardNotFound, TuiLoader],
-  standalone: true,
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

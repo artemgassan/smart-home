@@ -7,7 +7,6 @@ import { TuiBlockStatusComponent, TuiBlockStatusDirective } from '@taiga-ui/layo
 @Component({
   selector: 'app-not-found-page',
   imports: [TuiBlockStatusComponent, TuiBlockStatusDirective, TuiButton],
-  standalone: true,
   templateUrl: './not-found-page.html',
   styleUrl: './not-found-page.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
