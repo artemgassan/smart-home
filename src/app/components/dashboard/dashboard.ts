@@ -39,6 +39,7 @@ export class Dashboard {
   protected activeTab = linkedSignal<TabType | undefined>(() => this.initTab());
 
   protected onChangeTab(tab: TabType): void {
+    if (this.activeTab()?.id === tab.id) return;
     this.activeTab.set(tab);
     this.changeTab.emit(tab);
   }

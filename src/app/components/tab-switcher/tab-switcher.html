@@ -1,5 +1,5 @@
 <nav compact tuiSubheader>
-  <tui-tabs tuiFade>
+  <tui-tabs tuiFade [activeItemIndex]="activeIndex()">
     @for (tab of tabs(); track tab.id) {
       <button tuiTab type="button" (click)="onTabClick(tab)">
         {{ tab.title }}

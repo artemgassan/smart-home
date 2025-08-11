@@ -29,6 +29,11 @@ export class DashboardPage implements OnInit {
   protected changeTab = output<TabType>();
   protected isLoading = signal<boolean>(true);
   protected activeTab = linkedSignal<TabType | undefined>(() => undefined);
+  protected activeTabId = linkedSignal<string>(() => {
+    const paramFromUrl = this.route.snapshot.paramMap.get('tabId');
+    if (paramFromUrl) return paramFromUrl;
+    return this.activeTab()?.id ?? '';
+  });
   private url = inject(UrlsService);
   private route = inject(ActivatedRoute);
   private api = inject(DashboardsService);
@@ -44,6 +49,7 @@ export class DashboardPage implements OnInit {
 
   public ngOnInit(): void {
     this.getDashboards();
+    this.url.setDefaultTab(this.activeTabId());
   }
 
   protected onMenuChangeDashboard(dashboardId: string): void {
@@ -53,6 +59,7 @@ export class DashboardPage implements OnInit {
 
   protected onChangeTab(tab: TabType): void {
     this.activeTab.set(tab);
+    this.activeTabId.set(tab.id);
     this.url.setActiveTab(tab.id);
   }
 
@@ -72,8 +79,16 @@ export class DashboardPage implements OnInit {
       .subscribe({
         next: (response) => {
           this.activeDashboard.set(response);
-          this.activeTab.set(response.tabs[0]);
-          this.url.setDefaultTab(response.tabs[0].id);
+
+          const defaultTab =
+            response.tabs.find((tab) => tab.id === this.activeTabId()) ?? response.tabs[0];
+
+          this.activeTab.set(defaultTab);
+
+          if (defaultTab) {
+            this.activeTabId.set(defaultTab.id);
+            this.url.setActiveTab(defaultTab.id);
+          }
         },
       });
   }
