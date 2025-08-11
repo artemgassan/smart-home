@@ -1,5 +1,5 @@
 import { finalize } from 'rxjs';
-import { effect } from '@angular/core';
+import { effect, output } from '@angular/core';
 import type { OnInit } from '@angular/core';
 import { Component, inject } from '@angular/core';
 import { linkedSignal, signal } from '@angular/core';
@@ -21,6 +21,7 @@ export class DashboardPage implements OnInit {
     this.dashboards().length > 0 ? this.dashboards()[0].id : '',
   );
   protected activeDashboard = linkedSignal<DashboardType | null>(() => null);
+  protected changeDashboard = output<string>();
   protected isLoading = signal<boolean>(true);
   protected activeTab = linkedSignal<TabType | undefined>(() => undefined);
   private api = inject(DashboardsService);
@@ -36,6 +37,10 @@ export class DashboardPage implements OnInit {
 
   public ngOnInit(): void {
     this.getDashboards();
+  }
+
+  protected onMenuChangeDashboard(dashboardId: string): void {
+    this.activeDashboardId.set(dashboardId);
   }
 
   private getDashboards(): void {

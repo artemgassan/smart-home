@@ -20,8 +20,10 @@ export class SidebarMenu {
   });
 
   protected setActiveDashboard(dashboardId: string): void {
-    this.changeDashboard.emit(dashboardId);
-    this.activeDashboard.set(dashboardId);
+    if (dashboardId !== this.activeDashboard()) {
+      this.activeDashboard.set(dashboardId);
+      this.changeDashboard.emit(dashboardId);
+    }
     // this.activeDashboard.set(dashboardsId);
     // this.router.navigate([RoutePath.dashboard, dashboardsId]);
 

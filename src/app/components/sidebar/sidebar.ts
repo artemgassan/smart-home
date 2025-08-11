@@ -5,6 +5,7 @@ import {
   tuiLayoutIconsProvider,
 } from '@taiga-ui/layout';
 import type { OnInit } from '@angular/core';
+import { linkedSignal } from '@angular/core';
 import { output } from '@angular/core';
 import { input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +35,8 @@ import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 export class Sidebar implements OnInit {
   public dashboards = input<DashboardResponse[]>([]);
   public initDashboard = input<string>();
+  public changeDashboard = output<string>();
+  protected activeDashboard = linkedSignal(() => this.initDashboard());
   protected isExpanded = signal(true);
   protected isDesktopWidth = signal(true);
   private resizeListener = this.updateExpandedState.bind(this);
@@ -45,6 +48,11 @@ export class Sidebar implements OnInit {
 
   protected toggleExpanded(): void {
     this.isExpanded.set(!this.isExpanded());
+  }
+
+  protected onMenuChangeDashboard(dashboardId: string): void {
+    this.activeDashboard.set(dashboardId);
+    this.changeDashboard.emit(dashboardId);
   }
 
   private updateExpandedState(): void {
