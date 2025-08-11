@@ -1,4 +1,4 @@
 <app-header />
 <app-sidebar [dashboards]="dashboards()" [initDashboard]="activeDashboardId()" (changeDashboard)="onMenuChangeDashboard($event)" >
-  <app-dashboard [dashboard]="activeDashboard()" [isLoading]="isLoading()" [activeTab]="activeTab()" />
+  <app-dashboard [dashboard]="activeDashboard()" [isLoading]="isLoading()" [initTab]="activeTab()" />
 </app-sidebar>

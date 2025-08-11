@@ -6,7 +6,7 @@ import {
   Component,
   ChangeDetectionStrategy,
   linkedSignal,
-  input,
+  input, output,
 } from '@angular/core';
 import { TuiLoader } from '@taiga-ui/core';
 import type { OnInit } from '@angular/core';
@@ -34,10 +34,18 @@ import { DashboardNotFound } from '@/app/components/dashboard/dashboard-not-foun
 export class Dashboard {
   public dashboard = input<DashboardType | null>(null);
   public isLoading = input.required<boolean>();
+  public initTab = input<TabType | undefined>(undefined);
+  public changeTab = output<TabType>();
+  protected activeTab = linkedSignal<TabType | undefined>(() => this.initTab());
+
+  protected onChangeTab(tab: TabType): void {
+    this.activeTab.set(tab);
+
+  }
+
   // protected tabs = linkedSignal<TabType[] | undefined>(() => {
   //   return this.dashboard()?.tabs;
   // });
-  public activeTab = input<TabType | undefined>(undefined);
 
   // constructor() {
   //   let initialRun = true;
