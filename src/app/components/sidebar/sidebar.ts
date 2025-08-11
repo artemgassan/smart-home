@@ -33,7 +33,7 @@ import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 })
 export class Sidebar implements OnInit {
   public dashboards = input<DashboardResponse[]>([]);
-  public activeDashboard = input<string>();
+  public initDashboard = input<string>();
   protected isExpanded = signal(true);
   protected isDesktopWidth = signal(true);
   private resizeListener = this.updateExpandedState.bind(this);

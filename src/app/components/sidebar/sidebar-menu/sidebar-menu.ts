@@ -1,4 +1,4 @@
-import { input, output } from '@angular/core';
+import { input, linkedSignal, output } from '@angular/core';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
@@ -13,11 +13,15 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 })
 export class SidebarMenu {
   public dashboards = input<DashboardResponse[]>([]);
-  public activeDashboard = input<string>();
+  public initDashboard = input<string>();
   public changeDashboard = output<string>();
+  protected activeDashboard = linkedSignal<string | undefined>(() => {
+    return this.initDashboard();
+  });
 
   protected setActiveDashboard(dashboardId: string): void {
     this.changeDashboard.emit(dashboardId);
+    this.activeDashboard.set(dashboardId);
     // this.activeDashboard.set(dashboardsId);
     // this.router.navigate([RoutePath.dashboard, dashboardsId]);
 

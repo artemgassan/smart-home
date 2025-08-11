@@ -3,7 +3,7 @@
     <app-sidebar-header />
   </header>
   <main>
-    <app-sidebar-menu [dashboards]="dashboards()" [activeDashboard]="activeDashboard()" />
+    <app-sidebar-menu [dashboards]="dashboards()" [initDashboard]="initDashboard()" />
   </main>
   @if (isDesktopWidth()) {
     <footer>
