@@ -15,8 +15,12 @@ export class UrlsService {
     let initialRun = true;
     effect(() => {
       this.activeDashboard();
-      if (!initialRun) this.updateDashboardPageUrl();
-      else initialRun = false;
+      this.activeTab();
+      this.updateDashboardPageUrl();
+      if (!initialRun) {
+        return;
+      }
+      initialRun = false;
     });
   }
 
@@ -24,9 +28,18 @@ export class UrlsService {
     this.activeDashboard.set(dashboard);
   }
 
+  public setActiveTab(tab: string): void {
+    this.activeTab.set(tab);
+  }
+
   public setDefaultDashboard(defaultDashboard: string): void {
     const routeDashboard = this.route.snapshot.paramMap.get('dashboardId');
     this.activeDashboard.set(routeDashboard ?? defaultDashboard);
+  }
+
+  public setDefaultTab(defaultTab: string): void {
+    const routeDashboard = this.route.snapshot.paramMap.get('tabId');
+    this.activeTab.set(routeDashboard ?? defaultTab);
   }
 
   private updateDashboardPageUrl(): void {

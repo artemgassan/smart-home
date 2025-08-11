@@ -12,7 +12,7 @@ import { ChangeDetectionStrategy, Component, input, output } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabSwitcher {
-  public tabs = input<TabType[] | undefined>();
+  public tabs = input<any>();
   public activeTab = input<TabType | undefined>();
   public tabChanged = output<TabType>();
 

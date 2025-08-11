@@ -29,27 +29,31 @@ export class SidebarMenu implements OnInit {
   }
 
   protected setActiveDashboard(dashboardsId: string): void {
-    this.activeDashboard.set(dashboardsId);
-    this.router.navigate([RoutePath.dashboard, dashboardsId]);
+    // this.activeDashboard.set(dashboardsId);
+    // this.router.navigate([RoutePath.dashboard, dashboardsId]);
+
+    this.url.setActiveDashboard(dashboardsId);
   }
 
   private getDashboards(): void {
     this.api.getDashboards().subscribe({
       next: (response) => {
-        this.setDefaultDashboard(response[0].id);
+        // this.setDefaultDashboard(response[0].id);
         this.dashboards.set(response);
+
+        // this.url.setDefaultDashboard(response[0].id);
       },
     });
   }
 
-  private setDefaultDashboard(responseId: string): void {
-    const routeId = this.route.snapshot.paramMap.get('dashboardId') ?? '';
-    if (routeId) {
-      this.activeDashboard.set(routeId);
-      this.router.navigate([RoutePath.dashboard, routeId]);
-    } else {
-      this.activeDashboard.set(responseId);
-      this.router.navigate([RoutePath.dashboard, responseId]);
-    }
-  }
+  // private setDefaultDashboard(responseId: string): void {
+  //   const routeId = this.route.snapshot.paramMap.get('dashboardId') ?? '';
+  //   if (routeId) {
+  //     this.activeDashboard.set(routeId);
+  //     this.router.navigate([RoutePath.dashboard, routeId]);
+  //   } else {
+  //     this.activeDashboard.set(responseId);
+  //     this.router.navigate([RoutePath.dashboard, responseId]);
+  //   }
+  // }
 }

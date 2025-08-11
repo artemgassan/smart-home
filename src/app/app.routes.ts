@@ -34,7 +34,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       {
-        path: '',
+        path: ':dashboardId/:tabId',
         component: DashboardPage,
       },
       {
@@ -42,7 +42,7 @@ export const routes: Routes = [
         component: DashboardPage,
       },
       {
-        path: ':dashboardId/:tabId',
+        path: '',
         component: DashboardPage,
       },
     ],
