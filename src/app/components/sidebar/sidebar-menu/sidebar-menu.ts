@@ -1,4 +1,4 @@
-import type { OnInit } from '@angular/core';
+import { input, OnInit } from '@angular/core';
 import { RoutePath } from '@/app/app.routes';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,17 +15,17 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
   styleUrl: './sidebar-menu.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarMenu implements OnInit {
-  protected dashboards = signal<DashboardResponse[]>([]);
+export class SidebarMenu {
+  public dashboards = input<DashboardResponse[]>([]);
   protected activeDashboard = signal<string>('');
   private readonly router = inject(Router);
   private readonly url = inject(UrlsService);
   private readonly route = inject(ActivatedRoute);
   private readonly api = inject(DashboardsService);
-
-  public ngOnInit(): void {
-    this.getDashboards();
-  }
+  //
+  // public ngOnInit(): void {
+  //   this.getDashboards();
+  // }
 
   protected setActiveDashboard(dashboardsId: string): void {
     // this.activeDashboard.set(dashboardsId);
@@ -34,16 +34,16 @@ export class SidebarMenu implements OnInit {
     this.url.setActiveDashboard(dashboardsId);
   }
 
-  private getDashboards(): void {
-    this.api.getDashboards().subscribe({
-      next: (response) => {
-        // this.setDefaultDashboard(response[0].id);
-        this.dashboards.set(response);
-
-        // this.url.setDefaultDashboard(response[0].id);
-      },
-    });
-  }
+  // private getDashboards(): void {
+  //   this.api.getDashboards().subscribe({
+  //     next: (response) => {
+  //       // this.setDefaultDashboard(response[0].id);
+  //       this.dashboards.set(response);
+  //
+  //       // this.url.setDefaultDashboard(response[0].id);
+  //     },
+  //   });
+  // }
 
   // private setDefaultDashboard(responseId: string): void {
   //   const routeId = this.route.snapshot.paramMap.get('dashboardId') ?? '';

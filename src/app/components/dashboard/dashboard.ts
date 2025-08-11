@@ -5,7 +5,7 @@ import {
   computed,
   Component,
   ChangeDetectionStrategy,
-  linkedSignal,
+  linkedSignal, input,
 } from '@angular/core';
 import { TuiLoader } from '@taiga-ui/core';
 import type { OnInit } from '@angular/core';
