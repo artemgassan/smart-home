@@ -26,6 +26,7 @@ export class DashboardPage implements OnInit {
   });
   protected activeDashboard = linkedSignal<DashboardType | null>(() => null);
   protected changeDashboard = output<string>();
+  protected changeTab = output<TabType>();
   protected isLoading = signal<boolean>(true);
   protected activeTab = linkedSignal<TabType | undefined>(() => undefined);
   private url = inject(UrlsService);
@@ -50,6 +51,11 @@ export class DashboardPage implements OnInit {
     this.url.setActiveDashboard(dashboardId);
   }
 
+  protected onChangeTab(tab: TabType): void {
+    this.activeTab.set(tab);
+    this.url.setActiveTab(tab.id);
+  }
+
   private getDashboards(): void {
     this.api.getDashboards().subscribe({
       next: (response) => {
@@ -67,6 +73,7 @@ export class DashboardPage implements OnInit {
         next: (response) => {
           this.activeDashboard.set(response);
           this.activeTab.set(response.tabs[0]);
+          this.url.setDefaultTab(response.tabs[0].id);
         },
       });
   }

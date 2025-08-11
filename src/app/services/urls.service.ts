@@ -43,6 +43,6 @@ export class UrlsService {
   }
 
   private updateDashboardPageUrl(): void {
-    this.router.navigate([RoutePath.dashboard, this.activeDashboard()]);
+    this.router.navigate([RoutePath.dashboard, this.activeDashboard(), this.activeTab()]);
   }
 }

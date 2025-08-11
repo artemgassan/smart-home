@@ -40,7 +40,7 @@ export class Dashboard {
 
   protected onChangeTab(tab: TabType): void {
     this.activeTab.set(tab);
-
+    this.changeTab.emit(tab);
   }
 
   // protected tabs = linkedSignal<TabType[] | undefined>(() => {
