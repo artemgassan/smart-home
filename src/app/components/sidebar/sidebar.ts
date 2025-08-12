@@ -40,9 +40,9 @@ export class Sidebar implements OnInit {
   public dashboards = input<DashboardResponse[]>([]);
   public initDashboard = input<string>();
   public changeDashboard = output<string>();
-  protected activeDashboard = linkedSignal(() => this.initDashboard());
-  protected isExpanded = signal(true);
-  protected isDesktopWidth = signal(true);
+  protected activeDashboard = linkedSignal<string | undefined>(() => this.initDashboard());
+  protected isExpanded = signal<boolean>(true);
+  protected isDesktopWidth = signal<boolean>(true);
   private resizeListener = this.updateExpandedState.bind(this);
 
   public ngOnInit(): void {
