@@ -1,4 +1,13 @@
 <app-header />
-<app-sidebar [dashboards]="dashboards()" [initDashboard]="activeDashboardId()" (changeDashboard)="onMenuChangeDashboard($event)" >
-  <app-dashboard [dashboard]="activeDashboard()" [isLoading]="isLoading()" [initTab]="activeTab()" (changeTab)="onChangeTab($event)" />
+<app-sidebar
+  [dashboards]="dashboards()"
+  [initDashboard]="activeDashboardId()"
+  (changeDashboard)="onMenuChangeDashboard($event)"
+>
+  <app-dashboard
+    [dashboard]="activeDashboard()"
+    [isLoading]="isLoading()"
+    [initTab]="activeTab()"
+    (changeTab)="onChangeTab($event)"
+  />
 </app-sidebar>

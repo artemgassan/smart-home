@@ -1,27 +1,8 @@
-import {
-  inject,
-  signal,
-  effect,
-  computed,
-  Component,
-  ChangeDetectionStrategy,
-  linkedSignal,
-  input, output,
-} from '@angular/core';
 import { TuiLoader } from '@taiga-ui/core';
-import type { OnInit } from '@angular/core';
-import {
-  switchMap,
-  tap,
-  finalize,
-  distinctUntilChanged,
-  distinctUntilKeyChanged,
-  filter,
-} from 'rxjs';
 import { CardList } from '@/app/components/card-list/card-list';
-import { DashboardsService } from '@/app/services/dashboards.service';
 import { TabSwitcher } from '@/app/components/tab-switcher/tab-switcher';
 import type { DashboardType, TabType } from '@/app/interfaces/tabs.interface';
+import { Component, ChangeDetectionStrategy, linkedSignal, input, output } from '@angular/core';
 import { DashboardNotFound } from '@/app/components/dashboard/dashboard-not-found/dashboard-not-found';
 
 @Component({

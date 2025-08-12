@@ -34,9 +34,9 @@ export class DashboardPage implements OnInit {
     if (paramFromUrl) return paramFromUrl;
     return this.activeTab()?.id ?? '';
   });
-  private url = inject(UrlsService);
-  private route = inject(ActivatedRoute);
   private api = inject(DashboardsService);
+  private route = inject(ActivatedRoute);
+  private url = inject(UrlsService);
 
   constructor() {
     effect(() => {

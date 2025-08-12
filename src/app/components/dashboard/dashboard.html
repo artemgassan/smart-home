@@ -1,4 +1,8 @@
-<app-tab-switcher [tabs]="dashboard()?.tabs" [activeTab]="activeTab()" (tabChanged)="onChangeTab($event)" />
+<app-tab-switcher
+  [tabs]="dashboard()?.tabs"
+  [activeTab]="activeTab()"
+  (tabChanged)="onChangeTab($event)"
+/>
 
 @if (isLoading()) {
   <tui-loader size="xl" />

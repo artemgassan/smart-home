@@ -3,7 +3,11 @@
     <app-sidebar-header />
   </header>
   <main>
-    <app-sidebar-menu [dashboards]="dashboards()" [initDashboard]="initDashboard()" (changeDashboard)="onMenuChangeDashboard($event)" />
+    <app-sidebar-menu
+      [dashboards]="dashboards()"
+      [initDashboard]="initDashboard()"
+      (changeDashboard)="onMenuChangeDashboard($event)"
+    />
   </main>
   @if (isDesktopWidth()) {
     <footer>
