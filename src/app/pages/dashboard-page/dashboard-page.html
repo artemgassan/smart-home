@@ -2,7 +2,7 @@
 <app-sidebar
   [dashboards]="dashboards()"
   [initDashboard]="activeDashboardId()"
-  (changeDashboard)="onMenuChangeDashboard($event)"
+  (changeDashboard)="onChangeDashboard($event)"
 >
   <app-dashboard
     [dashboard]="activeDashboard()"

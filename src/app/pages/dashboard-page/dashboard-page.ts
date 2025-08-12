@@ -1,14 +1,12 @@
 import { finalize } from 'rxjs';
 import type { OnInit } from '@angular/core';
-import { effect, output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Component, inject } from '@angular/core';
-import { linkedSignal, signal } from '@angular/core';
 import { Header } from '@/app/components/header/header';
 import { UrlsService } from '@/app/services/urls.service';
 import { Sidebar } from '@/app/components/sidebar/sidebar';
 import { Dashboard } from '@/app/components/dashboard/dashboard';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import { Component, inject, effect, output, linkedSignal, signal } from '@angular/core';
 import type { DashboardResponse, DashboardType, TabType } from '@/app/interfaces/tabs.interface';
 
 @Component({
@@ -20,7 +18,7 @@ import type { DashboardResponse, DashboardType, TabType } from '@/app/interfaces
 export class DashboardPage implements OnInit {
   protected dashboards = signal<DashboardResponse[]>([]);
   protected activeDashboard = signal<DashboardType | null>(null);
-  protected activeTab = linkedSignal<TabType | null>(() => null);
+  protected activeTab = signal<TabType | null>(null);
   protected changeDashboard = output<string>();
   protected changeTab = output<TabType>();
   protected isLoading = signal<boolean>(true);
@@ -54,7 +52,7 @@ export class DashboardPage implements OnInit {
     this.url.setDefaultTab(this.activeTabId());
   }
 
-  protected onMenuChangeDashboard(dashboardId: string): void {
+  protected onChangeDashboard(dashboardId: string): void {
     this.activeDashboardId.set(dashboardId);
     this.url.setActiveDashboard(dashboardId);
   }
@@ -75,6 +73,7 @@ export class DashboardPage implements OnInit {
   }
 
   private getDashboard(): void {
+    this.isLoading.set(true);
     this.api
       .getDashboard(this.activeDashboardId())
       .pipe(finalize(() => this.isLoading.set(false)))

@@ -11,7 +11,7 @@ import { ChangeDetectionStrategy, Component, computed, input, output } from '@an
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabSwitcher {
-  public tabs = input<TabType[] | undefined>();
+  public tabs = input<TabType[]>();
   public activeTab = input<TabType | null>();
   public tabChanged = output<TabType>();
 
