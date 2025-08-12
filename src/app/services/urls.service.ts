@@ -24,10 +24,6 @@ export class UrlsService {
     });
   }
 
-  public getDefaultTab(): string | null {
-    return this.route.snapshot.paramMap.get('tabId');
-  }
-
   public setActiveDashboard(dashboard: string): void {
     this.activeDashboard.set(dashboard);
   }
@@ -42,7 +38,7 @@ export class UrlsService {
   }
 
   public setDefaultTab(defaultTab: string): void {
-    const routeTab = this.getDefaultTab();
+    const routeTab = this.route.snapshot.paramMap.get('tabId');
     this.activeTab.set(routeTab ?? defaultTab);
   }
 

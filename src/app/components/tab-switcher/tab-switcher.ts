@@ -12,7 +12,7 @@ import { ChangeDetectionStrategy, Component, computed, input, output } from '@an
 })
 export class TabSwitcher {
   public tabs = input<TabType[] | undefined>();
-  public activeTab = input<TabType | undefined>();
+  public activeTab = input<TabType | null>();
   public tabChanged = output<TabType>();
 
   protected activeIndex = computed(() => {

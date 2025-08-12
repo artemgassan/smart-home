@@ -12,6 +12,6 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardList {
-  public tab = input<TabType | undefined>();
+  public tab = input<TabType | null>();
   protected cards = computed<CardType[]>(() => this.tab()?.cards || []);
 }

@@ -1,20 +1,24 @@
 import {
+  input,
+  signal,
+  output,
+  Component,
+  linkedSignal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import {
   TuiNavigation,
   TuiMainComponent,
   TuiAsideComponent,
   tuiLayoutIconsProvider,
 } from '@taiga-ui/layout';
 import type { OnInit } from '@angular/core';
-import { linkedSignal } from '@angular/core';
-import { output } from '@angular/core';
-import { input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 import { SidebarMenu } from '@/app/components/sidebar/sidebar-menu/sidebar-menu';
 import { SidebarHeader } from '@/app/components/sidebar/sidebar-header/sidebar-header';
 import { SidebarFooter } from '@/app/components/sidebar/sidebar-footer/sidebar-footer';
 import { SIDEBAR_CLOSE_BREAKPOINT, SIDEBAR_MIN_OPEN_WIDTH } from '@/app/consts/sizes.const';
-import type { DashboardResponse } from '@/app/interfaces/tabs.interface';
 
 @Component({
   selector: 'app-sidebar',

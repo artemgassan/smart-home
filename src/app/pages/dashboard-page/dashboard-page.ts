@@ -19,24 +19,26 @@ import type { DashboardResponse, DashboardType, TabType } from '@/app/interfaces
 })
 export class DashboardPage implements OnInit {
   protected dashboards = signal<DashboardResponse[]>([]);
+  protected activeDashboard = signal<DashboardType | null>(null);
+  protected activeTab = linkedSignal<TabType | null>(() => null);
+  protected changeDashboard = output<string>();
+  protected changeTab = output<TabType>();
+  protected isLoading = signal<boolean>(true);
+
   protected activeDashboardId = linkedSignal<string>(() => {
     const paramFromUrl = this.route.snapshot.paramMap.get('dashboardId');
     if (paramFromUrl) return paramFromUrl;
     return this.dashboards()[0]?.id ?? '';
   });
-  protected activeDashboard = linkedSignal<DashboardType | null>(() => null);
-  protected changeDashboard = output<string>();
-  protected changeTab = output<TabType>();
-  protected isLoading = signal<boolean>(true);
-  protected activeTab = linkedSignal<TabType | undefined>(() => undefined);
   protected activeTabId = linkedSignal<string>(() => {
     const paramFromUrl = this.route.snapshot.paramMap.get('tabId');
     if (paramFromUrl) return paramFromUrl;
     return this.activeTab()?.id ?? '';
   });
-  private api = inject(DashboardsService);
-  private route = inject(ActivatedRoute);
-  private url = inject(UrlsService);
+
+  private readonly api = inject(DashboardsService);
+  private readonly route = inject(ActivatedRoute);
+  private readonly url = inject(UrlsService);
 
   constructor() {
     effect(() => {
