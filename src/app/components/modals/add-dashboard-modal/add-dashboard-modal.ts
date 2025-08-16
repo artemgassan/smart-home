@@ -8,16 +8,18 @@ import {
 import type { OnInit } from '@angular/core';
 import { TuiConfirmService } from '@taiga-ui/kit';
 import { Component, inject } from '@angular/core';
-import { TuiButton, TuiTextfield } from '@taiga-ui/core';
+import { iconsConfig } from '@/app/consts/icons.const';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import { TuiButton, TuiGroup, TuiIcon, TuiTextfield } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-add-dashboard-modal',
-  imports: [ReactiveFormsModule, FormsModule, TuiTextfield, TuiButton],
+  imports: [ReactiveFormsModule, FormsModule, TuiTextfield, TuiButton, TuiIcon, TuiGroup],
   templateUrl: './add-dashboard-modal.html',
   styleUrl: './add-dashboard-modal.scss',
 })
 export class AddDashboardModal implements OnInit {
+  protected icons = Object.values(iconsConfig);
   protected readonly form = new FormGroup({
     id: new FormControl<string>('', { nonNullable: true }),
     name: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
@@ -33,6 +35,10 @@ export class AddDashboardModal implements OnInit {
         this.confirm.markAsDirty();
       }
     });
+  }
+
+  protected selectIcon(icon: string): void {
+    this.form.controls.icon.setValue(icon);
   }
 
   protected onSubmit(): void {
