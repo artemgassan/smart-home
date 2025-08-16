@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
-import { TuiInputModule } from '@taiga-ui/legacy';
 import { FormsModule } from '@angular/forms';
 import { TuiConfirmService } from '@taiga-ui/kit';
+import { Component, inject } from '@angular/core';
+import { TuiButton, TuiTextfield } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-add-dashboard-modal',
-  imports: [TuiInputModule, FormsModule],
+  imports: [FormsModule, TuiTextfield, TuiButton],
   templateUrl: './add-dashboard-modal.html',
   styleUrl: './add-dashboard-modal.scss',
 })

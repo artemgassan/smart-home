@@ -1,14 +1,16 @@
-<tui-input
-  class="tui-space_bottom-3"
-  [ngModel]="value"
-  (ngModelChange)="onModelChange($event)"
->
-  Dashboard name
-</tui-input>
+<tui-textfield>
+  <label tuiLabel>Dashboard name</label>
+  <input
+    placeholder="Lights"
+    tuiTextfield
+    (ngModelChange)="onModelChange($event)"
+    [ngModel]="value"
+  />
+</tui-textfield>
 <button
   tuiButton
-  type="button"
+  type="submit"
+  appearance="primary"
 >
   Submit
 </button>
-
