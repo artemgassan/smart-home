@@ -1,3 +1,4 @@
+import { TuiButton } from '@taiga-ui/core';
 import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiFade, TuiTab, TuiTabsHorizontal } from '@taiga-ui/kit';
@@ -5,7 +6,7 @@ import { ChangeDetectionStrategy, Component, computed, input, output } from '@an
 
 @Component({
   selector: 'app-tab-switcher',
-  imports: [TuiFade, TuiSubheaderCompactComponent, TuiTab, TuiTabsHorizontal],
+  imports: [TuiFade, TuiSubheaderCompactComponent, TuiTab, TuiTabsHorizontal, TuiButton],
   templateUrl: './tab-switcher.html',
   styleUrl: './tab-switcher.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
