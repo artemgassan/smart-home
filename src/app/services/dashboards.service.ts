@@ -34,4 +34,12 @@ export class DashboardsService {
       }),
     );
   }
+
+  public removeDashboard(dashboardId: string): Observable<void> {
+    return this.http.delete<void>(`/dashboards/${dashboardId}`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      }),
+    );
+  }
 }
