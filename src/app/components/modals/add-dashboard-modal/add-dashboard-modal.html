@@ -10,8 +10,8 @@
         type="button"
         [appearance]="form.controls.icon.value === icon ? 'primary' : 'secondary'"
         [iconStart]="icon"
-        (click)="selectIcon(icon)">
-      </button>
+        (click)="selectIcon(icon)"
+      ></button>
     }
   </div>
   <button tuiButton type="submit" appearance="primary" [disabled]="form.invalid">Submit</button>

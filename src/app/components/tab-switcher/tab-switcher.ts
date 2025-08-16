@@ -1,8 +1,16 @@
-import { TuiButton } from '@taiga-ui/core';
+import {
+  TuiTab,
+  TuiFade,
+  TUI_CONFIRM,
+  TuiTabsHorizontal,
+  type TuiConfirmData,
+} from '@taiga-ui/kit';
+import { filter, switchMap } from 'rxjs';
+import { TuiAlertService, TuiButton } from '@taiga-ui/core';
 import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
-import { TuiFade, TuiTab, TuiTabsHorizontal } from '@taiga-ui/kit';
-import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
+import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
+import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-tab-switcher',
@@ -28,7 +36,30 @@ export class TabSwitcher {
     return index >= 0 ? index : 0;
   });
 
+  private readonly dialogs = inject(TuiResponsiveDialogService);
+  private readonly alerts = inject(TuiAlertService);
+
   protected onTabClick(tab: TabType): void {
     this.tabChanged.emit(tab);
+  }
+
+  protected onDeleteDashboard(): void {
+    const data: TuiConfirmData = {
+      content: 'Unfortunately, you cannot cancel this action.',
+      yes: 'Delete',
+      no: 'Cancel',
+    };
+
+    this.dialogs
+      .open<boolean>(TUI_CONFIRM, {
+        label: 'Do you really want to delete your dashboard?',
+        size: 's',
+        data,
+      })
+      .pipe(
+        filter((response) => response === true),
+        switchMap(() => this.alerts.open('Dashboard deleted successfully')),
+      )
+      .subscribe();
   }
 }

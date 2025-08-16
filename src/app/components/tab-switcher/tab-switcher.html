@@ -6,6 +6,14 @@
       </button>
     }
   </tui-tabs>
-  <button tuiButton appearance="secondary" type="button" iconStart="@tui.trash-2">Delete</button>
+  <button
+    tuiButton
+    appearance="secondary"
+    type="button"
+    iconStart="@tui.trash-2"
+    (click)="onDeleteDashboard()"
+  >
+    Delete
+  </button>
   <button tuiButton appearance="primary" type="button" iconStart="@tui.bolt">Edit</button>
 </nav>
