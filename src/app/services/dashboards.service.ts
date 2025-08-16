@@ -25,4 +25,13 @@ export class DashboardsService {
       }),
     );
   }
+
+  public addDashboard(id: string, title: string, icon: string): Observable<DashboardResponse> {
+    const data: DashboardResponse = { id, title, icon };
+    return this.http.post<DashboardResponse>(`/dashboards`, data).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      }),
+    );
+  }
 }

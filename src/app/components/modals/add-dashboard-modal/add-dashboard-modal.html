@@ -1,16 +1,33 @@
-<tui-textfield>
-  <label tuiLabel>Dashboard name</label>
-  <input
-    placeholder="Lights"
-    tuiTextfield
-    (ngModelChange)="onModelChange($event)"
-    [ngModel]="value"
-  />
-</tui-textfield>
-<button
-  tuiButton
-  type="submit"
-  appearance="primary"
->
-  Submit
-</button>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <tui-textfield>
+    <label tuiLabel>ID</label>
+    <input
+      placeholder="123"
+      tuiTextfield
+      formControlName="id"
+    />
+  </tui-textfield>
+  <tui-textfield>
+    <label tuiLabel>Dashboard name</label>
+    <input
+      placeholder="Lights"
+      tuiTextfield
+      formControlName="name"
+    />
+  </tui-textfield>
+  <tui-textfield>
+    <label tuiLabel>Icon</label>
+    <input
+      placeholder="icon"
+      tuiTextfield
+      formControlName="icon"
+    />
+  </tui-textfield>
+  <button
+    tuiButton
+    type="submit"
+    appearance="primary"
+  >
+    Submit
+  </button>
+</form>

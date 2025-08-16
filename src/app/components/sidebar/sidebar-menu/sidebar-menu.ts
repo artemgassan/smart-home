@@ -49,8 +49,6 @@ export class SidebarMenu {
     }
   }
 
-  protected value = '';
-
   protected openAddDashboardModal(content: PolymorpheusContent): void {
     const closeable = this.confirm.withConfirm({
       label: 'Are you sure?',
@@ -61,11 +59,6 @@ export class SidebarMenu {
 
     this.dialogs
       .open(content, { label: 'Add a new dashboard', closeable, dismissible: closeable })
-      .subscribe({
-        complete: () => {
-          this.value = '';
-          this.confirm.markAsPristine();
-        },
-      });
+      .subscribe();
   }
 }
