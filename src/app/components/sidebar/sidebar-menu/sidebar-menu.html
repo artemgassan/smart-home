@@ -9,4 +9,8 @@
     {{ dashboard.title }}
   </button>
 }
-<button iconStart="@tui.plus" tuiAsideItem type="button">Add dashboard</button>
+<button iconStart="@tui.plus" tuiAsideItem type="button" (click)="openAddDashboardModal(modalContent)">Add dashboard</button>
+
+<ng-template #modalContent>
+  <app-add-dashboard-modal />
+</ng-template>
