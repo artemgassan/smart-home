@@ -38,8 +38,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class LoginForm {
   protected readonly form = new FormGroup({
-    login: new FormControl('', [Validators.required, Validators.minLength(4)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    login: new FormControl<string>('', [Validators.required, Validators.minLength(4)]),
+    password: new FormControl<string>('', [Validators.required, Validators.minLength(2)]),
   });
 
   protected authErrorMessage = signal<string | null>(null);
