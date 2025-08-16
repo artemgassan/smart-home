@@ -30,8 +30,8 @@ export class AddDashboardModal implements OnInit {
   private readonly api = inject(DashboardsService);
 
   public ngOnInit(): void {
-    this.form.valueChanges.subscribe(() => {
-      if (this.form.dirty) {
+    this.form.controls.name.valueChanges.subscribe(() => {
+      if (this.form.controls.name.dirty) {
         this.confirm.markAsDirty();
       }
     });
