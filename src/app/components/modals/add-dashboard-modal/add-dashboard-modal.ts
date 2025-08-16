@@ -19,7 +19,7 @@ import { DashboardsService } from '@/app/services/dashboards.service';
 })
 export class AddDashboardModal implements OnInit {
   protected readonly form = new FormGroup({
-    id: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
+    id: new FormControl<string>('', { nonNullable: true }),
     name: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
     icon: new FormControl<string>('', { nonNullable: true, validators: Validators.required }),
   });

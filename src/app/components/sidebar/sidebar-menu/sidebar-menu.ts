@@ -6,11 +6,9 @@ import {
   linkedSignal,
   ChangeDetectionStrategy,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { TuiNavigation } from '@taiga-ui/layout';
 import { TuiConfirmService } from '@taiga-ui/kit';
 import { TuiDialogService } from '@taiga-ui/core';
-import { TuiInputModule } from '@taiga-ui/legacy';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import type { PolymorpheusContent } from '@taiga-ui/polymorpheus';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
@@ -19,7 +17,7 @@ import { AddDashboardModal } from '@/app/components/modals/add-dashboard-modal/a
 
 @Component({
   selector: 'app-sidebar-menu',
-  imports: [TuiNavigation, EntityIconPipe, TuiInputModule, FormsModule, AddDashboardModal],
+  imports: [TuiNavigation, EntityIconPipe, AddDashboardModal],
   templateUrl: './sidebar-menu.html',
   styleUrl: './sidebar-menu.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +33,6 @@ export class SidebarMenu {
   public dashboards = input<DashboardResponse[]>([]);
   public initDashboard = input<string>();
   public changeDashboard = output<string>();
-  public addDashboard = output<string>();
 
   protected activeDashboard = linkedSignal<string | undefined>(() => this.initDashboard());
 

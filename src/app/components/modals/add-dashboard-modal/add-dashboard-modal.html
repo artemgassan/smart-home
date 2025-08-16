@@ -1,25 +1,11 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <tui-textfield>
     <label tuiLabel>Dashboard name</label>
-    <input
-      placeholder="Lights"
-      tuiTextfield
-      formControlName="name"
-    />
+    <input placeholder="Lights" tuiTextfield formControlName="name" type="text" />
   </tui-textfield>
   <tui-textfield>
     <label tuiLabel>Icon</label>
-    <input
-      placeholder="icon"
-      tuiTextfield
-      formControlName="icon"
-    />
+    <input placeholder="icon" tuiTextfield formControlName="icon" type="text" />
   </tui-textfield>
-  <button
-    tuiButton
-    type="submit"
-    appearance="primary"
-  >
-    Submit
-  </button>
+  <button tuiButton type="submit" appearance="primary" [disabled]="form.invalid">Submit</button>
 </form>
