@@ -10,6 +10,7 @@ import { TuiAlertService, TuiButton } from '@taiga-ui/core';
 import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
+import { DashboardsService } from '@/app/services/dashboards.service';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 
 @Component({
@@ -38,6 +39,7 @@ export class TabSwitcher {
 
   private readonly dialogs = inject(TuiResponsiveDialogService);
   private readonly alerts = inject(TuiAlertService);
+  private readonly api = inject(DashboardsService);
 
   protected onTabClick(tab: TabType): void {
     this.tabChanged.emit(tab);
@@ -58,7 +60,10 @@ export class TabSwitcher {
       })
       .pipe(
         filter((response) => response === true),
-        switchMap(() => this.alerts.open('Dashboard deleted successfully')),
+        switchMap(() => {
+          this.alerts.open('Dashboard deleted successfully');
+          return this.api.removeDashboard('temp'); // TODO: добавить входной параметр
+        }),
       )
       .subscribe();
   }
