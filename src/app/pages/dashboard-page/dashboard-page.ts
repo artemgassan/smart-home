@@ -1,4 +1,5 @@
 import { finalize } from 'rxjs';
+import { Store } from '@ngrx/store';
 import type { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Header } from '@/app/components/header/header';
@@ -37,6 +38,7 @@ export class DashboardPage implements OnInit {
   private readonly api = inject(DashboardsService);
   private readonly route = inject(ActivatedRoute);
   private readonly url = inject(UrlsService);
+  private readonly store = inject(Store);
 
   constructor() {
     effect(() => {
