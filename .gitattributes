@@ -10,11 +10,11 @@
 *.html            text diff=html
 *.inc             text
 *.ini             text
-*.js              text
-*.mjs             text
-*.cjs             text
+*.js              text eol=lf
+*.mjs             text eol=lf
+*.cjs             text eol=lf
 *.json            text
-*.jsx             text
+*.jsx             text eol=lf
 *.less            text
 *.ls              text
 *.map             text -diff
@@ -33,8 +33,8 @@
 *.sql             text
 *.styl            text
 *.tag             text
-*.ts              text
-*.tsx             text
+*.ts              text eol=lf
+*.tsx             text eol=lf
 *.xml             text
 *.xhtml           text diff=html
 
