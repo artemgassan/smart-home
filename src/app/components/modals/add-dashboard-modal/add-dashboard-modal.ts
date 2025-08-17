@@ -9,12 +9,12 @@ import type { OnInit } from '@angular/core';
 import { TuiConfirmService } from '@taiga-ui/kit';
 import { Component, inject } from '@angular/core';
 import { iconsConfig } from '@/app/consts/icons.const';
+import { TuiButton, TuiGroup, TuiTextfield } from '@taiga-ui/core';
 import { DashboardsService } from '@/app/services/dashboards.service';
-import { TuiButton, TuiGroup, TuiIcon, TuiTextfield } from '@taiga-ui/core';
 
 @Component({
   selector: 'app-add-dashboard-modal',
-  imports: [ReactiveFormsModule, FormsModule, TuiTextfield, TuiButton, TuiIcon, TuiGroup],
+  imports: [ReactiveFormsModule, FormsModule, TuiTextfield, TuiButton, TuiGroup],
   templateUrl: './add-dashboard-modal.html',
   styleUrl: './add-dashboard-modal.scss',
 })
