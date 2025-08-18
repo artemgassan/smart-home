@@ -13,9 +13,6 @@
 //
 //   private dashboardEffects = createEffect(() => {
 //     this.actions$.pipe(ofType(DashboardActions.setActiveDashboardID),
-//     switchMap()
-//
-//     );
 //   });
 // }
 //
