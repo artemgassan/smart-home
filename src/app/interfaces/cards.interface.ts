@@ -42,7 +42,4 @@ export type DeviceRequest = {
   state: boolean;
 };
 
-export type DeviceResponse = {
-  id: string;
-} & DeviceRequest &
-  BaseItemType;
+export type DeviceResponse = DeviceRequest & BaseItemType;
