@@ -6,5 +6,5 @@ const selectDashboard = (state: AppStateType): DashboardStateType => state.dashb
 
 export const selectEditMode = createSelector(
   selectDashboard,
-  (state: DashboardStateType) => state.editMode,
+  (state: DashboardStateType) => state.isEditMode,
 );

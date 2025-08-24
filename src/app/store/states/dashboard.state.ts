@@ -1,7 +1,13 @@
+import type { DashboardType } from '@/app/interfaces/tabs.interface';
+
 export type DashboardStateType = {
-  editMode: boolean;
+  isEditMode: boolean;
+  originalData: DashboardType | null;
+  draftData: DashboardType | null;
 };
 
 export const initialDashboardState: DashboardStateType = {
-  editMode: false,
+  isEditMode: false,
+  originalData: null,
+  draftData: null,
 };
