@@ -14,6 +14,7 @@ import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
 import { DashboardsService } from '@/app/services/dashboards.service';
 import { toggleEditMode } from '@/app/store/actions/dashboard.actions';
+import { selectEditMode } from '@/app/store/selectors/dashboard.selectors';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 
@@ -29,6 +30,8 @@ export class TabSwitcher {
   public activeTab = input<TabType | null>();
   public tabChanged = output<TabType>();
 
+  protected readonly store = inject(Store);
+  protected readonly editMode = this.store.selectSignal(selectEditMode);
   protected activeIndex = computed(() => {
     const tabs = this.tabs() ?? [];
     const activeTab = this.activeTab();
@@ -45,7 +48,6 @@ export class TabSwitcher {
   private readonly alerts = inject(TuiAlertService);
   private readonly api = inject(DashboardsService);
   private readonly url = inject(UrlsService);
-  private readonly store = inject(Store);
 
   protected onTabClick(tab: TabType): void {
     this.tabChanged.emit(tab);

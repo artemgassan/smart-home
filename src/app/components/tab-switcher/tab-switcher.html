@@ -17,11 +17,11 @@
   </button>
   <button
     tuiButton
-    appearance="primary"
+    [appearance]="editMode() ? 'accent' : 'primary'"
     type="button"
     iconStart="@tui.bolt"
     (click)="onEditDashboard()"
   >
-    Edit
+    {{ editMode() ? 'Exit' : 'Edit' }}
   </button>
 </nav>
