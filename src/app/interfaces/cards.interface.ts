@@ -5,6 +5,13 @@ export type CardType = {
   items: ItemType[];
 };
 
+export type BaseItemType = {
+  id: string;
+  type: ItemCategoryType;
+  icon: string;
+  label: string;
+};
+
 export type DeviceItemType = {
   type: 'device';
   state: boolean;
@@ -16,6 +23,7 @@ export type SensorItemType = {
 } & BaseItemType;
 
 export type ItemType = SensorItemType | DeviceItemType;
+export type ItemCategoryType = 'sensor' | 'device';
 
 export type LayoutType = Layout;
 
@@ -24,14 +32,6 @@ export enum Layout {
   MultiHorizontalDevice = 'horizontalLayout',
   MultiVerticalDevice = 'verticalLayout',
 }
-
-export type BaseItemType = {
-  type: ItemCategoryType;
-  icon: string;
-  label: string;
-};
-
-export type ItemCategoryType = 'sensor' | 'device';
 
 export type SensorValueType = {
   amount: number;
