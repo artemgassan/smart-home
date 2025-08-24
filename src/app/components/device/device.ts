@@ -1,3 +1,4 @@
+import { Store } from '@ngrx/store';
 import { TuiIcon } from '@taiga-ui/core';
 import { NgClass } from '@angular/common';
 import { TuiHeader } from '@taiga-ui/layout';
@@ -5,7 +6,7 @@ import { TuiBlock, TuiSwitch } from '@taiga-ui/kit';
 import { EntityIconPipe } from '@/app/pipes/entity-icon.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import type { DeviceItemType } from '@/app/interfaces/cards.interface';
-import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, model } from '@angular/core';
 
 @Component({
   selector: 'app-device',
@@ -27,6 +28,7 @@ export class Device {
   public item = model.required<DeviceItemType>();
   public state = computed(() => this.item().state);
   public size = input.required<string>();
+  private store = inject(Store);
 
   public toggleDeviceState(state: boolean): void {
     this.item.update((item) => ({ ...item, state }));
