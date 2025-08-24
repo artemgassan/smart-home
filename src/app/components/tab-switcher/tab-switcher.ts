@@ -7,6 +7,7 @@ import {
 } from '@taiga-ui/kit';
 import { Store } from '@ngrx/store';
 import { filter, switchMap, tap } from 'rxjs';
+import { UrlsService } from '@/app/services/urls.service';
 import { TuiAlertService, TuiButton } from '@taiga-ui/core';
 import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
@@ -42,6 +43,7 @@ export class TabSwitcher {
   private readonly dialogs = inject(TuiResponsiveDialogService);
   private readonly alerts = inject(TuiAlertService);
   private readonly api = inject(DashboardsService);
+  private readonly url = inject(UrlsService);
   private readonly store = inject(Store);
 
   protected onTabClick(tab: TabType): void {
@@ -65,6 +67,7 @@ export class TabSwitcher {
         filter((response) => response),
         switchMap(() => {
           const currentDashboard = this.store.selectSignal(selectRouteDashboardId);
+          this.url.clearCurrentUrl();
           return this.api.removeDashboard(currentDashboard());
         }),
         tap(() => this.alerts.open('Dashboard deleted successfully').subscribe()),

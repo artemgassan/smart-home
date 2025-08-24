@@ -42,6 +42,10 @@ export class UrlsService {
     this.activeTab.set(routeTab ?? defaultTab);
   }
 
+  public clearCurrentUrl(): void {
+    this.router.navigate([RoutePath.dashboard]);
+  }
+
   private updateDashboardPageUrl(): void {
     this.router.navigate([RoutePath.dashboard, this.activeDashboard(), this.activeTab()]);
   }
