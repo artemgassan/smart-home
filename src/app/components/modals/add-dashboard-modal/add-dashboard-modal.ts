@@ -13,6 +13,7 @@ import type { TuiDialogContext } from '@taiga-ui/core';
 import { POLYMORPHEUS_CONTEXT } from '@taiga-ui/polymorpheus';
 import { TuiButton, TuiGroup, TuiTextfield } from '@taiga-ui/core';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import { DashboardPage } from '@/app/pages/dashboard-page/dashboard-page';
 
 @Component({
   selector: 'app-add-dashboard-modal',
@@ -31,6 +32,7 @@ export class AddDashboardModal implements OnInit {
   private readonly confirm = inject(TuiConfirmService);
   private readonly api = inject(DashboardsService);
   private readonly context = inject<TuiDialogContext>(POLYMORPHEUS_CONTEXT);
+  private readonly dashboards = inject(DashboardPage);
 
   public ngOnInit(): void {
     this.form.controls.name.valueChanges.subscribe(() => {
@@ -54,6 +56,7 @@ export class AddDashboardModal implements OnInit {
       this.api.addDashboard(id, name, icon).subscribe({
         next: () => {
           this.context.completeWith();
+          this.dashboards.onChangeDashboard(id);
         },
         error: (error) => console.error(error),
       });

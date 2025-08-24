@@ -54,9 +54,10 @@ export class DashboardPage implements OnInit {
     this.url.setDefaultTab(this.activeTabId());
   }
 
-  protected onChangeDashboard(dashboardId: string): void {
+  public onChangeDashboard(dashboardId: string): void {
     this.activeDashboardId.set(dashboardId);
     this.url.setActiveDashboard(dashboardId);
+    this.getDashboards();
   }
 
   protected onChangeTab(tab: TabType): void {
