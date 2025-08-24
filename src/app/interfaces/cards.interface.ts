@@ -37,3 +37,12 @@ export type SensorValueType = {
   amount: number;
   unit: string;
 };
+
+export type DeviceRequest = {
+  state: boolean;
+};
+
+export type DeviceResponse = {
+  id: string;
+} & DeviceRequest &
+  BaseItemType;
