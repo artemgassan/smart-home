@@ -1,7 +1,9 @@
+import { Store } from '@ngrx/store';
 import type { Observable } from 'rxjs';
-import { catchError, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { catchError, tap, throwError } from 'rxjs';
+import { setOriginalDashboard } from '@/app/store/actions/dashboard.actions';
 import type { DashboardResponse, DashboardType } from '@/app/interfaces/tabs.interface';
 
 @Injectable({
@@ -9,6 +11,7 @@ import type { DashboardResponse, DashboardType } from '@/app/interfaces/tabs.int
 })
 export class DashboardsService {
   private http = inject(HttpClient);
+  private store = inject(Store);
 
   public getDashboards(): Observable<DashboardResponse[]> {
     return this.http.get<DashboardResponse[]>('/dashboards').pipe(
@@ -20,6 +23,9 @@ export class DashboardsService {
 
   public getDashboard(dashboardId: string): Observable<DashboardType> {
     return this.http.get<DashboardType>(`/dashboards/${dashboardId}`).pipe(
+      tap((dashboard) => {
+        this.store.dispatch(setOriginalDashboard({ dashboard }));
+      }),
       catchError((error) => {
         return throwError(() => error);
       }),
@@ -37,6 +43,17 @@ export class DashboardsService {
 
   public removeDashboard(dashboardId: string): Observable<void> {
     return this.http.delete<void>(`/dashboards/${dashboardId}`).pipe(
+      catchError((error) => {
+        return throwError(() => error);
+      }),
+    );
+  }
+
+  public saveDashboard(dashboardId: string, dashboard: DashboardType): Observable<DashboardType> {
+    return this.http.put<DashboardType>(`/dashboards/${dashboardId}`, dashboard).pipe(
+      tap((savedDashboard) => {
+        this.store.dispatch(setOriginalDashboard({ dashboard: savedDashboard }));
+      }),
       catchError((error) => {
         return throwError(() => error);
       }),
