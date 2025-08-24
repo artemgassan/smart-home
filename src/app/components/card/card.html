@@ -12,6 +12,17 @@
         />
       </aside>
     }
+
+    @if (editMode()) {
+      <button
+        tuiButton
+        appearance="primary"
+        type="button"
+        iconStart="@tui.bolt"
+      >
+        Edit
+      </button>
+    }
   </header>
 
   <section [ngClass]="getLayoutStyleClass()">

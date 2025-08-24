@@ -1,13 +1,22 @@
+import {
+  input,
+  inject,
+  computed,
+  Component,
+  viewChildren,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TuiSwitch } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Device } from '@/app/components/device/device';
 import { Sensor } from '@/app/components/sensor/sensor';
-import { TuiAppearance, TuiTitle } from '@taiga-ui/core';
 import { Layout } from '@/app/interfaces/cards.interface';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
+import { TuiAppearance, TuiButton, TuiTitle } from '@taiga-ui/core';
+import { selectEditMode } from '@/app/store/selectors/dashboard.selectors';
 import type { CardType, LayoutType } from '@/app/interfaces/cards.interface';
-import { ChangeDetectionStrategy, Component, computed, input, viewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -21,6 +30,7 @@ import { ChangeDetectionStrategy, Component, computed, input, viewChildren } fro
     Sensor,
     FormsModule,
     NgClass,
+    TuiButton,
   ],
   templateUrl: './card.html',
   styleUrl: './card.scss',
@@ -31,6 +41,9 @@ export class Card {
   public items = computed(() => this.card().items);
   public devices = viewChildren(Device);
   public groupState = computed(() => this.devices().some((device) => device.state()));
+
+  protected readonly store = inject(Store);
+  protected readonly editMode = this.store.selectSignal(selectEditMode);
 
   public toggleDevices(state: boolean): void {
     this.devices().forEach((device) => device.toggleDeviceState(state));
