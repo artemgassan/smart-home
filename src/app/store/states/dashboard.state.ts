@@ -1,7 +1,7 @@
 export type DashboardStateType = {
-  eitMode: boolean;
+  editMode: boolean;
 };
 
 export const initialDashboardState: DashboardStateType = {
-  eitMode: false,
+  editMode: false,
 };

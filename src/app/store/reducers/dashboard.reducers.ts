@@ -6,7 +6,7 @@ import { enterEditMode, exitEditMode, toggleEditMode } from '@/app/store/actions
 export const dashboardReducers = createReducer(
   initialDashboardState,
 
-  on(enterEditMode, (state): DashboardStateType => ({ ...state, eitMode: true })),
-  on(exitEditMode, (state): DashboardStateType => ({ ...state, eitMode: false })),
-  on(toggleEditMode, (state): DashboardStateType => ({ ...state, eitMode: !state.eitMode })),
+  on(enterEditMode, (state): DashboardStateType => ({ ...state, editMode: true })),
+  on(exitEditMode, (state): DashboardStateType => ({ ...state, editMode: false })),
+  on(toggleEditMode, (state): DashboardStateType => ({ ...state, editMode: !state.editMode })),
 );
