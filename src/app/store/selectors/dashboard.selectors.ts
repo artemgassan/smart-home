@@ -4,7 +4,7 @@ import type { DashboardStateType } from '@/app/store/states/dashboard.state';
 
 const selectDashboard = (state: AppStateType): DashboardStateType => state.dashboards;
 
-export const selectActiveDashboardId = createSelector(
+export const selectEditMode = createSelector(
   selectDashboard,
-  (state: DashboardStateType) => state.activeDashboardId,
+  (state: DashboardStateType) => state.eitMode,
 );

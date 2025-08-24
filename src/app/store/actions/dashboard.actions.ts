@@ -1,8 +1,3 @@
-import { createActionGroup, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-export const DashboardActions = createActionGroup({
-  source: 'Dashboard',
-  events: {
-    'Set Active Dashboard ID': props<{ id: string }>(),
-  },
-});
+export const toggleEditMode = createAction('[Dashboard] Toggle Edit Mode');

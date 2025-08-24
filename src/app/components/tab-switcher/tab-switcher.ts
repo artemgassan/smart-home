@@ -13,6 +13,7 @@ import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import { toggleEditMode } from '@/app/store/actions/dashboard.actions';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 
@@ -48,6 +49,10 @@ export class TabSwitcher {
 
   protected onTabClick(tab: TabType): void {
     this.tabChanged.emit(tab);
+  }
+
+  protected onEditDashboard(): void {
+    this.store.dispatch(toggleEditMode());
   }
 
   protected onDeleteDashboard(): void {

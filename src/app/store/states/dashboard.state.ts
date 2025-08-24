@@ -1,7 +1,7 @@
 export type DashboardStateType = {
-  activeDashboardId: string;
+  eitMode: boolean;
 };
 
 export const initialDashboardState: DashboardStateType = {
-  activeDashboardId: '',
+  eitMode: false,
 };
