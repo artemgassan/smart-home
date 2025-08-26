@@ -3,8 +3,8 @@ import { TuiHeader } from '@taiga-ui/layout';
 import { TuiButton, TuiTitle } from '@taiga-ui/core';
 import type { TuiDialogContext } from '@taiga-ui/core';
 import { POLYMORPHEUS_CONTEXT } from '@taiga-ui/polymorpheus';
-import { exitEditMode } from '@/app/store/actions/dashboard.actions';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { discardChanges, saveDraft } from '@/app/store/actions/dashboard.actions';
 
 @Component({
   selector: 'app-edit-dashboard-modal',
@@ -18,12 +18,12 @@ export class EditDashboardModal {
   private readonly context = inject<TuiDialogContext<boolean>>(POLYMORPHEUS_CONTEXT);
 
   protected onSave(): void {
-    this.store.dispatch(exitEditMode());
+    this.store.dispatch(saveDraft());
     this.context.completeWith(true);
   }
 
   protected onDiscard(): void {
-    this.store.dispatch(exitEditMode());
+    this.store.dispatch(discardChanges());
     this.context.completeWith(false);
   }
 }
