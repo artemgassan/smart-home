@@ -13,13 +13,13 @@ import { type TabType } from '@/app/interfaces/tabs.interface';
 import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { type PolymorpheusContent } from '@taiga-ui/polymorpheus';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
+import { enterEditMode } from '@/app/store/actions/dashboard.actions';
 import { DashboardsService } from '@/app/services/dashboards.service';
 import { selectEditMode } from '@/app/store/selectors/dashboard.selectors';
 import { TuiAlertService, TuiButton, TuiDialogService } from '@taiga-ui/core';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { EditDashboardModal } from '@/app/components/modals/edit-dashboard-modal/edit-dashboard-modal';
-import { toggleEditMode } from '@/app/store/actions/dashboard.actions';
 
 @Component({
   selector: 'app-tab-switcher',
@@ -59,7 +59,7 @@ export class TabSwitcher {
       this.dialogs.open(content).subscribe();
       return;
     }
-    this.store.dispatch(toggleEditMode());
+    this.store.dispatch(enterEditMode());
   }
 
   protected onDeleteDashboard(): void {
