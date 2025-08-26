@@ -26,33 +26,18 @@
   </button>
 </nav>
 
-<ng-template
-  #template
-  let-observer
->
+<ng-template #template let-observer>
   <div class="modal">
     <header tuiHeader>
       <h2 tuiTitle>Save the changes?</h2>
     </header>
-    <p>You can also return to the previous dashboard state.</p>
+    <p class="description">You can also return to the previous dashboard state.</p>
 
     <footer>
-      <button
-        size="m"
-        tuiButton
-        type="button"
-        appearance="action"
-        (click)="observer.complete()"
-      >
+      <button size="m" tuiButton type="button" appearance="action" (click)="observer.complete()">
         Discard
       </button>
-      <button
-        size="m"
-        tuiButton
-        type="button"
-      >
-        Save
-      </button>
+      <button size="m" tuiButton type="button">Save</button>
     </footer>
   </div>
 </ng-template>
