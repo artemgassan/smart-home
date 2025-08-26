@@ -10,14 +10,15 @@ import { filter, switchMap, tap } from 'rxjs';
 import type { TuiDialogContext } from '@taiga-ui/core';
 import { UrlsService } from '@/app/services/urls.service';
 import { type TabType } from '@/app/interfaces/tabs.interface';
+import { TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { type PolymorpheusContent } from '@taiga-ui/polymorpheus';
 import { TuiResponsiveDialogService } from '@taiga-ui/addon-mobile';
 import { DashboardsService } from '@/app/services/dashboards.service';
-import { TuiHeader, TuiSubheaderCompactComponent } from '@taiga-ui/layout';
 import { selectEditMode } from '@/app/store/selectors/dashboard.selectors';
+import { TuiAlertService, TuiButton, TuiDialogService } from '@taiga-ui/core';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
-import { TuiAlertService, TuiButton, TuiDialogService, TuiTitle } from '@taiga-ui/core';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
+import { EditDashboardModal } from '@/app/components/modals/edit-dashboard-modal/edit-dashboard-modal';
 
 @Component({
   selector: 'app-tab-switcher',
@@ -26,9 +27,8 @@ import { ChangeDetectionStrategy, Component, computed, inject, input, output } f
     TuiTab,
     TuiTabsHorizontal,
     TuiButton,
-    TuiHeader,
-    TuiTitle,
     TuiSubheaderCompactComponent,
+    EditDashboardModal,
   ],
   templateUrl: './tab-switcher.html',
   styleUrl: './tab-switcher.scss',
