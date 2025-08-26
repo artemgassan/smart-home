@@ -20,7 +20,7 @@
     [appearance]="editMode() ? 'accent' : 'primary'"
     type="button"
     iconStart="@tui.bolt"
-    (click)="showDialog(template)"
+    (click)="onEditDashboard(template)"
   >
     {{ editMode() ? 'Exit' : 'Edit' }}
   </button>

@@ -19,6 +19,7 @@ import { TuiAlertService, TuiButton, TuiDialogService } from '@taiga-ui/core';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { EditDashboardModal } from '@/app/components/modals/edit-dashboard-modal/edit-dashboard-modal';
+import { toggleEditMode } from '@/app/store/actions/dashboard.actions';
 
 @Component({
   selector: 'app-tab-switcher',
@@ -53,8 +54,12 @@ export class TabSwitcher {
     this.tabChanged.emit(tab);
   }
 
-  protected showDialog(content: PolymorpheusContent<TuiDialogContext>): void {
-    this.dialogs.open(content).subscribe();
+  protected onEditDashboard(content: PolymorpheusContent<TuiDialogContext>): void {
+    if (this.editMode()) {
+      this.dialogs.open(content).subscribe();
+      return;
+    }
+    this.store.dispatch(toggleEditMode());
   }
 
   protected onDeleteDashboard(): void {
