@@ -24,6 +24,9 @@
   >
     {{ editMode() ? 'Exit' : 'Edit' }}
   </button>
+  @if (editMode()) {
+    <app-tab-switcher-edit-block />
+  }
 </nav>
 
 <ng-template #template>

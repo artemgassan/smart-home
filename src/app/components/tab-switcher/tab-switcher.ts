@@ -20,6 +20,7 @@ import { TuiAlertService, TuiButton, TuiDialogService } from '@taiga-ui/core';
 import { selectRouteDashboardId } from '@/app/store/selectors/router.selectors';
 import { ChangeDetectionStrategy, Component, computed, inject, input, output } from '@angular/core';
 import { EditDashboardModal } from '@/app/components/modals/edit-dashboard-modal/edit-dashboard-modal';
+import { TabSwitcherEditBlock } from '@/app/components/tab-switcher/tab-switcher-edit-block/tab-switcher-edit-block';
 
 @Component({
   selector: 'app-tab-switcher',
@@ -30,6 +31,7 @@ import { EditDashboardModal } from '@/app/components/modals/edit-dashboard-modal
     TuiButton,
     TuiSubheaderCompactComponent,
     EditDashboardModal,
+    TabSwitcherEditBlock,
   ],
   templateUrl: './tab-switcher.html',
   styleUrl: './tab-switcher.scss',
