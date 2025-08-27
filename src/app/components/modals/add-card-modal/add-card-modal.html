@@ -1,1 +1,20 @@
-<p>add-card-modal works!</p>
+<header tuiHeader>
+  <h2 tuiTitle>
+    Add card
+    <span tuiSubtitle>Please select a layout</span>
+  </h2>
+</header>
+<div class="layout-container">
+  <button tuiAppearance="primary" tuiCardMedium (click)="onClick(Layout.SingleDevice)">
+    <tui-icon icon="@tui.square-plus" />
+    <h2 tuiTitle>One device</h2>
+  </button>
+  <button tuiAppearance="primary" tuiCardMedium (click)="onClick(Layout.MultiHorizontalDevice)">
+    <tui-icon icon="@tui.columns-3" />
+    <h2 tuiTitle>Horizontal card layout</h2>
+  </button>
+  <button tuiAppearance="primary" tuiCardMedium (click)="onClick(Layout.MultiVerticalDevice)">
+    <tui-icon icon="@tui.rows-3" />
+    <h2 tuiTitle>Vertical card layout</h2>
+  </button>
+</div>
