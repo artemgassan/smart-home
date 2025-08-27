@@ -8,3 +8,18 @@ export const selectEditMode = createSelector(
   selectDashboard,
   (state: DashboardStateType) => state.isEditMode,
 );
+
+export const selectOriginalData = createSelector(
+  selectDashboard,
+  (state: DashboardStateType) => state.originalData,
+);
+
+export const selectDraftData = createSelector(
+  selectDashboard,
+  (state: DashboardStateType) => state.draftData,
+);
+
+export const selectDraftDashboardId = createSelector(
+  selectDashboard,
+  (state: DashboardStateType) => state.dashboardId,
+);

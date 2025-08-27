@@ -5,6 +5,7 @@ import { provideRouter } from '@angular/router';
 import type { ApplicationConfig } from '@angular/core';
 import { provideRouterStore } from '@ngrx/router-store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { appEffects } from '@/app/store/effects/app.effects';
 import { provideEventPlugins } from '@taiga-ui/event-plugins';
 import { getInitialState } from '@/app/store/states/app.state';
 import { appReducers } from '@/app/store/reducers/app.reducers';
@@ -24,6 +25,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(appReducers, { initialState: getInitialState }),
     provideRouterStore(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideEffects(),
+    provideEffects(appEffects),
   ],
 };

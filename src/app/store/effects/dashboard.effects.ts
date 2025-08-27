@@ -1,20 +1,35 @@
-import { map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { EMPTY, map, switchMap } from 'rxjs';
 import { inject, Injectable } from '@angular/core';
+import { concatLatestFrom } from '@ngrx/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardsService } from '@/app/services/dashboards.service';
-import { exitEditMode, saveDraft } from '@/app/store/actions/dashboard.actions';
+import { saveDraft, setOriginalDashboard } from '@/app/store/actions/dashboard.actions';
+import { selectDraftDashboardId, selectDraftData } from '@/app/store/selectors/dashboard.selectors';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DashboardEffects {
-  private api = inject(DashboardsService);
-  private actions$ = inject(Actions);
+  private readonly api = inject(DashboardsService);
+  private readonly actions$ = inject(Actions);
+  private readonly store = inject(Store);
 
-  private saveDraft = createEffect(() => {
+  private saveDraft$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(saveDraft),
-      map(() => exitEditMode()), // TODO: delete
+      concatLatestFrom(() => [
+        this.store.select(selectDraftData),
+        this.store.select(selectDraftDashboardId),
+      ]),
+      switchMap(([, draftData, dashboardId]) => {
+        if (!draftData) {
+          return EMPTY;
+        }
+        return this.api
+          .saveDashboard(dashboardId, draftData)
+          .pipe(map((savedDashboard) => setOriginalDashboard({ dashboard: savedDashboard })));
+      }),
     );
   });
 }

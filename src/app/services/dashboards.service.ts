@@ -51,9 +51,6 @@ export class DashboardsService {
 
   public saveDashboard(dashboardId: string, dashboard: DashboardType): Observable<DashboardType> {
     return this.http.put<DashboardType>(`/dashboards/${dashboardId}`, dashboard).pipe(
-      tap((savedDashboard) => {
-        this.store.dispatch(setOriginalDashboard({ dashboard: savedDashboard }));
-      }),
       catchError((error) => {
         return throwError(() => error);
       }),
