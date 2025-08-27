@@ -4,8 +4,7 @@ import {
   enterEditMode,
   toggleEditMode,
   discardChanges,
-  setDashboardId,
-  setOriginalDashboard,
+  setDashboard,
 } from '@/app/store/actions/dashboard.actions';
 import { createReducer, on } from '@ngrx/store';
 import { initialDashboardState } from '@/app/store/states/dashboard.state';
@@ -22,10 +21,11 @@ export const dashboardReducers = createReducer(
   on(toggleEditMode, (state): DashboardStateType => ({ ...state, isEditMode: !state.isEditMode })),
 
   on(
-    setOriginalDashboard,
+    setDashboard,
     (state, action): DashboardStateType => ({
       ...state,
       originalData: action.dashboard,
+      dashboardId: action.dashboardId,
       draftData: null,
     }),
   ),
@@ -38,14 +38,8 @@ export const dashboardReducers = createReducer(
       originalData: state.draftData,
     }),
   ),
-
   on(
     discardChanges,
     (state): DashboardStateType => ({ ...state, isEditMode: false, draftData: null }),
-  ),
-
-  on(
-    setDashboardId,
-    (state, action): DashboardStateType => ({ ...state, dashboardId: action.dashboardId }),
   ),
 );

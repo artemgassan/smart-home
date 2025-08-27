@@ -5,20 +5,10 @@ export const enterEditMode = createAction('[Dashboard] Enter Edit Mode');
 export const exitEditMode = createAction('[Dashboard] Exit Edit Mode');
 export const toggleEditMode = createAction('[Dashboard] Toggle Edit Mode');
 
-export const setOriginalDashboard = createAction(
-  '[Dashboard] Set Original Dashboard',
-  props<{ dashboard: DashboardType }>(),
+export const setDashboard = createAction(
+  '[Dashboard] Set Dashboard',
+  props<{ dashboard: DashboardType; dashboardId: string }>(),
 );
 
 export const saveDraft = createAction('[Dashboard] Save Draft');
-export const saveDraftSuccess = createAction(
-  '[Dashboard] Save Draft Success',
-  props<{ dashboard: DashboardType }>,
-);
-export const saveDraftFailure = createAction('[Dashboard] Save Draft Failure');
 export const discardChanges = createAction('[Dashboard] Discard Changes');
-
-export const setDashboardId = createAction(
-  '[Dashboard] Set Dashboard ID',
-  props<{ dashboardId: string }>(),
-);

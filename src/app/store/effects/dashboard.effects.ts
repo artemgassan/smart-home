@@ -4,7 +4,7 @@ import { inject, Injectable } from '@angular/core';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardsService } from '@/app/services/dashboards.service';
-import { saveDraft, setOriginalDashboard } from '@/app/store/actions/dashboard.actions';
+import { saveDraft, setDashboard } from '@/app/store/actions/dashboard.actions';
 import { selectDraftDashboardId, selectDraftData } from '@/app/store/selectors/dashboard.selectors';
 
 @Injectable({
@@ -28,7 +28,7 @@ export class DashboardEffects {
         }
         return this.api
           .saveDashboard(dashboardId, draftData)
-          .pipe(map((savedDashboard) => setOriginalDashboard({ dashboard: savedDashboard })));
+          .pipe(map((savedDashboard) => setDashboard({ dashboard: savedDashboard, dashboardId })));
       }),
     );
   });

@@ -3,7 +3,7 @@ import type { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, tap, throwError } from 'rxjs';
-import { setOriginalDashboard } from '@/app/store/actions/dashboard.actions';
+import { setDashboard } from '@/app/store/actions/dashboard.actions';
 import type { DashboardResponse, DashboardType } from '@/app/interfaces/tabs.interface';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class DashboardsService {
   public getDashboard(dashboardId: string): Observable<DashboardType> {
     return this.http.get<DashboardType>(`/dashboards/${dashboardId}`).pipe(
       tap((dashboard) => {
-        this.store.dispatch(setOriginalDashboard({ dashboard }));
+        this.store.dispatch(setDashboard({ dashboard, dashboardId }));
       }),
       catchError((error) => {
         return throwError(() => error);

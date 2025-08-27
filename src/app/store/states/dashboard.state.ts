@@ -9,7 +9,7 @@ export type DashboardStateType = {
 
 export const initialDashboardState: DashboardStateType = {
   isEditMode: false,
-  dashboardId: 'temp',
+  dashboardId: '',
   originalData: null,
   draftData: null,
 };
