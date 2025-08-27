@@ -3,6 +3,7 @@
   appearance="secondary"
   type="button"
   iconStart="@tui.grid-2x2-plus"
+  (click)="onTabCard(editCardTemplate)"
 >
   Add tab
 </button>
@@ -11,6 +12,15 @@
   appearance="secondary"
   type="button"
   iconStart="@tui.square-plus"
+  (click)="onAbbCard(addCardTemplate)"
 >
   Add card
 </button>
+
+<ng-template #addCardTemplate>
+  <app-add-card-modal />
+</ng-template>
+
+<ng-template #editCardTemplate>
+  <app-add-tab-modal />
+</ng-template>
