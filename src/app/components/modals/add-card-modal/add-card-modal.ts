@@ -1,8 +1,8 @@
 import { TuiCard, TuiHeader } from '@taiga-ui/layout';
+import { CardService } from '@/app/services/card.service';
 import { Layout } from '@/app/interfaces/cards.interface';
 import { POLYMORPHEUS_CONTEXT } from '@taiga-ui/polymorpheus';
 import type { LayoutType } from '@/app/interfaces/cards.interface';
-import { DashboardsService } from '@/app/services/dashboards.service';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TuiAppearance, type TuiDialogContext, TuiIcon, TuiTitle } from '@taiga-ui/core';
 
@@ -15,7 +15,7 @@ import { TuiAppearance, type TuiDialogContext, TuiIcon, TuiTitle } from '@taiga-
 })
 export class AddCardModal {
   protected readonly Layout = Layout;
-  private readonly service = inject(DashboardsService);
+  private readonly service = inject(CardService);
   private readonly context = inject<TuiDialogContext>(POLYMORPHEUS_CONTEXT);
 
   protected onClick(layout: LayoutType): void {

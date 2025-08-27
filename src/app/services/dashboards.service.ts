@@ -5,7 +5,6 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, tap, throwError } from 'rxjs';
 import { setDashboard } from '@/app/store/actions/dashboard.actions';
 import type { DashboardResponse, DashboardType } from '@/app/interfaces/tabs.interface';
-import type { LayoutType } from '@/app/interfaces/cards.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -56,9 +55,5 @@ export class DashboardsService {
         return throwError(() => error);
       }),
     );
-  }
-
-  public addCard(layout: LayoutType): void {
-    console.log(layout);
   }
 }

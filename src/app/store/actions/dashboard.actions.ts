@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import type { CardType } from '@/app/interfaces/cards.interface';
 import type { DashboardType } from '@/app/interfaces/tabs.interface';
 
 export const enterEditMode = createAction('[Dashboard] Enter Edit Mode');
@@ -12,3 +13,8 @@ export const setDashboard = createAction(
 
 export const saveDraft = createAction('[Dashboard] Save Draft');
 export const discardChanges = createAction('[Dashboard] Discard Changes');
+
+export const addCard = createAction(
+  '[Dashboard] Add Card',
+  props<{ tabId: string; card: CardType }>(),
+);
