@@ -4,8 +4,8 @@ import { inject, Injectable } from '@angular/core';
 import { concatLatestFrom } from '@ngrx/operators';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DashboardsService } from '@/app/services/dashboards.service';
-import { saveDraft, setDashboard } from '@/app/store/actions/dashboard.actions';
-import { selectDraftDashboardId, selectDraftData } from '@/app/store/selectors/dashboard.selectors';
+import { getDashboard, saveDraft, setDashboard } from '@/app/store/actions/dashboard.actions';
+import { selectDraftDashboardId, selectViewData } from '@/app/store/selectors/dashboard.selectors';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class DashboardEffects {
     return this.actions$.pipe(
       ofType(saveDraft),
       concatLatestFrom(() => [
-        this.store.select(selectDraftData),
+        this.store.select(selectViewData),
         this.store.select(selectDraftDashboardId),
       ]),
       switchMap(([, draftData, dashboardId]) => {
@@ -29,6 +29,17 @@ export class DashboardEffects {
         return this.api
           .saveDashboard(dashboardId, draftData)
           .pipe(map((savedDashboard) => setDashboard({ dashboard: savedDashboard, dashboardId })));
+      }),
+    );
+  });
+
+  private getDashboards$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(getDashboard),
+      switchMap(({ dashboardId }) => {
+        return this.api
+          .getDashboard(dashboardId)
+          .pipe(map((dashboard) => setDashboard({ dashboard, dashboardId })));
       }),
     );
   });

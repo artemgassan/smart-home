@@ -5,7 +5,6 @@ export type DashboardStateType = {
   dashboardId: string;
   viewData: DashboardType | null;
   originalData: DashboardType | null;
-  draftData: DashboardType | null;
 };
 
 export const initialDashboardState: DashboardStateType = {
@@ -13,5 +12,4 @@ export const initialDashboardState: DashboardStateType = {
   dashboardId: '',
   viewData: null,
   originalData: null,
-  draftData: null,
 };

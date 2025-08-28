@@ -19,11 +19,6 @@ export const selectViewData = createSelector(
   (state: DashboardStateType) => state.viewData,
 );
 
-export const selectDraftData = createSelector(
-  selectDashboard,
-  (state: DashboardStateType) => state.draftData,
-);
-
 export const selectDraftDashboardId = createSelector(
   selectDashboard,
   (state: DashboardStateType) => state.dashboardId,

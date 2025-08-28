@@ -6,6 +6,10 @@ export const enterEditMode = createAction('[Dashboard] Enter Edit Mode');
 export const exitEditMode = createAction('[Dashboard] Exit Edit Mode');
 export const toggleEditMode = createAction('[Dashboard] Toggle Edit Mode');
 
+export const getDashboard = createAction(
+  '[Dashboard] Get Dashboard',
+  props<{ dashboardId: string }>(),
+);
 export const setDashboard = createAction(
   '[Dashboard] Set Dashboard',
   props<{ dashboard: DashboardType; dashboardId: string }>(),

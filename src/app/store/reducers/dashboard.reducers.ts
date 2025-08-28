@@ -14,10 +14,7 @@ import type { DashboardStateType } from '@/app/store/states/dashboard.state';
 export const dashboardReducers = createReducer(
   initialDashboardState,
 
-  on(
-    enterEditMode,
-    (state): DashboardStateType => ({ ...state, isEditMode: true, draftData: state.originalData }),
-  ),
+  on(enterEditMode, (state): DashboardStateType => ({ ...state, isEditMode: true })),
   on(exitEditMode, (state): DashboardStateType => ({ ...state, isEditMode: false })),
   on(toggleEditMode, (state): DashboardStateType => ({ ...state, isEditMode: !state.isEditMode })),
 
@@ -28,7 +25,6 @@ export const dashboardReducers = createReducer(
       originalData: action.dashboard,
       dashboardId: action.dashboardId,
       viewData: action.dashboard,
-      draftData: null,
     }),
   ),
 
@@ -37,23 +33,22 @@ export const dashboardReducers = createReducer(
     (state): DashboardStateType => ({
       ...state,
       isEditMode: false,
-      originalData: state.draftData,
-      viewData: state.draftData,
+      originalData: state.viewData,
     }),
   ),
   on(
     discardChanges,
-    (state): DashboardStateType => ({ ...state, isEditMode: false, draftData: null }),
+    (state): DashboardStateType => ({ ...state, isEditMode: false, viewData: state.originalData }),
   ),
 
   on(addCard, (state, action): DashboardStateType => {
-    if (!state.draftData) {
+    if (!state.viewData) {
       return state;
     }
 
     const updatedDraftData = {
-      ...state.draftData,
-      tabs: state.draftData.tabs.map((tab) => {
+      ...state.viewData,
+      tabs: state.viewData.tabs.map((tab) => {
         if (tab.id === action.tabId) {
           return {
             ...tab,
@@ -66,7 +61,6 @@ export const dashboardReducers = createReducer(
 
     return {
       ...state,
-      draftData: updatedDraftData,
       viewData: updatedDraftData,
     };
   }),
