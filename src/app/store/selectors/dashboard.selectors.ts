@@ -23,3 +23,8 @@ export const selectDashboardId = createSelector(
   selectDashboard,
   (state: DashboardStateType) => state.dashboardId,
 );
+
+export const selectCardEntities = createSelector(
+  selectDashboard,
+  (state: DashboardStateType) => state.viewData?.tabs[0]?.cards[0]?.items,
+);
