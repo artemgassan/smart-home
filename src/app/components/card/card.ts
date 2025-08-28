@@ -6,6 +6,13 @@ import {
   viewChildren,
   ChangeDetectionStrategy,
 } from '@angular/core';
+import {
+  TuiTitle,
+  TuiButton,
+  TuiAppearance,
+  TuiDialogService,
+  type TuiDialogContext,
+} from '@taiga-ui/core';
 import { Store } from '@ngrx/store';
 import { TuiSwitch } from '@taiga-ui/kit';
 import { NgClass } from '@angular/common';
@@ -14,9 +21,10 @@ import { Device } from '@/app/components/device/device';
 import { Sensor } from '@/app/components/sensor/sensor';
 import { Layout } from '@/app/interfaces/cards.interface';
 import { TuiCardLarge, TuiHeader } from '@taiga-ui/layout';
-import { TuiAppearance, TuiButton, TuiTitle } from '@taiga-ui/core';
+import type { PolymorpheusContent } from '@taiga-ui/polymorpheus';
 import { selectEditMode } from '@/app/store/selectors/dashboard.selectors';
 import type { CardType, LayoutType } from '@/app/interfaces/cards.interface';
+import { EditCardModal } from '@/app/components/modals/edit-card-modal/edit-card-modal';
 
 @Component({
   selector: 'app-card',
@@ -31,6 +39,7 @@ import type { CardType, LayoutType } from '@/app/interfaces/cards.interface';
     FormsModule,
     NgClass,
     TuiButton,
+    EditCardModal,
   ],
   templateUrl: './card.html',
   styleUrl: './card.scss',
@@ -44,6 +53,7 @@ export class Card {
 
   protected readonly store = inject(Store);
   protected readonly editMode = this.store.selectSignal(selectEditMode);
+  private readonly dialogs = inject(TuiDialogService);
 
   public toggleDevices(state: boolean): void {
     this.devices().forEach((device) => device.toggleDeviceState(state));
@@ -74,5 +84,9 @@ export class Card {
     }
 
     return false;
+  }
+
+  protected onEditCard(content: PolymorpheusContent<TuiDialogContext>): void {
+    this.dialogs.open(content).subscribe();
   }
 }
