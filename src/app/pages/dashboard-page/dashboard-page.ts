@@ -1,4 +1,3 @@
-import { finalize } from 'rxjs';
 import { Store } from '@ngrx/store';
 import type { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -6,9 +5,11 @@ import { Header } from '@/app/components/header/header';
 import { UrlsService } from '@/app/services/urls.service';
 import { Sidebar } from '@/app/components/sidebar/sidebar';
 import { Dashboard } from '@/app/components/dashboard/dashboard';
+import { getDashboard } from '@/app/store/actions/dashboard.actions';
 import { DashboardsService } from '@/app/services/dashboards.service';
+import { selectViewData } from '@/app/store/selectors/dashboard.selectors';
+import type { DashboardResponse, TabType } from '@/app/interfaces/tabs.interface';
 import { Component, inject, effect, output, linkedSignal, signal } from '@angular/core';
-import type { DashboardResponse, DashboardType, TabType } from '@/app/interfaces/tabs.interface';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,8 +18,9 @@ import type { DashboardResponse, DashboardType, TabType } from '@/app/interfaces
   styleUrl: './dashboard-page.scss',
 })
 export class DashboardPage implements OnInit {
+  protected readonly store = inject(Store);
   protected dashboards = signal<DashboardResponse[]>([]);
-  protected activeDashboard = signal<DashboardType | null>(null);
+  protected activeDashboard = this.store.selectSignal(selectViewData);
   protected activeTab = signal<TabType | null>(null);
   protected changeDashboard = output<string>();
   protected changeTab = output<TabType>();
@@ -38,14 +40,19 @@ export class DashboardPage implements OnInit {
   private readonly api = inject(DashboardsService);
   private readonly route = inject(ActivatedRoute);
   private readonly url = inject(UrlsService);
-  private readonly store = inject(Store);
 
   constructor() {
     effect(() => {
       const dashboardId = this.activeDashboardId();
       if (dashboardId) {
-        this.getDashboard();
+        this.isLoading.set(true);
+        this.store.dispatch(getDashboard({ dashboardId }));
       }
+    });
+
+    effect(() => {
+      this.getActiveTab();
+      this.isLoading.set(false);
     });
   }
 
@@ -75,25 +82,20 @@ export class DashboardPage implements OnInit {
     });
   }
 
-  private getDashboard(): void {
-    this.isLoading.set(true);
-    this.api
-      .getDashboard(this.activeDashboardId())
-      .pipe(finalize(() => this.isLoading.set(false)))
-      .subscribe({
-        next: (response) => {
-          this.activeDashboard.set(response);
+  private getActiveTab(): void {
+    const dashboard = this.activeDashboard();
+    if (!dashboard) {
+      return;
+    }
 
-          const defaultTab =
-            response.tabs.find((tab) => tab.id === this.activeTabId()) ?? response.tabs[0];
+    const defaultTab =
+      dashboard.tabs.find((t) => t.id === this.activeTabId()) ?? dashboard.tabs[0] ?? null;
 
-          this.activeTab.set(defaultTab);
+    this.activeTab.set(defaultTab);
 
-          if (defaultTab) {
-            this.activeTabId.set(defaultTab.id);
-            this.url.setActiveTab(defaultTab.id);
-          }
-        },
-      });
+    if (defaultTab) {
+      this.activeTabId.set(defaultTab.id);
+      this.url.setActiveTab(defaultTab.id);
+    }
   }
 }

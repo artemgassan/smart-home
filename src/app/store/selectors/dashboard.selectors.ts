@@ -19,7 +19,7 @@ export const selectViewData = createSelector(
   (state: DashboardStateType) => state.viewData,
 );
 
-export const selectDraftDashboardId = createSelector(
+export const selectDashboardId = createSelector(
   selectDashboard,
   (state: DashboardStateType) => state.dashboardId,
 );
