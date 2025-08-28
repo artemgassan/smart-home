@@ -1,8 +1,8 @@
 import { Store } from '@ngrx/store';
 import { inject, Injectable } from '@angular/core';
 import { addCard } from '@/app/store/actions/dashboard.actions';
-import type { CardType, LayoutType } from '@/app/interfaces/cards.interface';
 import { selectRouteTabId } from '@/app/store/selectors/router.selectors';
+import type { CardType, LayoutType } from '@/app/interfaces/cards.interface';
 
 @Injectable({
   providedIn: 'root',

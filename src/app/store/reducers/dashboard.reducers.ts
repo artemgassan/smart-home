@@ -27,6 +27,7 @@ export const dashboardReducers = createReducer(
       ...state,
       originalData: action.dashboard,
       dashboardId: action.dashboardId,
+      viewData: action.dashboard,
       draftData: null,
     }),
   ),
@@ -37,6 +38,7 @@ export const dashboardReducers = createReducer(
       ...state,
       isEditMode: false,
       originalData: state.draftData,
+      viewData: state.draftData,
     }),
   ),
   on(
@@ -65,6 +67,7 @@ export const dashboardReducers = createReducer(
     return {
       ...state,
       draftData: updatedDraftData,
+      viewData: updatedDraftData,
     };
   }),
 );

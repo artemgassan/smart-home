@@ -14,6 +14,11 @@ export const selectOriginalData = createSelector(
   (state: DashboardStateType) => state.originalData,
 );
 
+export const selectViewData = createSelector(
+  selectDashboard,
+  (state: DashboardStateType) => state.viewData,
+);
+
 export const selectDraftData = createSelector(
   selectDashboard,
   (state: DashboardStateType) => state.draftData,
