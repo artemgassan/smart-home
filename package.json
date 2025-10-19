@@ -50,9 +50,8 @@
     "@taiga-ui/layout": "^4.48.0",
     "@taiga-ui/legacy": "^4.48.0",
     "@taiga-ui/polymorpheus": "^4.9.0",
-    "libphonenumber-js": "^1.11.0",
+    "libphonenumber-js": "^1.12.24",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -61,7 +60,6 @@
     "@angular-eslint/builder": "^20.1.1",
     "@angular-eslint/eslint-plugin": "^20.1.1",
     "@angular-eslint/eslint-plugin-template": "^20.1.1",
-    "@angular-eslint/schematics": "^20.1.1",
     "@angular-eslint/template-parser": "^20.1.1",
     "@angular/build": "^20.1.5",
     "@angular/cli": "^20.1.5",
@@ -79,7 +77,6 @@
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-unicorn": "61.0.2",
-    "jasmine-core": "5.12.0",
     "jest": "30.2.0",
     "karma-coverage": "~2.2.0",
     "markdown-it": "^14.1.0",
