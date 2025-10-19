@@ -1,0 +1,8 @@
+<button
+  tuiAsideItem
+  type="button"
+  [iconStart]="isExpanded() ? '@tui.chevron-left' : '@tui.chevron-right'"
+  (click)="toggleExpanded.emit()"
+>
+  {{ isExpanded() ? 'Collapse' : 'Expand' }}
+</button>

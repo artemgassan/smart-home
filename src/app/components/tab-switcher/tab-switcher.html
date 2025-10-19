@@ -1,0 +1,34 @@
+<nav compact tuiSubheader>
+  <tui-tabs tuiFade [activeItemIndex]="activeIndex()">
+    @for (tab of tabs(); track tab.id) {
+      <button tuiTab type="button" (click)="onTabClick(tab)">
+        {{ tab.title }}
+      </button>
+    }
+  </tui-tabs>
+  <button
+    tuiButton
+    appearance="secondary"
+    type="button"
+    iconStart="@tui.trash-2"
+    (click)="onDeleteDashboard()"
+  >
+    Delete
+  </button>
+  <button
+    tuiButton
+    [appearance]="editMode() ? 'accent' : 'primary'"
+    type="button"
+    iconStart="@tui.bolt"
+    (click)="onEditDashboard(template)"
+  >
+    {{ editMode() ? 'Exit' : 'Edit' }}
+  </button>
+  @if (editMode()) {
+    <app-tab-switcher-edit-block />
+  }
+</nav>
+
+<ng-template #template>
+  <app-edit-dashboard-modal />
+</ng-template>

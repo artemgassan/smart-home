@@ -1,0 +1,32 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v5
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Install modules
+        run: yarn install
+
+      - name: Build production project
+        run: yarn build
+        if: always()
+
+      - name: Lint TypeScript
+        run: yarn lint
+        if: always()
+
+      - name: Check format with prettier
+        run: yarn format:check
+        if: always()

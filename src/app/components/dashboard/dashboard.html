@@ -1,0 +1,13 @@
+<app-tab-switcher
+  [tabs]="dashboard()?.tabs"
+  [activeTab]="activeTab()"
+  (tabChanged)="onChangeTab($event)"
+/>
+
+@if (isLoading()) {
+  <tui-loader size="xl" />
+} @else if (activeTab()) {
+  <app-card-list [tab]="activeTab()" />
+} @else {
+  <app-dashboard-not-found />
+}

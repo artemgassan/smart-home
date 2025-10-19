@@ -5,7 +5,7 @@
 To start a local development server, run:
 
 ```bash
-ng serve
+ng start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -20,8 +20,10 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Components structure
+## Running unit tests
 
-![img.png](./public/docs/img.png)
+To execute unit tests with the [Jest](https://jestjs.io/) test runner, use the following command:
 
-More detailed component design can be found here: https://excalidraw.com/#room=2c663228ce3b1627ba6b,urhatg2cX5HlqnYxi3GeZQ
+```bash
+ng test
+```

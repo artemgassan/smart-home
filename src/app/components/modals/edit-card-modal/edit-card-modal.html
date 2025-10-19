@@ -1,0 +1,24 @@
+<div class="modal">
+  <header tuiHeader>
+    <h2 tuiTitle>Entities card configuration</h2>
+  </header>
+  <div class="entities">
+    @if (entities()) {
+      <h3 class="tui-text_h6">Entities</h3>
+      @for (item of entities(); track item.id) {
+        <label tuiHeader tuiBlock="m" [style.cursor]="'default'">
+          <tui-icon [icon]="item.icon | deviceIconPipe: 'sensor'" />
+          <p>{{ item.label }}</p>
+        </label>
+      }
+    } @else {
+      <h3 class="tui-text_h6">Entities have not yet been created</h3>
+    }
+  </div>
+  <footer>
+    <button tuiButton (click)="onCanselClick()" size="m" type="button" appearance="action">
+      Cansel
+    </button>
+    <button tuiButton (click)="onSaveClick()" size="m" type="button">Save</button>
+  </footer>
+</div>

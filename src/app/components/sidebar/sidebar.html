@@ -1,0 +1,21 @@
+<aside [tuiNavigationAside]="isExpanded()">
+  <header>
+    <app-sidebar-header />
+  </header>
+  <main>
+    <app-sidebar-menu
+      [dashboards]="dashboards()"
+      [initDashboard]="initDashboard()"
+      (changeDashboard)="onMenuChangeDashboard($event)"
+    />
+  </main>
+  @if (isDesktopWidth()) {
+    <footer>
+      <hr />
+      <app-sidebar-footer [isExpanded]="isExpanded()" (toggleExpanded)="toggleExpanded()" />
+    </footer>
+  }
+</aside>
+<main tuiNavigationMain>
+  <ng-content />
+</main>

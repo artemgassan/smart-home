@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <tui-textfield>
+    <label tuiLabel>Dashboard name</label>
+    <input placeholder="Lights" tuiTextfield formControlName="name" type="text" />
+  </tui-textfield>
+  <div tuiGroup>
+    @for (icon of icons; track icon) {
+      <button
+        tuiButton
+        type="button"
+        [appearance]="form.controls.icon.value === icon ? 'primary' : 'secondary'"
+        [iconStart]="icon"
+        (click)="selectIcon(icon)"
+      ></button>
+    }
+  </div>
+  <button tuiButton type="submit" appearance="primary" [disabled]="form.invalid">Submit</button>
+</form>

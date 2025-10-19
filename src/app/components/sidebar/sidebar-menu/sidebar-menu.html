@@ -1,0 +1,23 @@
+@for (dashboard of dashboards(); track dashboard.id) {
+  <button
+    [iconStart]="dashboard.icon | deviceIconPipe: null"
+    tuiAsideItem
+    type="button"
+    [appearance]="activeDashboard() === dashboard.id ? 'floating' : ''"
+    (click)="setActiveDashboard(dashboard.id)"
+  >
+    {{ dashboard.title }}
+  </button>
+}
+<button
+  iconStart="@tui.plus"
+  tuiAsideItem
+  type="button"
+  (click)="openAddDashboardModal(modalContent)"
+>
+  Add dashboard
+</button>
+
+<ng-template #modalContent>
+  <app-add-dashboard-modal />
+</ng-template>
