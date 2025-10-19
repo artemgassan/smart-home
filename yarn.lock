@@ -418,12 +418,12 @@
   optionalDependencies:
     lmdb "3.4.2"
 
-"@angular/cdk@^19.0.0":
-  version "19.2.19"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-19.2.19.tgz#25ba3b8f565e6bcd9cd59159c0d9a4244cf3c7ee"
-  integrity sha512-PCpJagurPBqciqcq4Z8+3OtKLb7rSl4w/qBJoIMua8CgnrjvA1i+SWawhdtfI1zlY8FSwhzLwXV0CmWWfFzQPg==
+"@angular/cdk@20.2.9":
+  version "20.2.9"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-20.2.9.tgz#219b6d1b97a982241037c8c04c63c5741934760c"
+  integrity sha512-rbY1AMz9389WJI29iAjWp4o0QKRQHCrQQUuP0ctNQzh1tgWpwiRLx8N4yabdVdsCA846vPsyKJtBlSNwKMsjJA==
   dependencies:
-    parse5 "^7.1.2"
+    parse5 "^8.0.0"
     tslib "^2.3.0"
 
 "@angular/cli@^20.1.5":
@@ -489,13 +489,6 @@
   version "20.3.6"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-20.3.6.tgz#d6576c7bf2673c74f46cd47214ad0e4f092fdc5e"
   integrity sha512-tBGo/LBtCtSrClMY4DTm/3UiSjqLLMEYXS/4E0nW1mFDv7ulKnaAQB+KbfBmmTHYxlKLs+SxjKv6GoydMPSurA==
-  dependencies:
-    tslib "^2.3.0"
-
-"@angular/platform-browser-dynamic@^20.1.6":
-  version "20.3.6"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-20.3.6.tgz#9eb76e9ed3f25a63a2d8434d8d6a89dbdbb14b26"
-  integrity sha512-teO8tBygk6vD1waiLmHGXtXPF/9a9Bw2XI+s550KtJlQqRpr7IUWOFPPQik/uGkppv5Jrv6fP+8mh9QX9zoWnQ==
   dependencies:
     tslib "^2.3.0"
 
@@ -2414,27 +2407,27 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.4.2.tgz#99caf114bb74d39c9e1baca99b907353ad8bf461"
   integrity sha512-IY+r3bxKW6Q6sIPiMC0L533DEfRJSXibjSI3Ft/w9Q8KQBNqEIvUFXt+09wV8S5BRk0a8uSF19YWxuRwEfI90g==
 
-"@maskito/angular@^3.11.1":
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/@maskito/angular/-/angular-3.11.1.tgz#fb1cd128931263d0f2c871f768e8257a3ff92845"
-  integrity sha512-+OZzbRJj/9fOGhgPr0xYctSHe/Ngahip3VdNWBslRTpt7g+UTBYcB8vU9J4cHfpdXYeLM3tM0tnKksc3Eis0+Q==
+"@maskito/angular@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/angular/-/angular-4.0.0.tgz#2310c87a18ada694603d1fef5ad541311e6e3902"
+  integrity sha512-2VEaona5U9uQ8zH+w6ME/FFAdk0yEFW0rIswRYqsC+Csz0EbLHGcfcHty0CCcAIGJCcLbn2nN7+us8o8rDOJzg==
   dependencies:
     tslib "2.8.1"
 
-"@maskito/core@^3.11.1":
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-3.11.1.tgz#ec674b643719655fa87802788f98115b5e7cab4a"
-  integrity sha512-zN5k/BiZXblo8mEFhsGnnXBCqKMkjEGArorOOcpB1/ymZyqF12Dk6IipEsSE6abMnWw4YF2tukzfq73BFZKz8A==
+"@maskito/core@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-4.0.0.tgz#d947f1401fef56d0baf4a2f324a0082b671253bf"
+  integrity sha512-lpoouYGMEyZsv6JicU7GDpB3kziElPzf/ggyv8l6zyXonQu/oPbZjxYtITI7PQIPXz2qyVhytQpw5+aTlKa4aA==
 
-"@maskito/kit@^3.11.1":
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-3.11.1.tgz#b980bc3217144db56a950f4dcdebf6ef6fa82dd4"
-  integrity sha512-KOBUqxRz383xJWCoe+Emwxv2oAzUrZobIN+Gntmi5Py2S10XbqYnGX/6W7QHN8CUK2Nx11d3HsxbEQaq5Hinjg==
+"@maskito/kit@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-4.0.0.tgz#d26821fb0314b661c8bd8f9731066fc8bd775d7c"
+  integrity sha512-s6aZ4GrvgfgWyefeLC5J/LqntPMgrGjpgLfXLWxcq6LcMkf8hw2IqsgAnQRHgp1w+olgLwz4Zv3Icvsa16Wyew==
 
-"@maskito/phone@^3.11.1":
-  version "3.11.1"
-  resolved "https://registry.yarnpkg.com/@maskito/phone/-/phone-3.11.1.tgz#734669b849a32ab25e10a355b8355b499ad1ead4"
-  integrity sha512-ptNDPIZQs/v598qydBa9cnvoCE8+k2Sv07kKKVx3vG0V40DQnIlEL+LYKrJJbMIiPOB6CH90hB9eaA9KKReZ6w==
+"@maskito/phone@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/phone/-/phone-4.0.0.tgz#86131441be29badcfdebc8557d81c02defab79a3"
+  integrity sha512-z4TMji5eJSTKlmlw1esccfEpnGfBAHjyw44+Xcz07rFgraQ79daNjwXReE/mlKEB1teZAibLdRfszc6/kRVBTg==
 
 "@modelcontextprotocol/sdk@1.17.3":
   version "1.17.3"
@@ -2613,7 +2606,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@ng-web-apis/platform@^4.12.0":
+"@ng-web-apis/platform@^4.12.2":
   version "4.12.2"
   resolved "https://registry.yarnpkg.com/@ng-web-apis/platform/-/platform-4.12.2.tgz#ce8f1f033a3e66fada1adb60d9d79e5a885bdc2e"
   integrity sha512-HO2nm1us87iiOntXwEGv1D5L1kQ4luJlOcWnCPjEwiWE4vxANDis/MnYvJAcwAUQRNikXw8BjgAEo3aWafxDhA==
@@ -2627,7 +2620,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@ng-web-apis/screen-orientation@^4.12.0":
+"@ng-web-apis/screen-orientation@^4.12.2":
   version "4.12.2"
   resolved "https://registry.yarnpkg.com/@ng-web-apis/screen-orientation/-/screen-orientation-4.12.2.tgz#f9289fb64303aa6907ed4766c8caf6ab7368ac78"
   integrity sha512-8ZKFrfu0/7coUECmqi+ppk/1lUfHi38N0msmKR+iZvVbDiZcaJhu2SptZEmEkR1pTykp1wbbKSSfdyDb3MK1hQ==
@@ -8094,7 +8087,7 @@ parse5-sax-parser@^8.0.0:
   dependencies:
     parse5 "^8.0.0"
 
-parse5@^7.0.0, parse5@^7.1.1, parse5@^7.1.2:
+parse5@^7.0.0, parse5@^7.1.1:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.3.0.tgz#d7e224fa72399c7a175099f45fc2ad024b05ec05"
   integrity sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==

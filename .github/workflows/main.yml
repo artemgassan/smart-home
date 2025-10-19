@@ -7,26 +7,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout git repository
+      - name: Checkout git repository
         uses: actions/checkout@v5
 
-      - name: install node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
 
-      - name: install modules
+      - name: Install modules
         run: yarn install
 
-      - name: build production project
+      - name: Build production project
         run: yarn build
         if: always()
 
-      - name: lint typescript
+      - name: Lint TypeScript
         run: yarn lint
         if: always()
 
-      - name: check format with prettier
+      - name: Check format with prettier
         run: yarn format:check
         if: always()
