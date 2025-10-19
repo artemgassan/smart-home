@@ -1,7 +1,7 @@
 import { interval, switchMap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { SERVER_POLL_INTERVAL } from '@/app/consts/api.const';
+import { SERVER_POLL_INTERVAL } from '../consts/server.const';
 
 @Injectable({
   providedIn: 'root',

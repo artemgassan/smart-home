@@ -1,0 +1,1 @@
+export const SERVER_POLL_INTERVAL = 840000;
