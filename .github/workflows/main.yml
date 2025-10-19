@@ -5,30 +5,28 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22.x]
 
     steps:
-      - name: Checkout git repository
-        uses: actions/checkout@v4
+      - name: checkout git repository
+        uses: actions/checkout@v5
 
-      - name: Install Node.js ${{ matrix.node-version }}
+      - name: install node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
 
       - name: install modules
-        run: npm ci
+        run: yarn install
+
       - name: build production project
-        run: npm run build
+        run: yarn build
         if: always()
+
       - name: lint typescript
-        run: npm run lint
+        run: yarn lint
         if: always()
+
       - name: check format with prettier
-        run: npm run format
+        run: yarn format:check
         if: always()
-#      - name: unit testing
-#        run: npm run test
-#        if: always()
