@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://smart-home-server-x409.onrender.com',
+  apiUrl: 'http://localhost:3004',
 };

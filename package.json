@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --open",
     "start:host": "ng serve --host 192.168.1.3 --open",
+    "start:dev:server": "yarn workspace smart-home-server start",
     "build": "ng build",
     "build:dev": "ng build --configuration development",
     "watch": "ng build --watch --configuration development",
@@ -15,6 +16,9 @@
     "format:check": "prettier --check \"**/*\" --ignore-unknown"
   },
   "private": true,
+  "workspaces": [
+    "server"
+  ],
   "dependencies": {
     "@angular/animations": "^20.1.6",
     "@angular/cdk": "20.2.9",
