@@ -1,3 +1,12 @@
+import {
+  inject,
+  effect,
+  output,
+  signal,
+  Component,
+  linkedSignal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 import type { OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,13 +18,13 @@ import { getDashboard } from '@/app/store/actions/dashboard.actions';
 import { DashboardsService } from '@/app/services/dashboards.service';
 import { selectViewData } from '@/app/store/selectors/dashboard.selectors';
 import type { DashboardResponse, TabType } from '@/app/interfaces/tabs.interface';
-import { Component, inject, effect, output, linkedSignal, signal } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-page',
   imports: [Header, Sidebar, Dashboard],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardPage implements OnInit {
   protected readonly store = inject(Store);
