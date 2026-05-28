@@ -1,0 +1,33 @@
+stages:
+  - install
+  - checks
+
+default:
+  image: node:lts
+  cache:
+    key:
+      files:
+        - yarn.lock
+    paths:
+      - node_modules/
+      - .yarn/cache/
+
+install:
+  stage: install
+  script:
+    - yarn install --frozen-lockfile
+
+build:
+  stage: checks
+  script:
+    - yarn build
+
+lint:
+  stage: checks
+  script:
+    - yarn lint
+
+format:
+  stage: checks
+  script:
+    - yarn format:check
