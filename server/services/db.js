@@ -1,5 +1,5 @@
-const jsonServer = require("json-server");
-const _ = require("lodash");
+const jsonServer = require('json-server');
+const _ = require('lodash');
 
 module.exports = (files) => {
   let db = {};

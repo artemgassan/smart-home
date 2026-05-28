@@ -111,7 +111,7 @@ All fields are required and must be non-empty strings.
 {
   "id": "climate",
   "title": "Climate",
-  "icon": "device_thermostat",
+  "icon": "device_thermostat"
 }
 ```
 

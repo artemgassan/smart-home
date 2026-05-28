@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 const walk = function (dir, done) {
   let results = [];
   fs.readdir(dir, function (err, list) {

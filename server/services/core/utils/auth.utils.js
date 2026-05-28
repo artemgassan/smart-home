@@ -1,11 +1,10 @@
 function getUserByToken(req, res, server) {
-  const authorizationHeader =
-    req.header("Authorization") && req.header("Authorization").split(" ");
+  const authorizationHeader = req.header('Authorization') && req.header('Authorization').split(' ');
   const authorizationMethod = authorizationHeader && authorizationHeader[0];
   const reqToken = authorizationHeader && authorizationHeader[1];
 
-  if (!reqToken || authorizationMethod !== "Bearer") {
-    return res.status(401).send("Unauthorized");
+  if (!reqToken || authorizationMethod !== 'Bearer') {
+    return res.status(401).send('Unauthorized');
   }
 
   return server.db.getState().users.find((user) => {
@@ -17,7 +16,7 @@ function getUserByToken(req, res, server) {
 
 function requireAuth(req, res, next, server) {
   const user = getUserByToken(req, res, server);
-  if (!user) return res.status(401).send("Unauthorized");
+  if (!user) return res.status(401).send('Unauthorized');
   req.user = user;
   next();
 }

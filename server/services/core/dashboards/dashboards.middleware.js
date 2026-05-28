@@ -1,13 +1,13 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { requireAuth } = require("../utils/auth.utils");
+const { requireAuth } = require('../utils/auth.utils');
 
 module.exports = (server) => {
   const getDb = () => server.db.getState();
   const getDbDashboards = () => getDb().dashboards;
 
   router.get(
-    "/api/dashboards",
+    '/api/dashboards',
     (req, res, next) => requireAuth(req, res, next, server),
     (req, res) => {
       const dashboards = getDbDashboards().map(({ id, title, icon }) => ({
@@ -16,26 +16,24 @@ module.exports = (server) => {
         icon,
       }));
       res.json(dashboards);
-    }
+    },
   );
 
   router.post(
-    "/api/dashboards",
+    '/api/dashboards',
     (req, res, next) => requireAuth(req, res, next, server),
     (req, res) => {
       const { id, title, icon } = req.body;
 
       if (
-        typeof id !== "string" ||
-        typeof title !== "string" ||
-        typeof icon !== "string" ||
+        typeof id !== 'string' ||
+        typeof title !== 'string' ||
+        typeof icon !== 'string' ||
         !id.trim() ||
         !title.trim() ||
         !icon.trim()
       ) {
-        return res
-          .status(400)
-          .send("Missing or invalid 'id', 'title' or 'icon'");
+        return res.status(400).send("Missing or invalid 'id', 'title' or 'icon'");
       }
 
       const db = getDb();
@@ -43,7 +41,7 @@ module.exports = (server) => {
 
       const exists = dashboards.some((d) => d.id === id);
       if (exists) {
-        return res.status(400).send("Dashboard with this ID already exists");
+        return res.status(400).send('Dashboard with this ID already exists');
       }
 
       const newDashboard = {
@@ -60,35 +58,33 @@ module.exports = (server) => {
       });
 
       res.status(201).json(newDashboard);
-    }
+    },
   );
 
   router.get(
-    "/api/dashboards/:dashboardId",
+    '/api/dashboards/:dashboardId',
     (req, res, next) => requireAuth(req, res, next, server),
     (req, res) => {
       const { dashboardId } = req.params;
       const dashboard = getDbDashboards().find((d) => d.id === dashboardId);
 
       if (!dashboard) {
-        return res.status(404).send("Dashboard not found");
+        return res.status(404).send('Dashboard not found');
       }
 
       res.json({ tabs: dashboard.tabs || [] });
-    }
+    },
   );
 
   router.put(
-    "/api/dashboards/:dashboardId",
+    '/api/dashboards/:dashboardId',
     (req, res, next) => requireAuth(req, res, next, server),
     (req, res) => {
       const { dashboardId } = req.params;
       const { tabs } = req.body;
 
       if (!Array.isArray(tabs)) {
-        return res
-          .status(400)
-          .send("Invalid or missing 'tabs' in request body");
+        return res.status(400).send("Invalid or missing 'tabs' in request body");
       }
 
       const db = getDb();
@@ -96,11 +92,11 @@ module.exports = (server) => {
 
       const found = dashboards.some((d) => d.id === dashboardId);
       if (!found) {
-        return res.status(404).send("Dashboard not found");
+        return res.status(404).send('Dashboard not found');
       }
 
       const updatedDashboards = dashboards.map((dashboard) =>
-        dashboard.id === dashboardId ? { ...dashboard, tabs } : dashboard
+        dashboard.id === dashboardId ? { ...dashboard, tabs } : dashboard,
       );
 
       server.db.setState({
@@ -108,15 +104,13 @@ module.exports = (server) => {
         dashboards: updatedDashboards,
       });
 
-      const updatedDashboard = updatedDashboards.find(
-        (d) => d.id === dashboardId
-      );
+      const updatedDashboard = updatedDashboards.find((d) => d.id === dashboardId);
       res.status(200).json({ tabs: updatedDashboard.tabs });
-    }
+    },
   );
 
   router.delete(
-    "/api/dashboards/:dashboardId",
+    '/api/dashboards/:dashboardId',
     (req, res, next) => requireAuth(req, res, next, server),
     (req, res) => {
       const { dashboardId } = req.params;
@@ -126,7 +120,7 @@ module.exports = (server) => {
 
       const found = dashboards.some((d) => d.id === dashboardId);
       if (!found) {
-        return res.status(404).send("Dashboard not found");
+        return res.status(404).send('Dashboard not found');
       }
 
       const updatedDashboards = dashboards.filter((d) => d.id !== dashboardId);
@@ -137,7 +131,7 @@ module.exports = (server) => {
       });
 
       res.status(204).send();
-    }
+    },
   );
 
   return router;
