@@ -1,0 +1,5 @@
+{
+  "*.{ts,tsx}": ["yarn format"],
+  "*.{css,scss}": ["yarn format"],
+  "*.{test,spec}.{ts,tsx}": ["yarn format"]
+}
